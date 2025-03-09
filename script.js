@@ -13,3 +13,15 @@ enlaces.forEach(enlace => {
         document.getElementById(id).classList.add('activa');
     });
 });
+function actualizarContador() {
+    let visitas = localStorage.getItem('visitas');
+    if (visitas) {
+        visitas = parseInt(visitas) + 1;
+    } else {
+        visitas = 1;
+    }
+    localStorage.setItem('visitas', visitas);
+    document.getElementById('contador-visitas').textContent = `Visitas: ${visitas}`;
+}
+
+actualizarContador();
