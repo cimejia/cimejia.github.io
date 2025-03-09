@@ -1,5 +1,5 @@
 body {
-    font-family: sans-serif;
+    font-family: Roboto, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
@@ -90,6 +90,7 @@ main {
     padding: 0.5rem 1rem;
     border-radius: 5px;
     text-align: center;
+    font-size: 0.9rem;
 }
 
 nav a {
