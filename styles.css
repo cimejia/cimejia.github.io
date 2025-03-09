@@ -78,3 +78,20 @@ main {
 research-interests h3 {
     margin-bottom: 1rem;
 }
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    padding: 0.5rem 1rem; /* Agregamos padding para simular un botón */
+    border-radius: 5px; /* Agregamos bordes redondeados */
+    transition: background-color 0.3s ease; /* Agregamos una transición suave */
+}
+
+nav a:hover {
+    background-color: #555; /* Cambiamos el color de fondo al pasar el mouse */
+}
+
+nav a:active {
+    background-color: #777; /* Cambiamos el color de fondo cuando se hace clic */
+}
