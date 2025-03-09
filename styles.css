@@ -119,19 +119,33 @@ nav a:active {
 }
 
 .education-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0;
 }
 
 .education-item {
     background-color: #f0f0f0;
-    padding: 1rem;
-    border-radius: 5px;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones para hover */
 }
 
-.education-item h4 {
-    margin-bottom: 0.5rem;
+.education-item:hover {
+    transform: translateY(-5px); /* Eleva el item al hacer hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra suave al hacer hover */
+}
+
+.degree {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.institution {
+    color: #777;
 }
 
 footer {
