@@ -177,10 +177,12 @@ footer p {
     color: #bbb;
 }
 
+/*
 .publications-list {
     list-style: none;
     padding: 0;
 }
+*/
 
 .publication-item {
     background-color: #f0f0f0;
