@@ -183,22 +183,31 @@ footer p {
 }
 
 .publication-item {
-    display: flex; /* Usamos flexbox para dividir en dos partes */
-    justify-content: space-between; /* Espacio entre las dos partes */
-    align-items: center; /* Alineación vertical al centro */
+    background-color: #f0f0f0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .publication-left,
 .publication-right {
-    flex: 1; /* Cada parte ocupa el mismo espacio */
+    flex: 1;
+}
+
+.publication-left {
+    text-align: right; /* Alineamos el contenido de la izquierda a la derecha */
 }
 
 .publication-right {
-    text-align: right; /* Alineamos el contenido de la derecha a la derecha */
+    text-align: right;
 }
 
 .publication-title {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-weight: bold;
     display: block;
     margin-bottom: 0.25rem;
