@@ -18,6 +18,17 @@ enlaces.forEach(enlace => {
     });
 });
 
+function cargarHome() {
+    fetch('home.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('home-container').innerHTML = data;
+        });
+}
+
+// Llama a cargarHome() al cargar la página
+cargarHome();
+
 function cargarPublicaciones() {
     fetch('publications.html')
         .then(response => response.text())
