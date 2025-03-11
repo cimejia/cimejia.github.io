@@ -8,11 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 </head>
-<script>
-    if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
-        window.location.href = 'home.html';
-    }
-</script>    
 <body align=center>
     <header>
         <div class="container">
@@ -40,14 +35,14 @@
         </div>
     </header>
 
-    <main id="contenido">
-        <section id="inicio" class="seccion activa">
-        </section>
-        <section id="publicaciones" class="seccion">
-            <div id="publications-container"></div>
-        </section>
-        </main>
-<footer>
+<main id="contenido">
+    <div id="inicio"></div>
+    <section id="publicaciones" class="seccion">
+        <div id="publications-container"></div>
+    </section>
+</main>    
+
+    <footer>
     <div class="container">
         <p>&copy; 2025 | All rights reserved.</p>
         <div class="social-icons">
@@ -58,7 +53,7 @@
         </div>
         <p id="contador-visitas">Visitas: 0</p>
     </div>
-</footer>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
