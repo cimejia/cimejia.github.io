@@ -177,12 +177,10 @@ footer p {
     color: #bbb;
 }
 
-/*
 .publications-list {
     list-style: none;
     padding: 0;
 }
-*/
 
 .publication-item {
     background-color: #f0f0f0;
@@ -193,12 +191,12 @@ footer p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Agrega una transición suave */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .publication-item:hover {
-    transform: translateY(-3px); /* Eleva ligeramente el item al hacer hover */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Aumenta la sombra al hacer hover */
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .publication-left,
@@ -210,6 +208,7 @@ footer p {
 .publication-left {
     text-align: left;
     padding-right: 1rem;
+    flex: 2; /* Asignamos más espacio a la parte izquierda */
 }
 
 .publication-right {
