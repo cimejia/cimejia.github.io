@@ -14,6 +14,8 @@ enlaces.forEach(enlace => {
 
         if (id === 'publicaciones') {
             cargarPublicaciones();
+        } else if (id === 'inicio'){
+            cargarHome();
         }
     });
 });
