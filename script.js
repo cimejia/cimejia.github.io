@@ -19,7 +19,7 @@ enlaces.forEach(enlace => {
 });
 
 function cargarPublicaciones() {
-    fetch('publications-content.html')
+    fetch('publications.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('publications-container').innerHTML = data;
@@ -33,8 +33,8 @@ function actualizarContador() {
     } else {
         visitas = 1;
     }
-    localStorage.setItem('visits', visitas);
-    document.getElementById('contador-visitas').textContent = `Visitas: ${visitas}`;
+    localStorage.setItem('visitas', visitas);
+    document.getElementById('contador-visitas').textContent = `Visits: ${visitas}`;
 }
 
 if (document.getElementById('contador-visitas')) {
