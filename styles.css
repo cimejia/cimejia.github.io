@@ -177,6 +177,11 @@ footer p {
     color: #bbb;
 }
 
+.publications-list {
+    list-style: none;
+    padding: 0;
+}
+
 .publication-item {
     display: flex; /* Usamos flexbox para dividir en dos partes */
     justify-content: space-between; /* Espacio entre las dos partes */
