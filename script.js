@@ -11,8 +11,21 @@ enlaces.forEach(enlace => {
         });
 
         document.getElementById(id).classList.add('activa');
+
+        if (id === 'publicaciones') {
+            cargarPublicaciones();
+        }
     });
 });
+
+function cargarPublicaciones() {
+    fetch('publications-content.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('publications-container').innerHTML = data;
+        });
+}
+
 function actualizarContador() {
     let visitas = localStorage.getItem('visitas');
     if (visitas) {
@@ -20,8 +33,10 @@ function actualizarContador() {
     } else {
         visitas = 1;
     }
-    localStorage.setItem('visitas', visitas);
+    localStorage.setItem('visits', visitas);
     document.getElementById('contador-visitas').textContent = `Visitas: ${visitas}`;
 }
 
-actualizarContador();
+if (document.getElementById('contador-visitas')) {
+    actualizarContador();
+}
