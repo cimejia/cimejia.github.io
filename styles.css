@@ -176,3 +176,30 @@ footer p {
 .social-icon:hover {
     color: #bbb;
 }
+
+.publications-list {
+    list-style: none;
+    padding: 0;
+}
+
+.publication-item {
+    background-color: #f0f0f0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.publication-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.publication-authors,
+.publication-journal {
+    display: block;
+    color: #777;
+    margin-bottom: 0.25rem;
+}
