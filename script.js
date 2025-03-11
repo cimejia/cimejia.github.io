@@ -14,7 +14,7 @@ enlaces.forEach(enlace => {
 
         if (id === 'publicaciones') {
             cargarPublicaciones();
-        } else if (id === 'inicio'){
+        } else if (id === 'inicio') {
             cargarHome();
         }
     });
@@ -25,17 +25,16 @@ function cargarHome() {
         .then(response => response.text())
         .then(data => {
             document.getElementById('home-container').innerHTML = data;
+            document.getElementById('publications-container').innerHTML = ''; // Limpiar el contenedor de publicaciones
         });
 }
-
-// Llama a cargarHome() al cargar la página
-cargarHome();
 
 function cargarPublicaciones() {
     fetch('publications.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('publications-container').innerHTML = data;
+            document.getElementById('home-container').innerHTML = ''; // Limpiar el contenedor de home
         });
 }
 
@@ -53,3 +52,5 @@ function actualizarContador() {
 if (document.getElementById('contador-visitas')) {
     actualizarContador();
 }
+
+cargarHome(); // Cargar home.html al inicio
