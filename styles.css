@@ -208,7 +208,7 @@ footer p {
 }
 
 .publication-left {
-    text-align: right;
+    text-align: left;
     padding-right: 1rem;
 }
 
@@ -218,7 +218,7 @@ footer p {
 }
 
 .publication-title {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-weight: bold;
     display: block;
     margin-bottom: 0.25rem;
