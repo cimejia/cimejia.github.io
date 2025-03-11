@@ -199,7 +199,7 @@ footer p {
 }
 
 .publication-left {
-    text-align: right; /* Alineamos el contenido de la izquierda a la derecha */
+    text-align: left; /* Alineamos el contenido de la izquierda a la derecha */
 }
 
 .publication-right {
