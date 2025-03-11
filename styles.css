@@ -195,19 +195,22 @@ footer p {
 
 .publication-left,
 .publication-right {
-    flex: 1;
+    flex: 1; /* Cada parte ocupa el mismo espacio */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
 }
 
 .publication-left {
-    text-align: left; /* Alineamos el contenido de la izquierda a la derecha */
+    text-align: right;
+    padding-right: 1rem; /* Agrega espacio a la derecha */
 }
 
 .publication-right {
     text-align: right;
+    padding-left: 1rem; /* Agrega espacio a la izquierda */
 }
 
 .publication-title {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: bold;
     display: block;
     margin-bottom: 0.25rem;
@@ -223,7 +226,7 @@ footer p {
 }
 
 .publication-link {
-    display: block; /* Hace que el enlace ocupe todo el espacio del item */
-    text-decoration: none; /* Elimina el subrayado del enlace */
-    color: inherit; /* Hereda el color del texto del item */
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
