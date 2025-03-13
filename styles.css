@@ -237,3 +237,31 @@ footer p {
     text-decoration: none;
     color: inherit;
 }
+
+.teaching-list {
+    list-style: none;
+    padding: 0;
+}
+
+.teaching-item {
+    background-color: #f0f0f0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.teaching-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.teaching-institution,
+.teaching-year {
+    display: block;
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 0.1rem;
+}
