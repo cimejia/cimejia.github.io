@@ -16,6 +16,8 @@ enlaces.forEach(enlace => {
             cargarPublicaciones();
         } else if (id === 'inicio') {
             cargarHome();
+        } else if (id === 'cursos') {
+            cargarTeaching();
         }
     });
 });
@@ -25,7 +27,8 @@ function cargarHome() {
         .then(response => response.text())
         .then(data => {
             document.getElementById('home-container').innerHTML = data;
-            document.getElementById('publications-container').innerHTML = ''; // Limpiar el contenedor de publicaciones
+            document.getElementById('publications-container').innerHTML = '';
+            document.getElementById('teaching-container').innerHTML = '';
         });
 }
 
@@ -34,7 +37,18 @@ function cargarPublicaciones() {
         .then(response => response.text())
         .then(data => {
             document.getElementById('publications-container').innerHTML = data;
-            document.getElementById('home-container').innerHTML = ''; // Limpiar el contenedor de home
+            document.getElementById('home-container').innerHTML = '';
+            document.getElementById('teaching-container').innerHTML = '';
+        });
+}
+
+function cargarTeaching() {
+    fetch('teaching.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('teaching-container').innerHTML = data;
+            document.getElementById('home-container').innerHTML = '';
+            document.getElementById('publications-container').innerHTML = '';
         });
 }
 
@@ -53,4 +67,4 @@ if (document.getElementById('contador-visitas')) {
     actualizarContador();
 }
 
-cargarHome(); // Cargar home.html al inicio
+cargarHome();
