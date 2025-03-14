@@ -11,7 +11,7 @@ header {
 }
 
 .header-content {
-    display: flex;
+    /*display: flex;*/
     justify-content: center; /* Alineamos la navegación y la información del perfil */
     align-items: center;
 }
