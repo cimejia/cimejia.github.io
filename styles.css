@@ -27,6 +27,31 @@ header .profile img {
     margin-bottom: 1rem;
 }
 
+.header-content {
+    display: flex;
+    align-items: center; /* Alineamos verticalmente los elementos */
+    margin-bottom: 2rem;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem; /* Agregamos espacio entre la imagen y el texto */
+}
+
+.profile-info h1 {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+}
+
+.profile-info p {
+    color: #777;
+}
+
+
+
 nav a {
     color: white;
     text-decoration: none;
