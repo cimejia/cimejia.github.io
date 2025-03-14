@@ -16,6 +16,8 @@ enlaces.forEach(enlace => {
             cargarPublicaciones();
         } else if (id === 'inicio') {
             cargarHome();
+        } else if (id === 'tesis') {
+            cargarTesis();
         } else if (id === 'cursos') {
             cargarTeaching();
         }
@@ -38,6 +40,17 @@ function cargarPublicaciones() {
         .then(data => {
             document.getElementById('publications-container').innerHTML = data;
             document.getElementById('home-container').innerHTML = '';
+            document.getElementById('teaching-container').innerHTML = '';
+        });
+}
+
+function cargarTesis() {
+    fetch('theses.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('theses-container').innerHTML = data;
+            document.getElementById('home-container').innerHTML = '';
+            document.getElementById('publications-container').innerHTML = '';
             document.getElementById('teaching-container').innerHTML = '';
         });
 }
