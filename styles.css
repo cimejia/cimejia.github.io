@@ -48,7 +48,7 @@ header {
 
 .social-icon {
     color: #f0f0f0;
-    margin-left: 0.1rem;
+    margin-left: 0.2rem;
     font-size: 0.9rem;
 }
 
@@ -111,7 +111,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #333; /* Cambiamos el color de fondo al pasar el mouse */
+    background-color: #555; /* Cambiamos el color de fondo al pasar el mouse */
 }
 
 nav a:active {
