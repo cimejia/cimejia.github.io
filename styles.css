@@ -64,9 +64,11 @@ nav a {
 }
 
 .top-right-icons {
+    /*
     position: absolute;
     top: 1rem;
     right: 2rem;
+    */
 }
 
 .top-right-icons a {
