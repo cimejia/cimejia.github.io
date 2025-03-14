@@ -22,8 +22,8 @@ header {
 }
 
 .profile-image img {
-    width: 100px; /* Ajusta el tamaño de la imagen */
-    height: 100px;
+    width: 150px; /* Ajusta el tamaño de la imagen */
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 1rem;
@@ -31,7 +31,7 @@ header {
 
 .profile-details h1 {
     color: #f0f0f0;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     margin-bottom: 0.25rem;
 }
 
