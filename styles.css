@@ -29,8 +29,15 @@ header .profile img {
 
 .header-content {
     display: flex;
-    align-items: center; /* Alineamos verticalmente los elementos */
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 2rem;
+}
+
+.profile-image {
+    display: flex; /* Agregamos flexbox al contenedor de la imagen */
+    justify-content: center; /* Centramos la imagen horizontalmente */
+    margin-bottom: 1rem;
 }
 
 .profile-image img {
