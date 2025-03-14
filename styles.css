@@ -9,13 +9,13 @@ body {
 header {
     background-color: #333;
     padding: 2rem;
-    text-align: center;
 }
 
 .header-content {
     /*display: flex;*/
     justify-content: center; /* Alineamos la navegación y la información del perfil */
     align-items: center;
+    text-align: center;
 }
 
 .profile-info {
