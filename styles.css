@@ -303,3 +303,7 @@ footer p {
 .tg tr:nth-child(even) {
     background-color: #f9f9f9;
 }
+
+.tg-0lax {
+    font-size: 0.8rem;
+}
