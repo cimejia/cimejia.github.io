@@ -22,8 +22,8 @@ header {
 }
 
 .profile-image img {
-    width: 150px; /* Ajusta el tamaño de la imagen */
-    height: 150px;
+    width: 200px; /* Ajusta el tamaño de la imagen */
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 1rem;
@@ -50,13 +50,13 @@ header {
     margin-left: 0rem;
     font-size: 0.9rem;
 }
-
+/*
 nav a {
     color: white;
     text-decoration: none;
     margin: 0 1rem;
 }
-
+*/
 main {
     padding: 2rem;
 }
@@ -175,6 +175,7 @@ footer p {
     font-size: 0.9rem;
 }
 
+/*
 .social-icons {
     display: flex;
 }
@@ -189,6 +190,7 @@ footer p {
 .social-icon:hover {
     color: #bbb;
 }
+*/
 
 .publications-list {
     list-style: none;
