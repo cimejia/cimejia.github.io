@@ -275,3 +275,31 @@ footer p {
     font-size: 0.9rem;
     margin-bottom: 0.1rem;
 }
+
+/* Estilos para la tabla de capacitaciones */
+
+.trainings-table-container {
+    overflow-x: auto; /* Permite el desplazamiento horizontal en pantallas pequeñas */
+}
+
+.tg {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.tg td,
+.tg th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.tg th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.tg tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
