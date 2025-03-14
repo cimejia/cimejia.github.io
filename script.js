@@ -20,6 +20,8 @@ enlaces.forEach(enlace => {
             cargarTesis();
         } else if (id === 'cursos') {
             cargarTeaching();
+        } else if (id === 'capacitaciones') {
+            cargarTrainings();
         }
     });
 });
@@ -62,6 +64,18 @@ function cargarTeaching() {
             document.getElementById('teaching-container').innerHTML = data;
             document.getElementById('home-container').innerHTML = '';
             document.getElementById('publications-container').innerHTML = '';
+        });
+}
+
+function cargarTrainings() {
+    fetch('trainings.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('trainings-container').innerHTML = data;
+            document.getElementById('home-container').innerHTML = '';
+            document.getElementById('publications-container').innerHTML = '';
+            document.getElementById('theses-container').innerHTML = '';
+            document.getElementById('teaching-container').innerHTML = '';
         });
 }
 
