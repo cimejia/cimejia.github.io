@@ -43,13 +43,14 @@ header {
 
 .social-icons {
     display: flex;
-    align-items: left;
+
 }
 
 .social-icon {
     color: #333;
     margin-left: 0rem;
     font-size: 0.9rem;
+    align-items: left;
 }
 
 main {
