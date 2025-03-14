@@ -59,8 +59,6 @@ main {
 .container {
     max-width: 1200px;
     /*margin: 0 auto;*/
-    justify-content: center; /* Alineamos la navegación y la información del perfil */
-    align-items: center;
 }
 
 .section {
