@@ -22,6 +22,8 @@ enlaces.forEach(enlace => {
             cargarTeaching();
         } else if (id === 'capacitaciones') {
             cargarTrainings();
+        } else if (id === 'contacto') {
+            cargarContacto();
         }
     });
 });
@@ -35,6 +37,7 @@ function cargarHome() {
             document.getElementById('theses-container').innerHTML = '';
             document.getElementById('teaching-container').innerHTML = '';
             document.getElementById('trainings-container').innerHTML = '';
+            document.getElementById('contact-container').innerHTML = '';
         });
 }
 
@@ -47,6 +50,7 @@ function cargarPublicaciones() {
             document.getElementById('theses-container').innerHTML = '';
             document.getElementById('teaching-container').innerHTML = '';
             document.getElementById('trainings-container').innerHTML = '';
+            document.getElementById('contact-container').innerHTML = '';
         });
 }
 
@@ -59,6 +63,7 @@ function cargarTesis() {
             document.getElementById('publications-container').innerHTML = '';
             document.getElementById('teaching-container').innerHTML = '';
             document.getElementById('trainings-container').innerHTML = '';
+            document.getElementById('contact-container').innerHTML = '';
         });
 }
 
@@ -71,6 +76,7 @@ function cargarTeaching() {
             document.getElementById('publications-container').innerHTML = '';
             document.getElementById('theses-container').innerHTML = '';
             document.getElementById('trainings-container').innerHTML = '';
+            document.getElementById('contact-container').innerHTML = '';
         });
 }
 
@@ -83,6 +89,20 @@ function cargarTrainings() {
             document.getElementById('publications-container').innerHTML = '';
             document.getElementById('theses-container').innerHTML = '';
             document.getElementById('teaching-container').innerHTML = '';
+            document.getElementById('contact-container').innerHTML = '';
+        });
+}
+
+function cargarContacto() {
+    fetch('contact.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('contact-container').innerHTML = data;
+            document.getElementById('home-container').innerHTML = '';
+            document.getElementById('publications-container').innerHTML = '';
+            document.getElementById('theses-container').innerHTML = '';
+            document.getElementById('teaching-container').innerHTML = '';
+            document.getElementById('trainings-container').innerHTML = '';
         });
 }
 
