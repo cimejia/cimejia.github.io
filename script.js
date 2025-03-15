@@ -32,7 +32,9 @@ function cargarHome() {
         .then(data => {
             document.getElementById('home-container').innerHTML = data;
             document.getElementById('publications-container').innerHTML = '';
+            document.getElementById('theses-container').innerHTML = '';
             document.getElementById('teaching-container').innerHTML = '';
+            document.getElementById('trainings-container').innerHTML = '';
         });
 }
 
@@ -42,7 +44,9 @@ function cargarPublicaciones() {
         .then(data => {
             document.getElementById('publications-container').innerHTML = data;
             document.getElementById('home-container').innerHTML = '';
+            document.getElementById('theses-container').innerHTML = '';
             document.getElementById('teaching-container').innerHTML = '';
+            document.getElementById('trainings-container').innerHTML = '';
         });
 }
 
@@ -54,6 +58,7 @@ function cargarTesis() {
             document.getElementById('home-container').innerHTML = '';
             document.getElementById('publications-container').innerHTML = '';
             document.getElementById('teaching-container').innerHTML = '';
+            document.getElementById('trainings-container').innerHTML = '';
         });
 }
 
@@ -64,6 +69,8 @@ function cargarTeaching() {
             document.getElementById('teaching-container').innerHTML = data;
             document.getElementById('home-container').innerHTML = '';
             document.getElementById('publications-container').innerHTML = '';
+            document.getElementById('theses-container').innerHTML = '';
+            document.getElementById('trainings-container').innerHTML = '';
         });
 }
 
