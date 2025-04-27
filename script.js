@@ -121,6 +121,26 @@ if (document.getElementById('contador-visitas')) {
     actualizarContador();
 }
 
+// Btn explorer
+document.addEventListener('DOMContentLoaded', function() {
+    const exploreBtn = document.getElementById('exploreBtn');
+    const portfolioSection = document.getElementById('portfolioSection');
+    
+    if(exploreBtn && portfolioSection) {
+        exploreBtn.addEventListener('click', function() {
+            if(portfolioSection.style.display === 'none') {
+                portfolioSection.style.display = 'block';
+                this.textContent = 'Hide My Work ↑';
+                // Desplazamiento suave
+                portfolioSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                portfolioSection.style.display = 'none';
+                this.textContent = 'Explore My Work ↓';
+            }
+        });
+    }
+});
+
 // Portfolio Card Interactions
 document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.portfolio-card');
