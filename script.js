@@ -141,31 +141,61 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Portfolio Card Interactions
 document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('.portfolio-card');
+    const exploreBtn = document.getElementById('exploreWorkBtn');
+    const portfolioContent = document.getElementById('portfolioContent');
+    const arrow = document.querySelector('.arrow');
     
-    cards.forEach(card => {
-        // Click effect
-        card.addEventListener('click', function() {
-            // Remove active class from all cards
-            cards.forEach(c => c.classList.remove('active'));
+    if (exploreBtn && portfolioContent) {
+        exploreBtn.addEventListener('click', function() {
+            // Alternar visibilidad
+            portfolioContent.classList.toggle('hidden');
             
-            // Add active class to clicked card
-            this.classList.add('active');
+            // Cambiar texto y flecha
+            if (portfolioContent.classList.contains('hidden')) {
+                exploreBtn.innerHTML = 'Explore My Work <span class="arrow">↓</span>';
+            } else {
+                exploreBtn.innerHTML = 'Hide My Work <span class="arrow">↑</span>';
+                // Desplazamiento suave
+                portfolioContent.scrollIntoView({ behavior: 'smooth' });
+            }
         });
         
-        // Touch devices support
-        card.addEventListener('touchstart', function() {
-            this.classList.add('touched');
-        });
+        // Cargar proyectos dinámicamente (opcional)
+        loadProjects();
+    }
+    
+    function loadProjects() {
+        const projectsGrid = document.querySelector('.projects-grid');
+        if (!projectsGrid) return;
         
-        card.addEventListener('touchend', function() {
-            setTimeout(() => {
-                this.classList.remove('touched');
-            }, 200);
+        // Ejemplo de proyectos (puedes reemplazar con tus datos reales)
+        const projects = [
+            {
+                title: "Machine Learning Research",
+                description: "Advanced algorithms for healthcare applications",
+                tags: ["Python", "TensorFlow"]
+            },
+            {
+                title: "NLP for Indigenous Languages",
+                description: "Language processing for Kichwa preservation",
+                tags: ["NLP", "Python"]
+            }
+        ];
+        
+        projects.forEach(project => {
+            const projectCard = document.createElement('div');
+            projectCard.className = 'project-card';
+            projectCard.innerHTML = `
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                <div class="tags">
+                    ${project.tags.map(tag => `<span>${tag}</span>`).join('')}
+                </div>
+            `;
+            projectsGrid.appendChild(projectCard);
         });
-    });
+    }
 });
 
 cargarHome();
