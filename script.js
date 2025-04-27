@@ -24,7 +24,6 @@ enlaces.forEach(enlace => {
             cargarTrainings();
         } else if (id === 'contacto') {
             cargarContacto();
-        }
         } else if (id === 'mywork') {
             cargarMywork();
         }
