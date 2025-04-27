@@ -24,8 +24,6 @@ enlaces.forEach(enlace => {
             cargarTrainings();
         } else if (id === 'contacto') {
             cargarContacto();
-        } else if (id === 'mywork') {
-            cargarMywork();
         }
     });
 });
@@ -105,20 +103,6 @@ function cargarContacto() {
             document.getElementById('theses-container').innerHTML = '';
             document.getElementById('teaching-container').innerHTML = '';
             document.getElementById('trainings-container').innerHTML = '';
-        });
-}
-
-function cargarMywork() {
-    fetch('portfolio.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('mywork-container').innerHTML = data;
-            document.getElementById('home-container').innerHTML = '';
-            document.getElementById('publications-container').innerHTML = '';
-            document.getElementById('theses-container').innerHTML = '';
-            document.getElementById('teaching-container').innerHTML = '';
-            document.getElementById('trainings-container').innerHTML = '';
-            document.getElementById('contact-container').innerHTML = '';
         });
 }
 
