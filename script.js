@@ -122,3 +122,30 @@ if (document.getElementById('contador-visitas')) {
 }
 
 cargarHome();
+
+// Portfolio Card Interactions
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.portfolio-card');
+    
+    cards.forEach(card => {
+        // Click effect
+        card.addEventListener('click', function() {
+            // Remove active class from all cards
+            cards.forEach(c => c.classList.remove('active'));
+            
+            // Add active class to clicked card
+            this.classList.add('active');
+        });
+        
+        // Touch devices support
+        card.addEventListener('touchstart', function() {
+            this.classList.add('touched');
+        });
+        
+        card.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.classList.remove('touched');
+            }, 200);
+        });
+    });
+});
