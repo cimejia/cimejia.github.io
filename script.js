@@ -121,8 +121,6 @@ if (document.getElementById('contador-visitas')) {
     actualizarContador();
 }
 
-cargarHome();
-
 // Portfolio Card Interactions
 document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.portfolio-card');
@@ -149,3 +147,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+cargarHome();
