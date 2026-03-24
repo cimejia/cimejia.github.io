@@ -20,7 +20,7 @@ fetch("MisPublicaciones.csv")
 
     filas.forEach((fila, i) => {
 
-        let columnas = fila.split(",");
+        let columnas = fila.split(";");
         let tr = document.createElement("tr");
 
         columnas.forEach(col => {
