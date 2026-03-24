@@ -1,6 +1,20 @@
-Titulo,Autores,Tipo,Fecha,Institucion,Revista,Editorial,Pages,doi,isbn,Base,Enlace
-Estimación de áreas de cultivo mediante Deep Learning y programación convencional,"Javier Caicedo, Pamela Acosta, Romel Pozo, Henry Guilcapi, Christian Mejia-Escobar",Paper preprint,2022-07-25,UCE,arXiv,arXiv,21,https://doi.org/10.48550/arXiv.2207.12310 ,2331-8422,ROAD,https://arxiv.org/abs/2207.12310
-Landslide Prediction with Machine Learning and Time Windows,"Byron Guerrero-Rodriguez, Jose Garcia-Rodriguez, Jaime Salvador, Christian Mejia-Escobar, Michelle Bonifaz & Oswaldo Gallardo",Paper conferencia,2022-05-24,UCE-UA,Bio-inspired Systems and Applications: from Robotics to Ambient Intelligence (IWINAC 2022),Springer Nature,193-202,https://doi.org/10.1007/978-3-031-06527-9_19,978-3-031-06526-2,Web Of Science,https://link.springer.com/chapter/10.1007/978-3-031-06527-9_19
-Delimitación Automática de Ceniza Volcánica en Imágenes Satelitales mediante Deep Learning,"Aldás-Núñez, Roberth Joel, Katherin Vanessa Tuz-Chamorro, Jair Alejandro Vega-Ocaña, Marco Sebastián Velasco-Haro, y Christian Iván Mejía-Escobar",Paper revista,2022-01-31,UCE,FIGEMPA: Investigación Y Desarrollo,,48-58,https://doi.org/10.29166/revfig.v13i1.3121,1390-7042,Latin Index,https://revistadigital.uce.edu.ec/index.php/RevFIG/article/view/3121
-Webpage Categorization Using Deep Learning,"Christian Mejia-Escobar, Miguel Cazorla & Ester Martinez-Martin",Paper conferencia,2021-09-23,UCE-UA,16th International Conference on Soft Computing Models in Industrial and Environmental Applications (SOCO 2021),Springer Nature,358-368,https://doi.org/10.1007/978-3-030-87869-6_34,978-3-030-87868-9,Web Of Science,https://link.springer.com/chapter/10.1007/978-3-030-87869-6_34
-Java-Based Framework For Implementing Soft Real-Time Distributed Applications,"Rodríguez, José and Decouchant, Dominique and Mendoza, Sonia and Mejia-Escobar, Christian",Paper revista,2008-10-31,CINVESTAV- IPN,Proceedings Of The Mexican International Conference On Computer Science,,163-168,10.1109/ENC.2008.38,1550-4069,Scimago,https://ieeexplore.ieee.org/document/4653251
+Titulo;Autores;Tipo;Fecha;Institucion;Revista;Editorial;Pages;doi;isbn;Base;Enlace
+;;;;;;;;;;;
+;;;;;;;;;;;
+;;;;;;;;;;;
+;;;;;;;;;;;
+;;;;;;;;;;;
+;;;;;;;;;;;
+;;;;;;;;;;;
+;;;;;;;;;;;
+;;;;;;;;;;;
+;;;;;;;;;;;
+;;;;;;;;;;;
+;;;;;;;;;;;
+;;;;;;;;;;;
+;;;;;;;;;;;
+Estimación de áreas de cultivo mediante Deep Learning y programación convencional;Javier Caicedo, Pamela Acosta, Romel Pozo, Henry Guilcapi, Christian Mejia-Escobar;Paper preprint;2022-07-25;UCE;arXiv;arXiv;21;https://doi.org/10.48550/arXiv.2207.12310 ;2331-8422;ROAD;https://arxiv.org/abs/2207.12310
+Landslide Prediction with Machine Learning and Time Windows;Byron Guerrero-Rodriguez, Jose Garcia-Rodriguez, Jaime Salvador, Christian Mejia-Escobar, Michelle Bonifaz & Oswaldo Gallardo;Paper conferencia;2022-05-24;UCE-UA;Bio-inspired Systems and Applications: from Robotics to Ambient Intelligence (IWINAC 2022);Springer Nature;193-202;https://doi.org/10.1007/978-3-031-06527-9_19;978-3-031-06526-2;Web Of Science;https://link.springer.com/chapter/10.1007/978-3-031-06527-9_19
+Delimitación Automática de Ceniza Volcánica en Imágenes Satelitales mediante Deep Learning;Aldás-Núñez, Roberth Joel, Katherin Vanessa Tuz-Chamorro, Jair Alejandro Vega-Ocaña, Marco Sebastián Velasco-Haro, y Christian Iván Mejía-Escobar;Paper revista;2022-01-31;UCE;FIGEMPA: Investigación Y Desarrollo;;48-58;https://doi.org/10.29166/revfig.v13i1.3121;1390-7042;Latin Index;https://revistadigital.uce.edu.ec/index.php/RevFIG/article/view/3121
+Webpage Categorization Using Deep Learning;Christian Mejia-Escobar, Miguel Cazorla & Ester Martinez-Martin;Paper conferencia;2021-09-23;UCE-UA;16th International Conference on Soft Computing Models in Industrial and Environmental Applications (SOCO 2021);Springer Nature;358-368;https://doi.org/10.1007/978-3-030-87869-6_34;978-3-030-87868-9;Web Of Science;https://link.springer.com/chapter/10.1007/978-3-030-87869-6_34
+Java-Based Framework For Implementing Soft Real-Time Distributed Applications;Rodríguez, José and Decouchant, Dominique and Mendoza, Sonia and Mejia-Escobar, Christian;Paper revista;2008-10-31;CINVESTAV- IPN;Proceedings Of The Mexican International Conference On Computer Science;;163-168;10.1109/ENC.2008.38;1550-4069;Scimago;https://ieeexplore.ieee.org/document/4653251
