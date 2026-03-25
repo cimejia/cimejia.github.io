@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Christian Mejia | Portafolio Académico</title>
+    <meta name="description" content="Sitio web profesional del Dr. Christian Mejia, Profesor Asistente e Investigador.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Iconos (Lucide via CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo">Dr. Christian Mejia</a>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Inicio</a>
+                <a href="#publications">Publicaciones</a>
+                <a href="#teaching">Docencia</a>
+                <a href="#theses">Tesis</a>
+                <a href="#contact">Contacto</a>
+            </div>
+
+            <div class="nav-actions">
+                <button id="themeToggle" class="icon-btn" title="Cambiar tema">
+                    <i data-lucide="moon" id="themeIcon"></i>
+                </button>
+                <button id="menuToggle" class="icon-btn mobile-only" title="Menú">
+                    <i data-lucide="menu" id="menuIcon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <span class="badge">Profesor Asistente</span>
+                <h1>Dr. Christian Mejia</h1>
+                <p class="lead">
+                    Investigador apasionado enfocado en Machine Learning, Energía Sostenible y Planeación Urbana. 
+                    Dedicado a cerrar la brecha entre algoritmos teóricos e impacto social en el mundo real.
+                </p>
+                
+                <div class="hero-actions">
+                    <a href="#publications" class="btn btn-primary">Ver Proyectos <i data-lucide="chevron-right"></i></a>
+                    <div class="social-links">
+                        <a href="#" class="social-btn"><i data-lucide="github"></i></a>
+                        <a href="#" class="social-btn"><i data-lucide="linkedin"></i></a>
+                        <a href="#" class="social-btn"><i data-lucide="mail"></i></a>
+                    </div>
+                </div>
+
+                <div class="hero-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Afiliación</span>
+                        <p>Massachusetts Institute of Technology (MIT)</p>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Educación</span>
+                        <p>PhD en Ciencias de la Computación, Stanford University</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="image-bg"></div>
+                <img src="https://picsum.photos/seed/academic/800/800" alt="Retrato Profesional" referrerPolicy="no-referrer">
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="section">
+            <div class="section-header">
+                <div class="header-icon"><i data-lucide="book-open"></i></div>
+                <h2>Publicaciones Seleccionadas</h2>
+                <p>Una colección de artículos revisados por pares y ponencias en conferencias líderes.</p>
+            </div>
+
+            <div class="filters">
+                <div class="search-box">
+                    <i data-lucide="search"></i>
+                    <input type="text" id="pubSearch" placeholder="Buscar por título...">
+                </div>
+                <div class="filter-box">
+                    <i data-lucide="filter"></i>
+                    <select id="pubYearFilter">
+                        <option value="all">Todos los años</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="publicationsList" class="list-container">
+                <div class="loading">Cargando publicaciones...</div>
+            </div>
+        </section>
+
+        <!-- Teaching Section -->
+        <section id="teaching" class="section">
+            <div class="section-header">
+                <div class="header-icon"><i data-lucide="users"></i></div>
+                <h2>Docencia y Cursos</h2>
+                <p>Cursos académicos y programas de formación impartidos en diversas instituciones.</p>
+            </div>
+
+            <div class="filters">
+                <div class="search-box">
+                    <i data-lucide="search"></i>
+                    <input type="text" id="courseSearch" placeholder="Buscar cursos...">
+                </div>
+            </div>
+
+            <div id="coursesList" class="grid-container">
+                <div class="loading">Cargando cursos...</div>
+            </div>
+        </section>
+
+        <!-- Theses Section -->
+        <section id="theses" class="section">
+            <div class="section-header">
+                <div class="header-icon"><i data-lucide="award"></i></div>
+                <h2>Tesis Dirigidas</h2>
+                <p>Supervisión de proyectos de investigación de pregrado y posgrado.</p>
+            </div>
+
+            <div class="filters">
+                <div class="search-box">
+                    <i data-lucide="search"></i>
+                    <input type="text" id="thesisSearch" placeholder="Buscar estudiante o título...">
+                </div>
+            </div>
+
+            <div id="thesesList" class="list-container">
+                <div class="loading">Cargando tesis...</div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="section-header">
+                <div class="header-icon"><i data-lucide="mail"></i></div>
+                <h2>Contacto</h2>
+                <p>No dudes en contactarme para colaboraciones de investigación o consultas académicas.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="card-icon"><i data-lucide="mail"></i></div>
+                    <h3>Email</h3>
+                    <p>christianmejiaescobar@gmail.com</p>
+                </div>
+                <div class="contact-card">
+                    <div class="card-icon"><i data-lucide="map-pin"></i></div>
+                    <h3>Ubicación</h3>
+                    <p>Cambridge, MA, USA</p>
+                </div>
+                <div class="contact-card">
+                    <div class="card-icon"><i data-lucide="graduation-cap"></i></div>
+                    <h3>Institución</h3>
+                    <p>MIT Media Lab</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Christian Mejia. Construido con HTML, CSS y JS puro.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
