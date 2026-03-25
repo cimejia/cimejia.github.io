@@ -89,31 +89,31 @@ async function loadAllData() {
         renderTheses();
         initFilters();
     } catch (error) {
-        console.error('Error loading data:', error);
+        console.error('Error cargando datos:', error);
         document.querySelectorAll('.loading').forEach(el => {
-            el.textContent = 'Error loading data.';
+            el.textContent = 'Error cargando los datos. Por favor, intenta de nuevo.';
         });
     }
 }
 
-// Parser de CSV simple (sin librerías)
+// Parser de CSV (punto y coma como delimitador)
 async function fetchCSV(path) {
     const response = await fetch(path);
-    if (!response.ok) throw new Error(`Loading is not possible ${path}`);
+    if (!response.ok) throw new Error(`No se pudo cargar ${path}`);
     const text = await response.text();
     
     const lines = text.split('\n').filter(line => line.trim() !== '');
+    // Delimitador cambiado a punto y coma
     const headers = lines[0].split(';').map(h => h.trim());
     
     return lines.slice(1).map(line => {
-        // Manejo básico de comas dentro de comillas
         const values = [];
         let current = '';
         let inQuotes = false;
         
         for (let char of line) {
             if (char === '"') inQuotes = !inQuotes;
-            else if (char === ';' && !inQuotes) {
+            else if (char === ';' && !inQuotes) { // Delimitador cambiado a punto y coma
                 values.push(current.trim());
                 current = '';
             } else {
@@ -124,7 +124,9 @@ async function fetchCSV(path) {
         
         const obj = {};
         headers.forEach((header, i) => {
-            obj[header] = values[i] ? values[i].replace(/^"|"$/g, '') : '';
+            if (header) {
+                obj[header] = values[i] ? values[i].replace(/^"|"$/g, '') : '';
+            }
         });
         return obj;
     });
@@ -134,49 +136,64 @@ async function fetchCSV(path) {
 
 function renderPublications(filtered = state.publications) {
     const container = document.getElementById('publicationsList');
-    container.innerHTML = filtered.map(pub => `
-        <div class="card publication-card">
-            <div class="pub-year">${pub.Year}</div>
-            <div class="pub-content">
-                <h3>${pub.Title}</h3>
-                <p class="pub-authors">${pub.Authors}</p>
-                <div class="pub-meta">
-                    <span class="pub-journal">${pub.Journal}</span>
-                    ${pub.DOI ? `<a href="${pub.DOI}" target="_blank" class="pub-link">DOI <i data-lucide="external-link" style="width:14px;height:14px"></i></a>` : ''}
+    container.innerHTML = filtered.map(pub => {
+        const keys = Object.keys(pub);
+        return `
+            <div class="card publication-card">
+                <div class="pub-year">${pub[keys[0]] || ''}</div>
+                <div class="pub-content">
+                    <h3>${pub[keys[1]] || ''}</h3>
+                    <p class="pub-journal"><strong>Revista:</strong> ${pub[keys[3]] || ''}</p>
+                    <p class="pub-abstract"><strong>Resumen:</strong> ${pub[keys[5]] || ''}</p>
+                    <p class="pub-keywords"><strong>Keywords:</strong> ${pub[keys[6]] || ''}</p>
+                    <div class="pub-meta">
+                        ${pub[keys[11]] ? `<a href="${pub[keys[11]]}" target="_blank" class="pub-link">Ver publicación <i data-lucide="external-link" style="width:14px;height:14px"></i></a>` : ''}
+                    </div>
                 </div>
             </div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
     lucide.createIcons();
 }
 
 function renderCourses(filtered = state.courses) {
     const container = document.getElementById('coursesList');
-    container.innerHTML = filtered.map(course => `
-        <div class="card course-card">
-            <div class="card-header">
-                <span class="course-year">${course.Year}</span>
-                ${course.SyllabusLink ? `<a href="${course.SyllabusLink}" class="icon-btn"><i data-lucide="file-text"></i></a>` : ''}
+    container.innerHTML = filtered.map(course => {
+        const keys = Object.keys(course);
+        return `
+            <div class="card course-card">
+                <div class="card-header">
+                    <span class="course-year">${course[keys[0]] || ''}</span>
+                    ${course[keys[3]] ? `<a href="${course[keys[3]]}" target="_blank" class="icon-btn" title="Syllabus"><i data-lucide="file-text"></i></a>` : ''}
+                </div>
+                <h3>${course[keys[1]] || ''}</h3>
+                <p class="course-meta"><strong>Nivel:</strong> ${course[keys[5]] || ''} | <strong>Idioma:</strong> ${course[keys[6]] || ''}</p>
+                <p class="course-desc">${course[keys[11]] || ''}</p>
             </div>
-            <h3>${course.CourseName}</h3>
-            <p class="course-program">${course.Program}</p>
-        </div>
-    `).join('');
+        `;
+    }).join('');
     lucide.createIcons();
 }
 
 function renderTheses(filtered = state.theses) {
     const container = document.getElementById('thesesList');
-    container.innerHTML = filtered.map(thesis => `
-        <div class="card thesis-card">
-            <div class="thesis-year">${thesis.Year}</div>
-            <div class="thesis-info">
-                <h4 class="font-bold">${thesis.Title}</h4>
-                <p class="text-sm text-muted">${thesis.Student}</p>
+    container.innerHTML = filtered.map(thesis => {
+        const keys = Object.keys(thesis);
+        return `
+            <div class="card thesis-card">
+                <div class="thesis-year">${thesis[keys[0]] || ''}</div>
+                <div class="thesis-info">
+                    <h4 class="font-bold">${thesis[keys[1]] || ''}</h4>
+                    <p class="text-sm text-muted"><strong>Tipo:</strong> ${thesis[keys[3]] || ''}</p>
+                    <p class="text-sm"><strong>Co-Asesor:</strong> ${thesis[keys[5]] || ''}</p>
+                    <p class="text-sm"><strong>Calificación:</strong> ${thesis[keys[6]] || ''}</p>
+                </div>
+                <div class="thesis-actions">
+                    ${thesis[keys[11]] ? `<a href="${thesis[keys[11]]}" target="_blank" class="pub-link">Ver Tesis <i data-lucide="external-link" style="width:14px;height:14px"></i></a>` : ''}
+                </div>
             </div>
-            <div class="thesis-type">${thesis.Type}</div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
     lucide.createIcons();
 }
 
