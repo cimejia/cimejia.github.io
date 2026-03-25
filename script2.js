@@ -1,1 +1,32 @@
+fetch("MisPublicaciones.csv")
+.then(response => response.text())
+.then(data => {
 
+let filas = data.split("\n");
+let encabezados = filas[0].split(";");
+
+let contenedor = document.getElementById("publications-table");
+
+for(let i=1;i<filas.length;i++){
+
+let columnas = filas[i].split(";");
+
+let title = columnas[0];
+let authors = columnas[1];
+let year = columnas[3];
+let journal = columnas[5];
+
+let card = document.createElement("div");
+card.className = "card";
+
+card.innerHTML = `
+<div class="title">${title}</div>
+<div class="authors">${authors}</div>
+<div class="meta">${journal} (${year})</div>
+`;
+
+contenedor.appendChild(card);
+
+}
+
+});
