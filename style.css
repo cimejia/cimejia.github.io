@@ -350,6 +350,7 @@ input:focus, select:focus {
     font-weight: 700;
     color: var(--border);
     min-width: 60px;
+    transform: rotate(-90deg);
 }
 
 .pub-content h3 {
