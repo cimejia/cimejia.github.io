@@ -40,9 +40,9 @@ font-size:14px;
 </head>
 
 <body>
-<div class="container">
+<div class="publications-container">
 <h2>Publications</h2>
-<!--<div id="publications"></div>-->
+<div id="publications"></div>
   
 <script>
 fetch("MisPublicaciones.csv")
@@ -67,9 +67,9 @@ let card = document.createElement("div");
 card.className = "card";
 
 card.innerHTML = `
-<div class="title">${title}</div>
-<div class="authors">${authors}</div>
-<div class="meta">${journal} (${year})</div>
+<div class="publication-title">${title}</div>
+<div class="publication-authors">${authors}</div>
+<div class="publication-meta">${journal} (${year})</div>
 `;
 
 contenedor.appendChild(card);
