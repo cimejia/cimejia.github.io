@@ -143,8 +143,8 @@ function renderPublications(filtered = state.publications) {
                 <div class="pub-year">${pub[keys[3]] || ''}</div>
                 <div class="pub-content">
                     <h3>${pub[keys[0]] || ''}</h3>
-                    <p class="pub-journal"> ${pub[keys[1]] || ''}</p>
-                    <p class="pub-abstract"> ${pub[keys[5]] || ''}</p>
+                    <p class="pub-authors"> ${pub[keys[1]] || ''}</p>
+                    <p class="pub-journal"> ${pub[keys[5]] || ''}</p>
                     <p class="pub-keywords"> ${pub[keys[6]] || ''}</p>
                     <div class="pub-meta">
                         ${pub[keys[11]] ? `<a href="${pub[keys[11]]}" target="_blank" class="pub-link">Ver publicación <i data-lucide="external-link" style="width:14px;height:14px"></i></a>` : ''}
