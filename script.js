@@ -1,8 +1,8 @@
 // --- Configuración de Datos ---
 const DATA_PATHS = {
-    publications: 'public/data/publications.csv',
-    courses: 'public/data/courses.csv',
-    theses: 'public/data/theses.csv'
+    publications: 'data/publications.csv',
+    courses: 'data/courses.csv',
+    theses: 'data/theses.csv'
 };
 
 // --- Estado de la Aplicación ---
@@ -89,9 +89,9 @@ async function loadAllData() {
         renderTheses();
         initFilters();
     } catch (error) {
-        console.error('Error cargando datos:', error);
+        console.error('Error loading data:', error);
         document.querySelectorAll('.loading').forEach(el => {
-            el.textContent = 'Error cargando los datos. Por favor, intenta de nuevo.';
+            el.textContent = 'Error loading data.';
         });
     }
 }
@@ -99,7 +99,7 @@ async function loadAllData() {
 // Parser de CSV simple (sin librerías)
 async function fetchCSV(path) {
     const response = await fetch(path);
-    if (!response.ok) throw new Error(`No se pudo cargar ${path}`);
+    if (!response.ok) throw new Error(`Loading is not possible ${path}`);
     const text = await response.text();
     
     const lines = text.split('\n').filter(line => line.trim() !== '');
