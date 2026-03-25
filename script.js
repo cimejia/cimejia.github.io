@@ -103,7 +103,7 @@ async function fetchCSV(path) {
     const text = await response.text();
     
     const lines = text.split('\n').filter(line => line.trim() !== '');
-    const headers = lines[0].split(',').map(h => h.trim());
+    const headers = lines[0].split(';').map(h => h.trim());
     
     return lines.slice(1).map(line => {
         // Manejo básico de comas dentro de comillas
@@ -113,7 +113,7 @@ async function fetchCSV(path) {
         
         for (let char of line) {
             if (char === '"') inQuotes = !inQuotes;
-            else if (char === ',' && !inQuotes) {
+            else if (char === ';' && !inQuotes) {
                 values.push(current.trim());
                 current = '';
             } else {
