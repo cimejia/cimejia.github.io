@@ -2,42 +2,81 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style>
+
+body{
+font-family: Arial;
+background:#f5f5f5;
+margin:40px;
+}
+
+.card{
+background:white;
+padding:20px;
+margin-bottom:15px;
+border-radius:8px;
+box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+
+.title{
+font-size:18px;
+font-weight:bold;
+color:#2c3e50;
+}
+
+.authors{
+color:#555;
+margin-top:5px;
+}
+
+.meta{
+margin-top:8px;
+color:#777;
+font-size:14px;
+}
+
+</style>
 <title>Publications</title>
 </head>
 
 <body>
 <div class="container">
 <h2>Publications</h2>
-<table border="1" id="tabla"></table>
+<div id="publications"></div>
   
 <script>
 fetch("MisPublicaciones.csv")
-  .then(response => response.text())
-  .then(data => {
+.then(response => response.text())
+.then(data => {
 
-    let filas = data.split("\n");
-    let tabla = document.getElementById("tabla");
+let filas = data.split("\n");
+let encabezados = filas[0].split(";");
 
-    filas.forEach((fila, i) => {
+let contenedor = document.getElementById("publications");
 
-        let columnas = fila.split(";");
-        let tr = document.createElement("tr");
+for(let i=1;i<filas.length;i++){
 
-        columnas.forEach(col => {
+let columnas = filas[i].split(",");
 
-            let celda = document.createElement(i==0 ? "th":"td");
-            celda.textContent = col;
-            tr.appendChild(celda);
+let title = columnas[0];
+let authors = columnas[1];
+let year = columnas[2];
+let journal = columnas[3];
 
-        });
+let card = document.createElement("div");
+card.className = "card";
 
-        tabla.appendChild(tr);
+card.innerHTML = `
+<div class="title">${title}</div>
+<div class="authors">${authors}</div>
+<div class="meta">${journal} (${year})</div>
+`;
 
-    });
+contenedor.appendChild(card);
 
-  });
+}
 
-  
+});  
 </script>
 </div>
 
