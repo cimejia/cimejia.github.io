@@ -429,7 +429,11 @@ input:focus, select:focus {
 
 .course-date {
     /*color: var(--text-muted);*/
-    font-size: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background-color: var(--badge-bg);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
 }
 
 .thesis-card {
