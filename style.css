@@ -347,7 +347,7 @@ input:focus, select:focus {
 
 .pub-year {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 350;
     /*color: var(--border);*/
     min-width: 60px;
     background-color: var(--badge-bg);
