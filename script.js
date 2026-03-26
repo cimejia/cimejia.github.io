@@ -163,11 +163,13 @@ function renderCourses(filtered = state.courses) {
             <div class="card course-card">
                 <div class="card-header">
                     <span class="course-year">${course[keys[0]] || ''}</span>
-                    ${course[keys[3]] ? `<a href="${course[keys[3]]}" target="_blank" class="icon-btn" title="Syllabus"><i data-lucide="file-text"></i></a>` : ''}
+                   // ${course[keys[3]] ? `<a href="${course[keys[3]]}" target="_blank" class="icon-btn" title="Syllabus"><i data-lucide="file-text"></i></a>` : ''}
                 </div>
                 <h3>${course[keys[1]] || ''}</h3>
-                <p class="course-meta"><strong>Nivel:</strong> ${course[keys[5]] || ''} | <strong>Idioma:</strong> ${course[keys[6]] || ''}</p>
-                <p class="course-desc">${course[keys[11]] || ''}</p>
+                <p class="course-meta">${course[keys[3]] || ''}</p>
+                <p class="course-desc">${course[keys[5]] || ''}</p>
+                <p class="course-desc">${course[keys[7]] || ''}</p>
+                <p class="course-desc">${course[keys[8]] || ''} - ${course[keys[9]] || ''}</p>
             </div>
         `;
     }).join('');
