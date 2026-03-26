@@ -168,9 +168,9 @@ function renderCourses(filtered = state.courses) {
                    -->
                 </div>
                 <h3>${course[keys[3]] || ''}</h3>
-                <p class="course-desc">${course[keys[5]] || ''}</p>
+                <p class="course-program">${course[keys[5]] || ''}</p>
                 <p class="course-desc">${course[keys[7]] || ''}</p>
-                <p class="course-desc">${course[keys[8]] || ''} to ${course[keys[9]] || ''}</p>
+                <p class="course-date">${course[keys[8]] || ''} to ${course[keys[9]] || ''}</p>
             </div>
         `;
     }).join('');
