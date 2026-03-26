@@ -427,13 +427,15 @@ input:focus, select:focus {
     font-size: 0.875rem;
 }
 
+.course-desc {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;    
+}
+
 .course-date {
     /*color: var(--text-muted);*/
     font-size: 0.75rem;
     font-weight: 700;
-    background-color: var(--badge-bg);
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
 }
 
 .thesis-card {
