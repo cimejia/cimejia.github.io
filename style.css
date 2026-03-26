@@ -534,3 +534,14 @@ input:focus, select:focus {
     .publication-card { flex-direction: column; gap: 1rem; }
     .pub-year { font-size: 1.25rem; }
 }
+
+.contact-container {
+    display: flex; /* Arranges children (form and map) side-by-side */
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.contact-map {
+    flex: 1; /* Allows the map container to grow and shrink with the screen size */
+    min-width: 300px; /* Minimum width before wrapping to the next line */
+    height: 450px;
+}
