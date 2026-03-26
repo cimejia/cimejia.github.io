@@ -409,7 +409,7 @@ input:focus, select:focus {
     color: #1e40af;
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-weight: 700;
 }
 
@@ -425,6 +425,11 @@ input:focus, select:focus {
 .course-program {
     color: var(--text-muted);
     font-size: 0.875rem;
+}
+
+.course-date {
+    /*color: var(--text-muted);*/
+    font-size: 0.5rem;
 }
 
 .thesis-card {
