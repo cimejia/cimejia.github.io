@@ -346,10 +346,10 @@ input:focus, select:focus {
 }
 
 .pub-year {
-    font-size: 1rem;
-    font-weight: 350;
+    font-size: 0.75rem;
+    font-weight: 700;
     /*color: var(--border);*/
-    min-width: 60px;
+    min-width: 70px;
     background-color: var(--badge-bg);
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
