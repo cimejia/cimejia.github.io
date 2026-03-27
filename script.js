@@ -146,7 +146,7 @@ function renderPublications(filtered = state.publications) {
                     <p class="pub-authors"> ${pub[keys[1]] || ''}</p>
                     <p class="pub-keywords"> ${pub[keys[5]] || ''}, ${pub[keys[6]] || ''}</p>
                     <div class="pub-meta">
-                        ${pub[keys[11]] ? `<a href="${pub[keys[11]]}" target="_blank" class="pub-link">Ver publicación <i data-lucide="external-link" style="width:14px;height:14px"></i></a>` : ''}
+                        ${pub[keys[11]] ? `<a href="${pub[keys[11]]}" target="_blank" class="pub-link">View <i data-lucide="external-link" style="width:14px;height:14px"></i></a>` : ''}
                     </div>
                 </div>
             </div>
@@ -191,7 +191,7 @@ function renderTheses(filtered = state.theses) {
                     <p class="course-program">${thesis[keys[4]] || ''}, ${thesis[keys[6]] || ''}</p>
                 </div>
                 <div class="thesis-actions">
-                    ${thesis[keys[7]] ? `<a href="${thesis[keys[11]]}" target="_blank" class="pub-link">View <i data-lucide="external-link" style="width:14px;height:14px"></i></a>` : ''}
+                    ${thesis[keys[7]] ? `<a href="${thesis[keys[7]]}" target="_blank" class="pub-link">View <i data-lucide="external-link" style="width:14px;height:14px"></i></a>` : ''}
                 </div>
             </div>
         `;
