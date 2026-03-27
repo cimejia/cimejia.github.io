@@ -188,7 +188,7 @@ function renderTheses(filtered = state.theses) {
                     <h4 class="font-bold">${thesis[keys[0]] || ''}</h4>
                     <p class="pub-authors">${thesis[keys[1]] || ''}</p>
                     <p class="text-sm">${thesis[keys[2]] || ''}, ${thesis[keys[3]] || ''}</p>
-                    <p class="course-program">${thesis[keys[4]] || ''}</p>
+                    <p class="course-program">${thesis[keys[4]] || ''}, ${thesis[keys[6]] || ''}</p>
                 </div>
                 <div class="thesis-actions">
                     ${thesis[keys[7]] ? `<a href="${thesis[keys[11]]}" target="_blank" class="pub-link">View <i data-lucide="external-link" style="width:14px;height:14px"></i></a>` : ''}
