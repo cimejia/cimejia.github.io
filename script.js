@@ -183,15 +183,16 @@ function renderTheses(filtered = state.theses) {
         const keys = Object.keys(thesis);
         return `
             <div class="card thesis-card">
-                <div class="thesis-year">${thesis[keys[0]] || ''}</div>
+                <div class="thesis-year">${thesis[keys[5]] || ''}</div>
                 <div class="thesis-info">
-                    <h4 class="font-bold">${thesis[keys[1]] || ''}</h4>
-                    <p class="text-sm text-muted"><strong>Tipo:</strong> ${thesis[keys[3]] || ''}</p>
-                    <p class="text-sm"><strong>Co-Asesor:</strong> ${thesis[keys[5]] || ''}</p>
-                    <p class="text-sm"><strong>Calificación:</strong> ${thesis[keys[6]] || ''}</p>
+                    <h4 class="font-bold">${thesis[keys[0]] || ''}</h4>
+                    <p class="text-sm text-muted">${thesis[keys[4]] || ''}</p>
+                    <p class="text-sm">${thesis[keys[1]] || ''}</p>
+                    <p class="text-sm">${thesis[keys[2]] || ''}</p>
+                    <p class="text-sm">${thesis[keys[3]] || ''}</p>
                 </div>
                 <div class="thesis-actions">
-                    ${thesis[keys[11]] ? `<a href="${thesis[keys[11]]}" target="_blank" class="pub-link">Ver Tesis <i data-lucide="external-link" style="width:14px;height:14px"></i></a>` : ''}
+                    ${thesis[keys[7]] ? `<a href="${thesis[keys[11]]}" target="_blank" class="pub-link">View Theses <i data-lucide="external-link" style="width:14px;height:14px"></i></a>` : ''}
                 </div>
             </div>
         `;
