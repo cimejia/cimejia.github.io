@@ -2,7 +2,8 @@
 const DATA_PATHS = {
     publications: 'data/publications.csv',
     courses: 'data/courses.csv',
-    theses: 'data/theses.csv'
+    theses: 'data/theses.csv',
+    training: 'data/trainings.csv'
 };
 
 // --- Estado de la Aplicación ---
@@ -10,6 +11,7 @@ let state = {
     publications: [],
     courses: [],
     theses: [],
+    trainings: [],
     theme: localStorage.getItem('theme') || 'light',
     isMenuOpen: false
 };
@@ -77,16 +79,19 @@ async function loadAllData() {
         const [pubs, courses, theses] = await Promise.all([
             fetchCSV(DATA_PATHS.publications),
             fetchCSV(DATA_PATHS.courses),
-            fetchCSV(DATA_PATHS.theses)
+            fetchCSV(DATA_PATHS.theses),
+            fetchCSV(DATA_PATHS.trainings)
         ]);
 
         state.publications = pubs;
         state.courses = courses;
         state.theses = theses;
+        state.trainings = trainings;
 
         renderPublications();
         renderCourses();
         renderTheses();
+        renderTrainings();
         initFilters();
     } catch (error) {
         console.error('Error cargando datos:', error);
@@ -192,6 +197,35 @@ function renderTheses(filtered = state.theses) {
                     ${thesis[keys[7]] ? `<a href="${thesis[keys[7]]}" target="_blank" class="pub-link">View <i data-lucide="external-link" style="width:14px;height:14px"></i></a>` : ''}
                 </div>
             </div>
+        `;
+    }).join('');
+    lucide.createIcons();
+}
+
+function renderTrainings(filtered = state.trainings) {
+    const container = document.getElementById('trainingList');
+    if (filtered.length === 0) {
+        container.innerHTML = '<tr><td colspan="7" class="loading">No se encontraron capacitaciones.</td></tr>';
+        return;
+    }
+    container.innerHTML = filtered.map(item => {
+        const keys = Object.keys(item);
+        // Columnas: 0:Year, 1:Title, 2:Institution, 3:Duration, 4:Type, 5:CertificateLink, 6:Skills, 7:Category, 8:Description
+        return `
+            <tr>
+                <td><strong>${item[keys[0]] || ''}</strong></td>
+                <td>
+                    <div class="cell-title">${item[keys[1]] || ''}</div>
+                    <div class="cell-desc">${item[keys[8]] || ''}</div>
+                </td>
+                <td>${item[keys[2]] || ''}</td>
+                <td>${item[keys[3]] || ''}</td>
+                <td><span class="badge-mini">${item[keys[4]] || ''}</span></td>
+                <td>${item[keys[7]] || ''}</td>
+                <td>
+                    ${item[keys[5]] ? `<a href="${item[keys[5]]}" target="_blank" class="icon-btn-small" title="Ver Certificado"><i data-lucide="external-link"></i></a>` : '-'}
+                </td>
+            </tr>
         `;
     }).join('');
     lucide.createIcons();
