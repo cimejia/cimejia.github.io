@@ -80,7 +80,7 @@ async function loadAllData() {
             fetchCSV(DATA_PATHS.publications),
             fetchCSV(DATA_PATHS.courses),
             fetchCSV(DATA_PATHS.theses),
-            fetchCSV(DATA_PATHS.trainings)
+            fetchCSV(DATA_PATHS.trainings),
         ]);
 
         state.publications = pubs;
