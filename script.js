@@ -3,7 +3,7 @@ const DATA_PATHS = {
     publications: 'data/publications.csv',
     courses: 'data/courses.csv',
     theses: 'data/theses.csv',
-    training: 'data/trainings.csv',
+    training: 'data/trainings.csv'
 };
 
 // --- Estado de la Aplicación ---
@@ -80,7 +80,7 @@ async function loadAllData() {
             fetchCSV(DATA_PATHS.publications),
             fetchCSV(DATA_PATHS.courses),
             fetchCSV(DATA_PATHS.theses),
-            fetchCSV(DATA_PATHS.trainings),
+            fetchCSV(DATA_PATHS.trainings)
         ]);
 
         state.publications = pubs;
