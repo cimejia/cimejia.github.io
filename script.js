@@ -92,7 +92,7 @@ async function loadAllData() {
         renderCourses();
         renderTheses();
         renderTrainings();
-        initFilters();
+       // initFilters();
     } catch (error) {
         console.error('Error cargando datos:', error);
         document.querySelectorAll('.loading').forEach(el => {
