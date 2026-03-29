@@ -556,3 +556,84 @@ input:focus, select:focus {
     min-width: 300px; /* Minimum width before wrapping to the next line */
     height: 450px;
 }
+
+/* Elegant Table */
+.table-responsive {
+    overflow-x: auto;
+    background-color: var(--card-bg);
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.elegant-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.875rem;
+}
+
+.elegant-table th {
+    background-color: var(--badge-bg);
+    padding: 1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border);
+}
+
+.elegant-table td {
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+.elegant-table tr:last-child td {
+    border-bottom: none;
+}
+
+.elegant-table tr:hover {
+    background-color: var(--badge-bg);
+}
+
+.cell-title {
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+}
+
+.cell-desc {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    max-width: 300px;
+}
+.badge-mini {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    background-color: var(--badge-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.icon-btn-small {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    transition: all 0.2s;
+}
+
+.icon-btn-small:hover {
+    background-color: var(--accent);
+    color: var(--accent-text);
+    border-color: var(--accent);
+}
+
