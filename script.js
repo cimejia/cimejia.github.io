@@ -229,7 +229,7 @@ function renderTrainings(filtered = state.trainings) {
                 
                 <td>
                    ${item[keys[8]] || ''}
-                   // ${item[keys[5]] ? `<a href="${item[keys[5]]}" target="_blank" class="icon-btn-small" title="Ver Certificado"><i data-lucide="external-link"></i></a>` : '-'}
+                   <!-- ${item[keys[5]] ? `<a href="${item[keys[5]]}" target="_blank" class="icon-btn-small" title="Ver Certificado"><i data-lucide="external-link"></i></a>` : '-'}-->
                 </td>
                 
             </tr>
