@@ -76,7 +76,7 @@ function initMenu() {
 // --- Carga de Datos ---
 async function loadAllData() {
     try {
-        const [pubs, courses, theses] = await Promise.all([
+        const [pubs, courses, theses, trainings] = await Promise.all([
             fetchCSV(DATA_PATHS.publications),
             fetchCSV(DATA_PATHS.courses),
             fetchCSV(DATA_PATHS.theses),
