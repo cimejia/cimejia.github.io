@@ -3,7 +3,7 @@ const DATA_PATHS = {
     publications: 'data/publications.csv',
     courses: 'data/courses.csv',
     theses: 'data/theses.csv',
-    training: 'data/trainings.csv'
+    trainings: 'data/trainings.csv'
 };
 
 // --- Estado de la Aplicación ---
