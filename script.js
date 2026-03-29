@@ -211,20 +211,27 @@ function renderTrainings(filtered = state.trainings) {
     container.innerHTML = filtered.map(item => {
         const keys = Object.keys(item);
         // Columnas: 0:Year, 1:Title, 2:Institution, 3:Duration, 4:Type, 5:CertificateLink, 6:Skills, 7:Category, 8:Description
+        // 0:Type	1: Event	2:Sponsor	3:Hours	4:Certificate	5:Certification by	6:Start date	7:End date	8:Country
+
         return `
             <tr>
                 <td><strong>${item[keys[0]] || ''}</strong></td>
                 <td>
                     <div class="cell-title">${item[keys[1]] || ''}</div>
-                    <div class="cell-desc">${item[keys[8]] || ''}</div>
+                    <!-- <div class="cell-desc">${item[keys[8]] || ''}</div> -->
                 </td>
                 <td>${item[keys[2]] || ''}</td>
                 <td>${item[keys[3]] || ''}</td>
                 <td><span class="badge-mini">${item[keys[4]] || ''}</span></td>
+                <td>${item[keys[5]] || ''}</td>
+                <td>${item[keys[6]] || ''}</td>
                 <td>${item[keys[7]] || ''}</td>
+                
                 <td>
-                    ${item[keys[5]] ? `<a href="${item[keys[5]]}" target="_blank" class="icon-btn-small" title="Ver Certificado"><i data-lucide="external-link"></i></a>` : '-'}
+                   ${item[keys[8]] || ''}
+                   // ${item[keys[5]] ? `<a href="${item[keys[5]]}" target="_blank" class="icon-btn-small" title="Ver Certificado"><i data-lucide="external-link"></i></a>` : '-'}
                 </td>
+                
             </tr>
         `;
     }).join('');
