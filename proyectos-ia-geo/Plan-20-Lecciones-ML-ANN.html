@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan de 20 lecciones — Deep Learning: ML &amp; AI</title>
+<meta name="author" content="Plan derivado de la presentación del Dr. Christian Mejia-Escobar, PhD.">
+<meta name="description" content="Plan de 20 lecciones con títulos, temas y subtemas basado en la presentación Deep Learning: The Current Trend in Machine Learning &amp; Artificial Intelligence (88 diapositivas).">
+<style>
+:root{
+  --ink:#16222e; --muted:#5c6b7a; --line:#dbe3ec; --bg:#f6f8fb;
+  --primary:#0b3d68; --accent:#0e7c86; --accent-2:#b4530a; --card:#ffffff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.62; -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:1240px; margin:0 auto; padding:0 22px 70px; display:grid;
+  grid-template-columns:300px minmax(0,1fr); gap:34px; align-items:start}
+main{min-width:0}
+
+/* ---------- portada ---------- */
+.cover{background:linear-gradient(135deg,#0b3d68 0%,#0e5a6b 55%,#0e7c86 100%);
+  color:#fff; padding:44px 22px 40px; margin-bottom:26px}
+.cover-inner{max-width:1240px; margin:0 auto}
+.cover .eyebrow{text-transform:uppercase; letter-spacing:.16em; font-size:.74rem;
+  font-weight:700; opacity:.85; margin:0 0 10px}
+.cover h1{margin:0 0 6px; font-size:clamp(1.6rem,3.4vw,2.35rem); line-height:1.2; font-weight:700}
+.cover .sub{margin:0; font-size:clamp(1rem,1.5vw,1.15rem); opacity:.95; font-weight:400}
+.cover .meta{margin:18px 0 0; display:flex; flex-wrap:wrap; gap:8px}
+.cover .meta span{background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.25);
+  border-radius:999px; padding:4px 12px; font-size:.8rem}
+
+/* ---------- tipografia ---------- */
+main h2{font-size:1.42rem; margin:2.1em 0 .7em; padding:.5em 0 .5em .8em;
+  border-left:6px solid var(--accent); background:#fff; border-radius:0 8px 8px 0;
+  box-shadow:0 1px 2px rgba(11,61,104,.08); color:var(--primary); scroll-margin-top:16px}
+main h3{font-size:1.12rem; margin:1.5em 0 .5em; padding-left:12px;
+  border-left:4px solid var(--accent-2); color:var(--primary); scroll-margin-top:16px}
+main h4{font-size:1rem; margin:1.2em 0 .4em; color:var(--accent)}
+main p{margin:.55em 0}
+main strong{color:#0a2e4d}
+main ul,main ol{margin:.4em 0 .8em; padding-left:1.45em}
+main li{margin:.2em 0}
+main li>ul,main li>ol{margin:.15em 0 .3em}
+main ul ul li::marker{color:var(--accent)}
+main code{background:#eef3f8; border:1px solid var(--line); border-radius:5px;
+  padding:.08em .38em; font-size:.88em; font-family:ui-monospace,Consolas,"Courier New",monospace}
+main p>strong:only-child{display:block; font-size:.76rem; text-transform:uppercase;
+  letter-spacing:.13em; color:var(--accent); border-bottom:1px dashed var(--line);
+  padding-bottom:3px; margin:1.1em 0 .5em}
+main blockquote{margin:1em 0; padding:.9em 1.1em; background:#eef6f7;
+  border-left:5px solid var(--accent); border-radius:0 8px 8px 0; color:#233}
+main blockquote p{margin:.25em 0}
+main hr{border:0; border-top:1px solid var(--line); margin:2em 0}
+a{color:var(--accent)}
+.back{font-size:.75em; margin-left:.5em; text-decoration:none; color:var(--muted); opacity:.6}
+.back:hover{opacity:1; color:var(--accent)}
+
+/* ---------- tablas ---------- */
+.tw{overflow-x:auto; margin:1em 0; border:1px solid var(--line); border-radius:10px; background:#fff}
+table{border-collapse:collapse; width:100%; font-size:.9rem}
+th,td{padding:9px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+thead th{background:var(--primary); color:#fff; font-weight:600; white-space:nowrap;
+  position:sticky; top:0}
+tbody tr:nth-child(even){background:#f8fafc}
+tbody tr:hover{background:#eef6f7}
+
+/* ---------- indice ---------- */
+.toc{position:sticky; top:18px; background:#fff; border:1px solid var(--line);
+  border-radius:12px; padding:16px 14px; max-height:calc(100vh - 36px); overflow:auto;
+  box-shadow:0 2px 10px rgba(11,61,104,.06); font-size:.86rem}
+.toc-title{margin:.1em 0 .7em!important; padding:0 0 .5em!important; font-size:.95rem!important;
+  border-left:0!important; border-bottom:2px solid var(--accent)!important; background:none!important;
+  box-shadow:none!important; color:var(--primary)!important; text-transform:uppercase;
+  letter-spacing:.08em}
+.toc a{display:block; text-decoration:none; color:#2b3d4f; padding:4px 8px; border-radius:6px; line-height:1.35}
+.toc a:hover{background:#eef6f7; color:var(--accent)}
+.toc a.lvl2{font-weight:700; color:var(--primary); margin-top:8px}
+.toc a.lvl3{padding-left:18px; font-size:.83rem}
+.toc a.lvl3::before{content:"› "; color:var(--accent)}
+
+/* ---------- pie ---------- */
+footer{max-width:1240px; margin:0 auto; padding:22px; color:var(--muted); font-size:.82rem;
+  border-top:1px solid var(--line)}
+
+@media (max-width:980px){
+  .wrap{grid-template-columns:1fr; padding-bottom:40px}
+  .toc{position:static; max-height:none; order:-1}
+  .toc a.lvl3{padding-left:10px}
+}
+@media print{
+  body{background:#fff; font-size:11pt}
+  .cover{padding:20px}
+  .toc,footer,.back{display:none}
+  .wrap{display:block; max-width:none; padding:0}
+  main h2{break-before:page; box-shadow:none; background:none; padding-left:.5em}
+  main h3{break-after:avoid}
+  .tw,table,li{break-inside:avoid}
+  thead th{position:static}
+  a{color:inherit; text-decoration:none}
+}
+</style>
+</head>
+<body>
+<header class="cover">
+  <div class="cover-inner">
+    <p class="eyebrow">Plan de clase · 20 lecciones</p>
+    <h1>Plan de 20 lecciones para exposición en clase</h1>
+    <p class="sub">Basado en la presentación «Deep Learning: The Current Trend in Machine Learning &amp; Artificial Intelligence»</p>
+    <p class="meta">
+      <span>Fuente: Presentación PDF · 88 diapositivas</span>
+      <span>Dr. Christian Mejia-Escobar, PhD. — UCE</span>
+      <span>5 bloques · 20 exposiciones</span>
+      <span>Cobertura 100&nbsp;% del contenido</span>
+    </p>
+  </div>
+</header>
+<div class="wrap">
+<nav id="indice" class="toc"><h2 class="toc-title">Índice</h2><a class="lvl2" href="#tabla-general-del-plan">Tabla general del plan</a>
+<a class="lvl2" href="#bloque-i-motivacion-diapositivas-3-8">Bloque I — Motivación (diapositivas 3–8)</a>
+<a class="lvl3" href="#leccion-1-por-que-aprender-ia-la-ia-como-cuarta-revolucion-industrial">Lección 1 — ¿Por qué aprender IA? La IA como cuarta revolución industrial</a>
+<a class="lvl2" href="#bloque-ii-inteligencia-artificial-diapositivas-9-17">Bloque II — Inteligencia Artificial (diapositivas 9–17)</a>
+<a class="lvl3" href="#leccion-2-raices-conceptuales-y-evolucion-historica-de-la-ia">Lección 2 — Raíces conceptuales y evolución histórica de la IA</a>
+<a class="lvl3" href="#leccion-3-definicion-proposito-campos-y-enfoques-de-la-ia">Lección 3 — Definición, propósito, campos y enfoques de la IA</a>
+<a class="lvl3" href="#leccion-4-razonamiento-o-aprendizaje-sistemas-expertos-y-la-relacion-ia-ml-dl">Lección 4 — Razonamiento o aprendizaje: sistemas expertos y la relación IA-ML-DL</a>
+<a class="lvl2" href="#bloque-iii-machine-learning-diapositivas-18-34">Bloque III — Machine Learning (diapositivas 18–34)</a>
+<a class="lvl3" href="#leccion-5-machine-learning-definicion-programacion-tradicional-vs-ml-y-cuando-usarlo">Lección 5 — Machine Learning: definición, programación tradicional vs. ML y cuándo usarlo</a>
+<a class="lvl3" href="#leccion-6-ml-clasificacion-aprendizaje-supervisado-componentes-y-algoritmos">Lección 6 — ML: clasificación, aprendizaje supervisado, componentes y algoritmos</a>
+<a class="lvl3" href="#leccion-7-ml-metodologia-pipeline-y-receta-de-entrenamiento-y-herramientas-de-implementacion">Lección 7 — ML: metodología (pipeline y receta de entrenamiento) y herramientas de implementación</a>
+<a class="lvl2" href="#bloque-iv-redes-neuronales-artificiales-diapositivas-35-48">Bloque IV — Redes Neuronales Artificiales (diapositivas 35–48)</a>
+<a class="lvl3" href="#leccion-8-fundamentos-de-las-rna-neurona-perceptron-no-linealidad-y-problema-xor">Lección 8 — Fundamentos de las RNA: neurona, perceptrón, no linealidad y problema XOR</a>
+<a class="lvl3" href="#leccion-9-funciones-de-activacion-no-lineales-y-teorema-de-aproximacion-universal">Lección 9 — Funciones de activación no lineales y Teorema de Aproximación Universal</a>
+<a class="lvl3" href="#leccion-10-perceptron-multicapa-arquitectura-fundamentos-matematicos-y-representacion-matricial">Lección 10 — Perceptrón multicapa: arquitectura, fundamentos matemáticos y representación matricial</a>
+<a class="lvl3" href="#leccion-11-entrenamiento-de-una-rna-forward-perdida-descenso-del-gradiente-y-retropropagacion">Lección 11 — Entrenamiento de una RNA: forward, pérdida, descenso del gradiente y retropropagación</a>
+<a class="lvl2" href="#bloque-v-deep-learning-diapositivas-49-88">Bloque V — Deep Learning (diapositivas 49–88)</a>
+<a class="lvl3" href="#leccion-12-deep-learning-motivacion-complejidad-de-datos-y-diferencias-con-el-ml-tradicional">Lección 12 — Deep Learning: motivación, complejidad de datos y diferencias con el ML tradicional</a>
+<a class="lvl3" href="#leccion-13-vision-por-computador-y-fundamentos-de-las-redes-convolucionales">Lección 13 — Visión por computador y fundamentos de las redes convolucionales</a>
+<a class="lvl3" href="#leccion-14-cnn-hiperparametros-arquitectura-estandar-y-casos-con-transfer-learning">Lección 14 — CNN: hiperparámetros, arquitectura estándar y casos con transfer learning</a>
+<a class="lvl3" href="#leccion-15-datos-secuenciales-y-procesamiento-de-lenguaje-natural">Lección 15 — Datos secuenciales y Procesamiento de Lenguaje Natural</a>
+<a class="lvl3" href="#leccion-16-rnn-seq2seq-y-sus-limitaciones">Lección 16 — RNN, seq2seq y sus limitaciones</a>
+<a class="lvl3" href="#leccion-17-el-transformer-i-embeddings-codificacion-posicional-y-atencion">Lección 17 — El Transformer I: embeddings, codificación posicional y atención</a>
+<a class="lvl3" href="#leccion-18-el-transformer-ii-ffn-conexiones-residuales-normalizacion-entrenamiento-y-variantes">Lección 18 — El Transformer II: FFN, conexiones residuales, normalización, entrenamiento y variantes</a>
+<a class="lvl3" href="#leccion-19-llm-lrm-y-mllm-modelos-de-lenguaje-razonamiento-y-multimodalidad">Lección 19 — LLM, LRM y MLLM: modelos de lenguaje, razonamiento y multimodalidad</a>
+<a class="lvl3" href="#leccion-20-de-los-llm-a-los-agentes-infraestructura-autonomia-y-soluciones-de-automatizacion">Lección 20 — De los LLM a los agentes: infraestructura, autonomía y soluciones de automatización</a>
+<a class="lvl2" href="#anexos">Anexos</a>
+<a class="lvl3" href="#b-rubrica-sugerida-para-la-exposicion-100-puntos">A. Rúbrica sugerida para la exposición (100 puntos)</a>
+<a class="lvl3" href="#c-recomendaciones-didacticas-generales">B. Recomendaciones didácticas generales</a></nav>
+<main>
+<p><strong>Autor de la presentación:</strong> Dr. Christian Mejia-Escobar, PhD. — Universidad Central del Ecuador (2026)<br />
+<strong>Fuente analizada:</strong> <code>Presentación PDF</code> — 88 diapositivas (90 páginas), LaTeX/Beamer<br />
+<strong>Estructura de la fuente:</strong> 5 bloques — <em>Why learn AI?</em> (1–8), <em>Artificial Intelligence</em> (9–17), <em>Machine Learning</em> (18–34), <em>Artificial Neural Networks</em> (35–48), <em>Deep Learning</em> (49–88)</p>
+<blockquote>
+<p><strong>Cómo usar este plan.</strong> La presentación está en inglés y este plan está redactado en español conservando los términos técnicos originales (ML, DL, LLM, RLHF, embeddings, attention, etc.). Cada lección indica el título general, los temas con sus subtemas, las diapositivas de origen, una pregunta guía, los conceptos clave que el estudiante debe dominar y una actividad para el aula. Las 20 lecciones cubren el <strong>100 % del contenido</strong> de la presentación (cobertura verificada al final del documento).</p>
+</blockquote>
+<hr />
+<h2 id="tabla-general-del-plan">Tabla general del plan</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Lección</th>
+<th>Diapositivas</th>
+<th>Bloque</th>
+<th>Duración sugerida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>¿Por qué aprender IA? La IA como cuarta revolución industrial</td>
+<td>3–8</td>
+<td>Why learn AI?</td>
+<td>40 min</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Raíces conceptuales y evolución histórica de la IA</td>
+<td>10–11</td>
+<td>AI</td>
+<td>45 min</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Definición, propósito, campos y enfoques de la IA</td>
+<td>12–15</td>
+<td>AI</td>
+<td>50 min</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Razonamiento o aprendizaje: sistemas expertos y relación IA-ML-DL</td>
+<td>16–17</td>
+<td>AI</td>
+<td>40 min</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ML: definición, programación tradicional vs. ML y cuándo usarlo</td>
+<td>19–23</td>
+<td>ML</td>
+<td>50 min</td>
+</tr>
+<tr>
+<td>6</td>
+<td>ML: clasificación, aprendizaje supervisado, componentes y algoritmos</td>
+<td>24–28</td>
+<td>ML</td>
+<td>50 min</td>
+</tr>
+<tr>
+<td>7</td>
+<td>ML: metodología (pipeline y receta) y herramientas de implementación</td>
+<td>29–34</td>
+<td>ML</td>
+<td>50 min</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Fundamentos de las RNA: neurona, perceptrón, no linealidad y XOR</td>
+<td>36–39</td>
+<td>ANN</td>
+<td>50 min</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Funciones de activación no lineales y Teorema de Aproximación Universal</td>
+<td>40–41</td>
+<td>ANN</td>
+<td>40 min</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Perceptrón multicapa: arquitectura y representación matricial</td>
+<td>42–46</td>
+<td>ANN</td>
+<td>50 min</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Entrenamiento de una RNA: forward, pérdida, gradiente y retropropagación</td>
+<td>47–48</td>
+<td>ANN</td>
+<td>50 min</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Deep Learning: motivación, complejidad de datos y diferencias con ML</td>
+<td>50–52</td>
+<td>DL</td>
+<td>45 min</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Visión por computador y fundamentos de las CNN</td>
+<td>53–56</td>
+<td>DL</td>
+<td>50 min</td>
+</tr>
+<tr>
+<td>14</td>
+<td>CNN: hiperparámetros, arquitectura estándar y transfer learning</td>
+<td>57–61</td>
+<td>DL</td>
+<td>50 min</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Datos secuenciales y Procesamiento de Lenguaje Natural</td>
+<td>62–66</td>
+<td>DL</td>
+<td>50 min</td>
+</tr>
+<tr>
+<td>16</td>
+<td>RNN, seq2seq y sus limitaciones</td>
+<td>67–69</td>
+<td>DL</td>
+<td>45 min</td>
+</tr>
+<tr>
+<td>17</td>
+<td>El Transformer I: embeddings, codificación posicional y atención</td>
+<td>70–74</td>
+<td>DL</td>
+<td>55 min</td>
+</tr>
+<tr>
+<td>18</td>
+<td>El Transformer II: FFN, residuales, normalización y entrenamiento</td>
+<td>75–79</td>
+<td>DL</td>
+<td>55 min</td>
+</tr>
+<tr>
+<td>19</td>
+<td>LLM, LRM y MLLM: modelos de lenguaje, razonamiento y multimodalidad</td>
+<td>80–84</td>
+<td>DL</td>
+<td>55 min</td>
+</tr>
+<tr>
+<td>20</td>
+<td>De los LLM a los agentes: infraestructura, autonomía y automatización</td>
+<td>85–88</td>
+<td>DL</td>
+<td>55 min</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="bloque-i-motivacion-diapositivas-3-8">Bloque I — Motivación (diapositivas 3–8)</h2>
+<h3 id="leccion-1-por-que-aprender-ia-la-ia-como-cuarta-revolucion-industrial">Lección 1 — ¿Por qué aprender IA? La IA como cuarta revolución industrial<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 3–8 · <strong>Duración:</strong> 40 min<br />
+<strong>Pregunta guía:</strong> ¿Qué cambia en mi profesión cuando la computadora deja de ser una herramienta y pasa a ser un «empleado digital»?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>La IA: una realidad, no ficción</strong></p>
+<ul>
+<li>Transformación del mundo: trabajo, industria, comercio, educación, sociedad</li>
+<li>Innovación: nuevas tecnologías, empleos, carreras, roles y habilidades (otros desaparecen)</li>
+<li>Aprender y gestionar la IA: una necesidad, no una opción</li>
+<li>¿La próxima revolución será la revolución basada en IA?</li>
+</ul>
+</li>
+<li>
+<p><strong>La IA estará en todas partes y todos los días, como las computadoras</strong></p>
+<ul>
+<li>Los humanos inventan máquinas para reducir el trabajo físico; ¿por qué no el trabajo mental?</li>
+<li>Origen de las computadoras: el cálculo numérico; evolución de hardware y software
+<ul>
+<li>De propósito específico a propósito general</li>
+<li>Interfaz fácil y natural</li>
+<li>Potencia y miniaturización</li>
+</ul>
+</li>
+<li>Modelo de capas de la ingeniería para resolver problemas: hardware, sistema operativo, ofimática, ciencia (matemática, estadística), procesamiento de imágenes, multimedia, CAD, GIS, software especializado</li>
+<li>Limitaciones del paradigma tradicional: dependencia, necesidad de experticia, funciones restringidas e intervención humana</li>
+</ul>
+</li>
+<li>
+<p><strong>La IA: reinvención total de cómo usamos las computadoras</strong></p>
+<ul>
+<li>Las computadoras imitan capacidades «exclusivas» del ser humano (ML, DL)</li>
+<li>Actores clave: Google, Microsoft, Meta, Amazon, Nvidia, OpenAI, Tesla
+<ul>
+<li>Data-driven (procesos de negocio), I+D en IA, productos y servicios basados en IA, plataformas, nube y APIs</li>
+</ul>
+</li>
+<li>Impacto transversal de la IA en el modelo de capas (la IA aparece en cada capa)</li>
+<li>Nuevo paradigma: de las herramientas a <em>crear trabajo</em> (automatizar tareas)</li>
+<li>Mayor creatividad y productividad</li>
+</ul>
+</li>
+<li>
+<p><strong>Los usuarios como creadores de soluciones</strong></p>
+<ul>
+<li>Democratización de la creación de herramientas digitales sin conocimientos de programación</li>
+<li>La nueva habilidad: saber conversar con una IA; <em>prompting</em> con instrucciones claras</li>
+<li>Generación automática de código; <em>«Vibe Coding»</em>: instrucciones en lenguaje natural que se vuelven código ejecutable</li>
+<li>El lenguaje natural como código: «todos son programadores»</li>
+<li><em>Rewrite Everything</em>: oportunidad masiva de reconstruir el software para la era de la IA</li>
+<li>Flujos de trabajo basados en IA para la resolución de problemas; los programadores profesionales también se benefician</li>
+</ul>
+</li>
+<li>
+<p><strong>Síntesis de la evolución</strong></p>
+<ul>
+<li>Manual → asistido por computadora → computación en la nube/Internet → el computador hace el trabajo</li>
+<li>IA, ML, DL, GenAI y Agentic AI permiten que el computador sea un «empleado digital» mientras la persona supervisa</li>
+<li>Comparación de las cuatro etapas: actor principal, tiempo y esfuerzo, colaboración, productividad y calidad, experticia y conocimiento requeridos</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> cuarta revolución industrial · modelo de capas · IA transversal · lenguaje natural como código · <em>Vibe Coding</em> · empleado digital · 5Cs<br />
+<strong>Actividad en clase:</strong> debate «¿la IA reemplaza o transforma mi profesión?» + construcción en pizarra del modelo de capas y marcado de dónde impacta la IA en cada nivel.</p>
+<hr />
+<h2 id="bloque-ii-inteligencia-artificial-diapositivas-9-17">Bloque II — Inteligencia Artificial (diapositivas 9–17)</h2>
+<h3 id="leccion-2-raices-conceptuales-y-evolucion-historica-de-la-ia">Lección 2 — Raíces conceptuales y evolución histórica de la IA<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 10–11 · <strong>Duración:</strong> 45 min<br />
+<strong>Pregunta guía:</strong> ¿Por qué la IA actual es consecuencia de 90 años de formalización matemática, computación y neurociencia?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>La IA no es reciente: raíces conceptuales</strong></p>
+<ul>
+<li><strong>1936 — Ciencia de la Computación (computabilidad)</strong>
+<ul>
+<li>Producto de formalizar la matemática (completa, consistente, decidible)</li>
+<li>¿Existe un procedimiento mecánico que decida si cualquier enunciado matemático es verdadero o falso?</li>
+<li>Máquina de Turing: modelo que opera símbolos mediante reglas</li>
+<li>Máquina de Turing Universal: base de las computadoras modernas</li>
+</ul>
+</li>
+<li><strong>Década de 1940 — primeras computadoras electrónicas</strong>: de calcular a pensar</li>
+<li><strong>1950 — Test de Turing</strong>: ¿pueden pensar las máquinas? El Juego de la Imitación; manipulación de símbolos complejos similar al humano</li>
+<li><strong>1956 — La IA como ciencia y campo de investigación</strong>: Conferencia de Dartmouth; se acuña el término «Artificial Intelligence»; hipótesis de que todo aspecto de la inteligencia puede describirse para que una máquina lo simule (IA débil)</li>
+</ul>
+</li>
+<li>
+<p><strong>Evolución: inviernos y primaveras de la IA</strong> (falta de fondos y desinterés vs. esplendor)</p>
+<ul>
+<li>1943: primer modelo de red neuronal (McCulloch y Pitts)</li>
+<li>1950: Test de Turing; programa de ajedrez de Claude Shannon (minimax)</li>
+<li>1951: Snark de Marvin Minsky (modelo físico de red neuronal)</li>
+<li>1952: programa de damas que aprende jugando contra sí mismo (Arthur Samuel)</li>
+<li>1953: IPL2 y Logic Theorist (primer lenguaje y programa de IA para demostrar teoremas)</li>
+<li>1956: Dartmouth Summer Research Project on AI</li>
+<li>1957: General Problem Solver (GPS) por imitación de la resolución humana en submetas</li>
+<li>1958: Perceptrón (Frank Rosenblatt); LISP (John McCarthy)</li>
+<li>1960: Perceptrón multicapa · 1965: lógica difusa (Lotfi Zadeh)</li>
+<li>1966: ELIZA, el primer chatbot (Joseph Weizenbaum)</li>
+<li>1969: primer «invierno de la IA» y el problema XOR (Minsky y Papert)</li>
+<li>1970s: algoritmo de retropropagación</li>
+<li>1980: «IA fuerte» (John Searle) · 1981: primer sistema experto comercial (DEC)</li>
+<li>1982: red neuronal recurrente (John Hopfield)</li>
+<li>1987–1993: segundo «invierno de la IA» (alto costo de las máquinas Lisp)</li>
+<li>1997: Deep Blue vence a Garry Kasparov; LSTM (Hochreiter y Schmidhuber)</li>
+<li>2003: Word Embedding (Yoshua Bengio), base de los LLM modernos</li>
+<li>2004–2007: vehículos autónomos (DARPA Grand Challenges) · 2011: era del big data</li>
+<li>2012: AlexNet (CNN) gana ImageNet · 2014: GANs (Bengio y Goodfellow) · 2015: mecanismo de atención</li>
+<li>2016: AlphaGo vence al campeón mundial de Go · 2017: arquitectura Transformer (Google)</li>
+<li>2020: AlphaFold 2 predice la estructura de 200 millones de proteínas</li>
+<li>2022: GPT/ChatGPT (OpenAI) · 2023: Nobel para Hopfield y Hinton</li>
+<li>2025: DeepSeek, LLM <em>open source</em> de «bajo costo»</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> computabilidad · Máquina de Turing Universal · Test de Turing · Dartmouth 1956 · IA débil vs. IA fuerte · inviernos y primaveras · hitos fundacionales<br />
+<strong>Actividad en clase:</strong> línea de tiempo colaborativa en el aula; cada estudiante selecciona 3 hitos y explica cómo habilitan la IA actual (se sugiere cerrar con 1969 XOR → 1986 retropropagación → 2012 AlexNet → 2017 Transformer → 2022 ChatGPT).</p>
+<hr />
+<h3 id="leccion-3-definicion-proposito-campos-y-enfoques-de-la-ia">Lección 3 — Definición, propósito, campos y enfoques de la IA<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 12–15 · <strong>Duración:</strong> 50 min<br />
+<strong>Pregunta guía:</strong> ¿Qué es exactamente la IA, qué puede hacer hoy y en qué se diferencian el enfoque simbólico y el conexionista?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>Definición y propósito</strong></p>
+<ul>
+<li>Múltiples definiciones (IA débil): inteligencia computacional; versión virtual de la inteligencia; automatización de habilidades humanas; replicación de capacidades humanas en máquinas (computadoras, robots, programas, sistemas, procedimientos, dispositivos); creación de máquinas con comportamiento inteligente</li>
+<li>La inteligencia como conjunto de capacidades: físicas, cognitivas y afectivas</li>
+<li>Desempeño por tarea, problema o dominio: la IA supera al humano / es comparable / el humano parece irreemplazable</li>
+<li>AGI (<em>Artificial General Intelligence</em>): la IA definitiva para todas las aplicaciones</li>
+<li>Limitaciones actuales: autopensamiento, autonomía, conciencia, creatividad, afectividad (IA fuerte)</li>
+<li>La IA en su infancia: analogía con el crecimiento humano</li>
+<li>«La anatomía de la inteligencia»</li>
+</ul>
+</li>
+<li>
+<p><strong>Campos de la IA</strong></p>
+<ul>
+<li>Campos especializados, dependientes y complementarios: sistemas expertos, robótica, algoritmos genéticos, Machine Learning, PLN, visión por computador, reconocimiento de voz, computación afectiva, IA generativa, Agentic AI</li>
+<li>La revolución de la IA está impulsada por el ML</li>
+<li>Programar máquinas para actuar, moverse y percibir como humanos (robótica, PLN, CV) es demasiado difícil: ¿por qué no intentar que lo <em>aprendan</em>?</li>
+<li>Diferencia entre programar una máquina para moverse y programarla para aprender a moverse</li>
+<li>Campos emergentes: IA neuro-simbólica, IA explicable (XAI), seguridad y ética de la IA, IA multimodal, IA embebida, IA para la ciencia</li>
+</ul>
+</li>
+<li>
+<p><strong>Enfoques: de la teoría a la práctica (Software 1.0 → Software 2.0)</strong></p>
+<ul>
+<li>La programación tradicional (escribir un algoritmo para ciertos problemas) es difícil o imposible</li>
+<li><strong>IA simbólica vs. redes neuronales (conexionista)</strong> — comparación por criterios:
+<ul>
+<li>Denominación: IA simbólica / redes neuronales</li>
+<li>Origen: 1950–1980, el sueño original / 1943, tendencia actual</li>
+<li>Inspiración: filosofía (pensamiento formal: premisas y conclusión) / neurociencia (cerebro: neuronas y redes)</li>
+<li>Esencia de la inteligencia: razonamiento / aprendizaje</li>
+<li>Idea central: decirle a la máquina los hechos y reglas / darle ejemplos (reconocimiento de patrones)</li>
+<li>Método: representación del conocimiento (símbolos) + inferencia / representación de datos + ajuste (parámetros)</li>
+<li>Conocimiento: explícito y estructurado / implícito y distribuido</li>
+<li>Foco: lógica (rígida) / optimización (flexible)</li>
+<li>Resultado: determinista / no determinista (estadístico)</li>
+<li>Explicabilidad: directa (reglas legibles) / difícil (caja negra)</li>
+<li>Requerimiento de datos: bajo / alto (datos masivos)</li>
+<li>Dominios: problemas no caóticos, bien estructurados y predecibles / fenómenos complejos, incertidumbre, percepción</li>
+<li>Fortaleza: precisión y trazabilidad / reconocimiento de patrones desde datos (adaptabilidad)</li>
+<li>Debilidad: cuello de botella del conocimiento (reglas y excepciones sin fin) / falta de interpretabilidad</li>
+</ul>
+</li>
+<li>Conclusión: la inteligencia humana y las aplicaciones reales combinan intuición (patrones) y reglas/restricciones (lógica) ⇒ el futuro es la <strong>IA neuro-simbólica</strong> (aprendizaje + razonamiento)</li>
+</ul>
+</li>
+<li>
+<p><strong>Diagramas de flujo comparativos</strong></p>
+<ul>
+<li>Programación tradicional: datos + programa → resultado</li>
+<li>IA simbólica: hechos + reglas + motor de inferencia → resultado</li>
+<li>Red neuronal: datos + resultado → red neuronal → modelo</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> IA débil/fuerte · AGI · campos de la IA · Software 1.0/2.0 · simbólico vs. conexionista · explicabilidad · IA neuro-simbólica<br />
+<strong>Actividad en clase:</strong> completar la tabla comparativa con un caso propio por cada enfoque y discutir qué se gana y qué se pierde en explicabilidad.</p>
+<hr />
+<h3 id="leccion-4-razonamiento-o-aprendizaje-sistemas-expertos-y-la-relacion-ia-ml-dl">Lección 4 — Razonamiento o aprendizaje: sistemas expertos y la relación IA-ML-DL<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 16–17 · <strong>Duración:</strong> 40 min<br />
+<strong>Pregunta guía:</strong> ¿Por qué la IA pasó de codificar el conocimiento de expertos a aprenderlo de los datos, y cómo se anidan IA, ML y DL?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>Sistemas expertos: un campo de la IA simbólica, no todo el mundo de la IA</strong></p>
+<ul>
+<li>Emulación de expertos en la resolución de problemas (diagnóstico médico, soporte técnico)</li>
+<li>Desventajas: codificación del conocimiento (reglas/hechos); difícil de escalar; actualización manual costosa y tediosa; dependencia mutua experto(s) ↔ programador(es); programación compleja; posibles omisiones, errores y subjetividad</li>
+</ul>
+</li>
+<li>
+<p><strong>Máquinas que aprenden a ser expertas</strong></p>
+<ul>
+<li>«ML: la mejor forma de crear máquinas realmente inteligentes»</li>
+<li>Factores habilitantes: ML + Ciencia de Datos; más poder de cómputo a menor costo; grandes volúmenes de datos (Big Data); algoritmos más inteligentes (redes neuronales)</li>
+</ul>
+</li>
+<li>
+<p><strong>Relación IA-ML-DL</strong></p>
+<ul>
+<li><strong>Inteligencia Artificial (AI):</strong> «inteligencia» humana + «artificial»; máquinas que realizan tareas como humanos; campos especializados + algoritmos tradicionales; expertos (deciden) + programadores (codifican)</li>
+<li><strong>Machine Learning (ML ⊂ AI):</strong> algoritmos inteligentes (entrenamiento en lugar de programación); de <em>E</em> (experiencia) mejorar <em>P</em> (desempeño) para resolver <em>T</em> (tarea); <em>feature engineering</em> a cargo de expertos: ¿qué datos?, ¿cómo recolectarlos?, ¿cómo representarlos?</li>
+<li><strong>Deep Learning (DL ⊂ ML):</strong> big data disponible y complejo; aprender a representar <em>E</em> mientras se resuelve <em>T</em> mejorando <em>P</em>; <em>representation learning</em>; datos crudos con poca o nula participación de expertos; niveles de abstracción; «profundo» = arquitectura multicapa (redes neuronales)</li>
+<li><strong>Elementos que requiere el ML:</strong> 1) T: tarea o problema; 2) E: experiencia (ejemplos, datos); 3) P: métricas</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> sistemas expertos · cuello de botella del conocimiento · T-E-P · ML ⊂ IA · DL ⊂ ML · <em>feature engineering</em> vs. <em>representation learning</em><br />
+<strong>Actividad en clase:</strong> para tres casos reales (spam, predicción de precios, diagnóstico por imágenes) identificar T, E y P, y ubicar cada caso en el diagrama IA ⊃ ML ⊃ DL.</p>
+<hr />
+<h2 id="bloque-iii-machine-learning-diapositivas-18-34">Bloque III — Machine Learning (diapositivas 18–34)</h2>
+<h3 id="leccion-5-machine-learning-definicion-programacion-tradicional-vs-ml-y-cuando-usarlo">Lección 5 — Machine Learning: definición, programación tradicional vs. ML y cuándo usarlo<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 19–23 · <strong>Duración:</strong> 50 min<br />
+<strong>Pregunta guía:</strong> ¿Qué significa «aprender de los datos» y en qué se diferencia de programar reglas explícitas?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>Definición</strong></p>
+<ul>
+<li>Arthur Samuel (1959): «Machine Learning es el campo de estudio que da a las computadoras la capacidad de aprender sin ser programadas explícitamente»</li>
+<li><strong>Antes del ML:</strong> la programación tradicional escribe reglas línea por línea y recibe datos para obtener respuestas; inadecuada para problemas complejos</li>
+<li>Caso ilustrativo: identificar un perro con reglas explícitas
+<ul>
+<li>Rasgos geométricos: <em>IF ear shape is pointy AND nose is long THEN it is a dog</em></li>
+<li>Rasgos de color: <em>IF fur color is golden THEN it is a golden retriever</em></li>
+<li>Rasgos de textura: <em>IF fur texture is shaggy THEN it is a dog</em></li>
+<li>Limitaciones: reglas incompletas (imposible cubrir iluminación, fondos, ángulos, distorsiones); escalabilidad (el número de reglas crece exponencialmente); adaptabilidad (cada nuevo caso obliga a actualizar el código)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Un nuevo paradigma: del código a los datos para aprender las reglas</strong></p>
+<ul>
+<li>Esquema «antes»: imagen → extracción de características → conjunto de reglas → clases (dog, bird, cat, fish)</li>
+<li>Esquema «ML»: imagen → extracción de características → modelo de ML aprendido → clases</li>
+</ul>
+</li>
+<li>
+<p><strong>¿Cómo se desarrolla una solución?</strong> (comparación de flujos)</p>
+<ul>
+<li>Programación tradicional: datos + programa → resultado</li>
+<li>Machine Learning: datos + resultado → modelo (que luego produce resultados para datos nuevos)</li>
+</ul>
+</li>
+<li>
+<p><strong>Comparación programación tradicional vs. Machine Learning</strong> (12 criterios)</p>
+<ul>
+<li>Escritura del software: reglas codificadas por conocimiento del desarrollador / reglas aprendidas de los datos</li>
+<li>Intervención humana: papel principal / mínima (¡la máquina hace el trabajo!)</li>
+<li>Complejidad: alta (mucho trabajo de programación) / simple (pocas líneas de código)</li>
+<li>Experticia: ingenieros de software dedicados / muchos profesionales de diversas áreas</li>
+<li>Funcionamiento: especificar reglas exactas / inferir esas reglas aprendiendo</li>
+<li>Comportamiento del programa: sigue instrucciones explícitas / cambia con los datos (adaptación)</li>
+<li>Número de entradas: limitado / sin restricción</li>
+<li>Adaptabilidad: rígida (agregar variables es difícil) / flexible (abierta a más variables)</li>
+<li>Dependencia de datos: baja o no necesaria / alta, basada en datos y estadística</li>
+<li>Resultado: determinista, predecible, exacto / probabilístico, aproximado, con nivel de confianza</li>
+<li>Flexibilidad: sistemas estrictos basados en reglas / más adaptable y flexible</li>
+<li>Aplicación: mejor para tareas simples con reglas claras / ideal para problemas complejos y ricos en datos con patrones desconocidos</li>
+</ul>
+</li>
+<li>
+<p><strong>¿Cuándo usar ML?</strong></p>
+<ul>
+<li>Problemas complejos: no existe un algoritmo tradicional disponible; definir el conjunto de reglas es demasiado difícil; descubrir las reglas y condiciones subyacentes a un fenómeno; evitar el desarrollo de fórmulas</li>
+<li>Cuando la programación manual no es factible o eficiente</li>
+<li>Cuando se necesita una mejor aproximación (se requieren más variables)</li>
+<li>Cuando se reemplazan enfoques deterministas por problemas no deterministas</li>
+<li>El ML no reemplaza: es una alternativa o un complemento de la programación tradicional</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> aprendizaje sin programación explícita · reglas vs. datos · modelo · determinista vs. probabilístico · adaptabilidad · cuándo usar ML<br />
+<strong>Actividad en clase:</strong> elegir un problema cotidiano y escribir (a) las reglas tradicionales y (b) el enfoque ML; argumentar cuál es viable y por qué.</p>
+<hr />
+<h3 id="leccion-6-ml-clasificacion-aprendizaje-supervisado-componentes-y-algoritmos">Lección 6 — ML: clasificación, aprendizaje supervisado, componentes y algoritmos<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 24–28 · <strong>Duración:</strong> 50 min<br />
+<strong>Pregunta guía:</strong> ¿Cómo se clasifica el ML y con qué piezas (datos, características, algoritmos) se construye un modelo?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>Clasificación del Machine Learning</strong></p>
+<ul>
+<li><strong>Por datos:</strong> supervisado (etiquetado por humanos, auto-supervisado, datos sintéticos con GenAI), no supervisado, por refuerzo</li>
+<li><strong>Por tarea:</strong> uni-tarea (<em>uni-task</em>), multi-tarea (<em>multi-task</em>)</li>
+<li><strong>Por tipo de entrada:</strong> unimodal, multimodal</li>
+</ul>
+</li>
+<li>
+<p><strong>Aprendizaje supervisado</strong></p>
+<ul>
+<li>Se basa en ejemplos, experiencias y datos</li>
+<li>El modelo define la relación entre entrada y salida</li>
+<li>
+<ol>
+<li><strong>Entrenamiento:</strong> aprende a mapear ejemplos etiquetados (x, y)</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li><strong>Inferencia:</strong> predice ejemplos no etiquetados (x, ?)</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Componentes para construir un modelo de ML (enseñar a la máquina)</strong></p>
+<ul>
+<li><strong>1. Datos:</strong> el primer desafío es preparar un dataset de calidad; «¿quieres detectar spam? consigue muestras de mensajes spam»; «¿pronosticar acciones? busca el historial de precios»; «¿conocer preferencias de usuario? analiza su actividad»; mientras más diversa la data, mejor el resultado; obtención manual o automática; Big Data</li>
+<li><strong>2. Características (<em>features</em>):</strong> conocidas como variables (kilometraje de un auto, género del usuario, precio de la acción, frecuencia de palabras, …); <em>feature engineering</em>: análisis y selección; en datos tabulares son los nombres de las columnas</li>
+<li><strong>3. Algoritmos:</strong> un problema puede resolverse de distintas formas; el método afecta el desempeño; si los datos no son correctos, ¡el mejor algoritmo no ayuda!; ¿qué son y cuál usar?</li>
+</ul>
+</li>
+<li>
+<p><strong>Tipos de problemas</strong></p>
+<ul>
+<li><strong>Clasificación:</strong> entrada = <em>features</em>; salida = clase (categoría)</li>
+<li><strong>Regresión:</strong> entrada = variables independientes; salida = variable dependiente</li>
+</ul>
+</li>
+<li>
+<p><strong>Panorama de algoritmos</strong></p>
+<ul>
+<li><strong>Aprendizaje supervisado:</strong> regresión lineal, regresión logística, árboles de decisión, Random Forest, árbol de regresión, SVM/SVR, K-Nearest Neighbours, Naive-Bayes</li>
+<li><strong>Aprendizaje no supervisado:</strong> K-Means, PCA, DBSCAN, clustering jerárquico, Self-Organizing Map</li>
+<li><strong>Aprendizaje por refuerzo:</strong> Q-Learning, Deep Q-Networks, SARSA</li>
+<li><strong>¿Qué algoritmo usar?</strong> Regla de oro: «a datos más complejos, algoritmos más complejos»
+<ul>
+<li>Algoritmos clásicos: datos tabulares / Redes neuronales: texto, imágenes, video, sonido, voz</li>
+<li>Algoritmos de <em>ensemble</em></li>
+<li>Hoy las ANN realizan el trabajo de los algoritmos anteriores (incluso con mayor precisión); las ANN son la técnica que hizo famosos al ML y a la IA en la última década</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> supervisado / no supervisado / refuerzo · auto-supervisión · multimodal · dataset · <em>features</em> · <em>feature engineering</em> · clasificación vs. regresión · familia de algoritmos<br />
+<strong>Actividad en clase:</strong> construir un mapa visual de los algoritmos y justificar la elección para tres casos (predicción de precios, agrupamiento de clientes, clasificación de imágenes).</p>
+<hr />
+<h3 id="leccion-7-ml-metodologia-pipeline-y-receta-de-entrenamiento-y-herramientas-de-implementacion">Lección 7 — ML: metodología (pipeline y receta de entrenamiento) y herramientas de implementación<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 29–34 · <strong>Duración:</strong> 50 min<br />
+<strong>Pregunta guía:</strong> ¿Cuál es el procedimiento ordenado para entrenar un modelo y con qué herramientas se implementa?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>Pipeline de ML</strong></p>
+<ul>
+<li>Dataset → preprocesamiento → división train/test → configuración del algoritmo → ajuste del modelo (<em>model fitting</em>) → evaluación → predicción</li>
+</ul>
+</li>
+<li>
+<p><strong>Receta de entrenamiento (7 pasos)</strong></p>
+<ul>
+<li>
+<ol>
+<li>Tipo de problema: regresión o clasificación</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>Explorar el dataset: número de clases (clasificación) o valores a predecir (regresión); distribución de clases: balanceada o desbalanceada (¿balancear?); imágenes: formato, canales, resolución (tamaño), visualización, mal etiquetado</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>Diseñar el modelo: verificar dimensiones (<em>summary</em>)</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>Entrenamiento: ajustar una muestra (posibles errores: función de pérdida, optimizador, <em>learning rate</em>); ajustar un batch (el modelo debería poder aprenderlo); usar un subconjunto en lugar de todo el dataset (demasiado tiempo); evaluar combinaciones de hiperparámetros — valores recomendados: <em>batch size</em> 16, 32, 64; optimizador Adam; <em>learning rate</em> 0.001 como punto de partida, luego aumentar/disminuir</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>Técnicas de regularización: <em>data augmentation</em> para imágenes; normalización antes (datos) y durante (modelo, con <em>batch norm</em>); <em>early stopping</em>; <em>dropout</em></li>
+</ol>
+</li>
+<li>
+<ol start="6">
+<li><em>Tuning</em> por búsqueda aleatoria: distintos <em>lr</em> y <em>bs</em>; visualizar curvas de aprendizaje</li>
+</ol>
+</li>
+<li>
+<ol start="7">
+<li>Usar el dataset completo</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Herramientas de implementación: hardware y software</strong></p>
+<ul>
+<li>Local: computador, RAM, GPU (¿opcional?), sistema operativo (Windows, macOS, Linux, Android), lenguaje base de programación, IDE Anaconda (entorno virtual), editor (PyCharm, Spyder, Notebook), Keras y TensorFlow</li>
+<li>Nube: Google Colab</li>
+<li>Dataset para entrenamiento y prueba</li>
+</ul>
+</li>
+<li>
+<p><strong>¿Por qué Python para ML?</strong> (12 razones)</p>
+<ul>
+<li>Muy flexible; fácil de aprender y usar; sintaxis amigable e intuitiva; absolutamente libre y de código abierto; variedad de librerías y herramientas útiles; independencia de plataforma; estilos orientado a objetos, procedural y <em>scripting</em>; posibilidad de combinar Python con otros lenguajes; buenas herramientas de visualización; soporte de comunidad y foros; mucha documentación en línea; popularidad creciente</li>
+</ul>
+</li>
+<li>
+<p><strong>Google Colab</strong></p>
+<ul>
+<li>Servicio gratuito en la nube de Google (Colaboratory)</li>
+<li>Plataforma de desarrollo de ML que incluye: GPU disponible 12 horas; entorno Jupyter preconfigurado; Python; TensorFlow preinstalado</li>
+<li>Los <em>notebooks</em> se almacenan y comparten en Google Drive</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> pipeline de ML · <em>train/test split</em> · función de pérdida · optimizador · <em>learning rate</em> · hiperparámetros · regularización · <em>early stopping</em> · <em>dropout</em> · Anaconda · TensorFlow/Keras · Colab<br />
+<strong>Actividad en clase:</strong> laboratorio guiado «mi primer notebook en Colab» (cargar dataset, explorar clases, definir dimensiones) + diseño en papel del pipeline para un dataset propio.</p>
+<hr />
+<h2 id="bloque-iv-redes-neuronales-artificiales-diapositivas-35-48">Bloque IV — Redes Neuronales Artificiales (diapositivas 35–48)</h2>
+<h3 id="leccion-8-fundamentos-de-las-rna-neurona-perceptron-no-linealidad-y-problema-xor">Lección 8 — Fundamentos de las RNA: neurona, perceptrón, no linealidad y problema XOR<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 36–39 · <strong>Duración:</strong> 50 min<br />
+<strong>Pregunta guía:</strong> ¿Cómo se pasa de una neurona biológica a un clasificador lineal y por qué eso no basta?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>Teoría de las RNA</strong></p>
+<ul>
+<li>Inspiración en el sistema cerebral: estructural y funcional</li>
+<li>Actividad binaria de las neuronas: excitatoria/inhibitoria (proceso de todo o nada)</li>
+<li>Modelo lógico-matemático: suma de señales g(x₁,…,xₙ) = g(X) = Σxᵢ; función escalón y = f(g(X)) = 1 si g(X) ≥ θ, 0 si g(X) &lt; θ</li>
+<li>Operaciones lógicas básicas (and, or, not) y operaciones complejas (red neuronal)</li>
+<li>Neurona lógica (McCulloch y Pitts, 1943)</li>
+<li>Limitaciones: salida binaria, entradas de igual importancia, ausencia de aprendizaje, incapacidad para manejar no linealidades</li>
+</ul>
+</li>
+<li>
+<p><strong>Perceptrón (Rosenblatt, 1957)</strong></p>
+<ul>
+<li>Incluye pesos sinápticos (wᵢ) y sesgo (b)</li>
+<li>Modelo lineal: y = w₁x₁ + w₂x₂ + … + wₙxₙ + b; y = Σwᵢxᵢ + b; forma matricial y = xw + b</li>
+<li>El término de sesgo: no se multiplica por un peso; no restringe el modelo al origen (b ≠ 0); desplaza la recta</li>
+<li>Clasificador lineal binario: y = f(xw + b) = f(z), con umbral</li>
+<li>Máquina física para reconocer patrones visuales simples (percepción)</li>
+</ul>
+</li>
+<li>
+<p><strong>No linealidad</strong></p>
+<ul>
+<li>Limitaciones del perceptrón: solo modela relaciones lineales; solo clasificación binaria simple</li>
+<li>La mayoría de los problemas del mundo real son no lineales</li>
+<li>Cómo introducir no linealidad:
+<ul>
+<li>Funciones de activación no lineales: una distorsión aplicada a la salida lineal de una neurona</li>
+<li>Perceptrones multicapa (MLP): combinar capas de neuronas y funciones de activación no lineales para modelar cualquier función compleja</li>
+</ul>
+</li>
+<li>Ilustración: regresión con ajuste lineal vs. no lineal; clasificación con frontera lineal vs. no lineal</li>
+</ul>
+</li>
+<li>
+<p><strong>El problema XOR</strong></p>
+<ul>
+<li>Tabla de verdad de XOR y representación geométrica de las clases</li>
+<li>La frontera lineal no puede separar XOR (Minsky y Papert, 1969) ⇒ primer «invierno de la IA»</li>
+<li>Solución con <strong>1 capa oculta</strong>: composición de fronteras lineales que delimitan regiones; ecuaciones de las neuronas ocultas y de salida</li>
+<li>Solución con <strong>2 capas ocultas</strong>: fronteras curvas/no lineales que separan las clases</li>
+<li>Comparación visual de las soluciones: una capa vs. dos capas ocultas</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> neurona biológica · neurona lógica · umbral · pesos y sesgo · clasificador lineal · no linealidad · XOR · separabilidad lineal · capas ocultas<br />
+<strong>Actividad en clase:</strong> demostrar en pizarra que ninguna recta separa XOR; luego construir a mano la red de una capa oculta que lo resuelve y verificar la tabla de verdad.</p>
+<hr />
+<h3 id="leccion-9-funciones-de-activacion-no-lineales-y-teorema-de-aproximacion-universal">Lección 9 — Funciones de activación no lineales y Teorema de Aproximación Universal<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 40–41 · <strong>Duración:</strong> 40 min<br />
+<strong>Pregunta guía:</strong> ¿Qué función de activación elegir y por qué una red con suficientes neuronas puede aproximar cualquier función continua?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>Funciones de activación no lineales</strong></p>
+<ul>
+<li><strong>ReLU:</strong> ReLU(x) = max(0, x); rápida, dispersa (<em>sparse</em>), la más usada</li>
+<li><strong>Leaky ReLU:</strong> pendiente negativa pequeña (0.1x para x &lt; 0); evita el problema del <em>dying ReLU</em></li>
+<li><strong>ELU:</strong> x para x ≥ 0 y α(eˣ − 1) para x &lt; 0; región negativa suave</li>
+<li><strong>tanh:</strong> centrada en cero; satura</li>
+<li><strong>Sigmoid:</strong> σ(x) = 1/(1 + e⁻ˣ); útil para probabilidades; satura fuertemente</li>
+<li><strong>Softplus:</strong> f(x) = ln(1 + eˣ); alternativa suave a ReLU</li>
+<li>Lectura e interpretación de las gráficas; criterios de elección según la tarea</li>
+</ul>
+</li>
+<li>
+<p><strong>Teorema de Aproximación Universal (UAT)</strong></p>
+<ul>
+<li>El poder y el éxito de las RNA: las funciones describen el mundo real</li>
+<li>En la mayoría de los casos conocemos los datos (entradas y salidas) pero no la función</li>
+<li>La red neuronal como aproximador de funciones: f(x) ≈ NN(x)</li>
+<li>Combinar elementos simples permite crear un modelo complejo</li>
+<li>La ANN es una función capaz de mapear entradas complejas a salidas: regresión (mapeos continuos) y clasificación (fronteras de decisión)</li>
+<li>Con <strong>al menos una capa oculta</strong> (y suficientes neuronas) se puede aproximar cualquier función continua con cualquier grado de precisión</li>
+<li>Al aumentar las neuronas, mejora la aproximación</li>
+<li>La aproximación es posible <strong>gracias a la activación no lineal</strong></li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> ReLU · Leaky ReLU · ELU · tanh · sigmoid · softplus · saturación · <em>dying ReLU</em> · aproximador universal · capa oculta · precisión de aproximación<br />
+<strong>Actividad en clase:</strong> comparar las curvas de las seis funciones de activación y argumentar cuál elegiría para la capa oculta y para la salida de un problema de clasificación; discutir por qué sin no linealidad el MLP colapsa en un modelo lineal.</p>
+<hr />
+<h3 id="leccion-10-perceptron-multicapa-arquitectura-fundamentos-matematicos-y-representacion-matricial">Lección 10 — Perceptrón multicapa: arquitectura, fundamentos matemáticos y representación matricial<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 42–46 · <strong>Duración:</strong> 50 min<br />
+<strong>Pregunta guía:</strong> ¿Cómo se organiza un MLP, cuántas capas y neuronas necesita y cómo se expresa matemáticamente?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>Capas del MLP</strong></p>
+<ul>
+<li>Estructuras de neuronas agrupadas: entrada, ocultas (una o varias) y salida</li>
+<li>Más ancho y más profundo que el perceptrón</li>
+<li>Número de capas y neuronas configurable</li>
+</ul>
+</li>
+<li>
+<p><strong>¿Cuántas capas y cuántas neuronas?</strong></p>
+<ul>
+<li>Pregunta complicada; se responde experimentando por prueba y error</li>
+<li>Línea base para capas ocultas:
+<ul>
+<li>Una sola capa: 2^(N−1) + 1 perceptrones (exponencial en N entradas)</li>
+<li>Red profunda: 3(N − 1) perceptrones en 2·log₂(N) capas (lineal en N entradas)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Ejemplo: valoración de propiedades inmobiliarias (un enigma sin fórmula fija y explícita)</strong></p>
+<ul>
+<li>Entradas: área, número de habitaciones, distancia, antigüedad</li>
+<li><strong>Perceptrón:</strong> ✓ interpretable, pero × dependencia directa entre entradas y salida; × una única combinación lineal de entradas y un único vector de pesos; × todos los ejemplos se evalúan con el mismo criterio global</li>
+<li><strong>MLP superficial y profundo:</strong> diferentes combinaciones de entradas según el contexto; abstracción jerárquica mediante variables intermedias
+<ul>
+<li><em>Shallow</em>: muchas neuronas para cubrir todas las combinaciones (riesgo de <em>overfitting</em>)</li>
+<li><em>Deep</em>: mejor generalización, pero difícil de interpretar</li>
+</ul>
+</li>
+<li>El MLP profundo como «una función matemática muy grande»</li>
+</ul>
+</li>
+<li>
+<p><strong>Fundamentos matemáticos</strong></p>
+<ul>
+<li><strong>Álgebra lineal:</strong> estructuras de datos (escalar, vector, matriz, tensor); operaciones (suma, producto punto, concatenación)</li>
+<li><strong>Probabilidad:</strong> 0 ≤ P(S) ≤ 1; P(S̄) = 1 − P(S); ΣP(Sᵢ) = 1</li>
+<li><strong>Cálculo diferencial:</strong> proceso de optimización; el entrenamiento minimiza la función de pérdida; método: algoritmo de descenso del gradiente; retropropagación</li>
+</ul>
+</li>
+<li>
+<p><strong>Representación matricial del MLP</strong></p>
+<ul>
+<li>h = f(xW + b) y y = g(hU + c)</li>
+<li>Detalle matricial: vector de entrada (1×n), matriz de pesos W (n×m), sesgos b (1×m), salidas ocultas h, matriz U y sesgos c de la capa de salida</li>
+</ul>
+</li>
+<li>
+<p><strong>Feed-forward totalmente conectado</strong></p>
+<ul>
+<li>Representación funcional por capas: h⁽ⁱ⁾ = f⁽ⁱ⁾(h⁽ⁱ⁻¹⁾W⁽ⁱ⁾ + b⁽ⁱ⁾); y = g(h⁽ᴸ⁾U + c)</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> capa de entrada/ocultas/salida · ancho y profundidad · abstracción jerárquica · <em>overfitting</em> vs. generalización · tensores · descenso del gradiente · propagación hacia adelante · notación matricial<br />
+<strong>Actividad en clase:</strong> calcular a mano la salida de un MLP de 2 entradas, 3 neuronas ocultas y 1 salida, y contar cuántos parámetros tiene; repetir en Colab con <code>model.summary()</code>.</p>
+<hr />
+<h3 id="leccion-11-entrenamiento-de-una-rna-forward-perdida-descenso-del-gradiente-y-retropropagacion">Lección 11 — Entrenamiento de una RNA: forward, pérdida, descenso del gradiente y retropropagación<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 47–48 · <strong>Duración:</strong> 50 min<br />
+<strong>Pregunta guía:</strong> ¿Cómo aprende realmente una red: qué se calcula, qué se minimiza y cómo viaja el error hacia atrás?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>El aprendizaje como proceso iterativo de corrección de errores</strong></p>
+<ul>
+<li>
+<ol>
+<li><strong>Inicialización de los parámetros</strong>: valores adecuados para un entrenamiento eficiente; θ = {w₁, w₂, …, w_N}</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li><strong>Forward-propagation</strong>: h⁽ⁱ⁾ = f⁽ⁱ⁾(h⁽ⁱ⁻¹⁾W⁽ⁱ⁾ + b⁽ⁱ⁾); y = g(h⁽ᴸ⁾U + c)</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li><strong>Cálculo del error (costo o pérdida)</strong>: Loss = (1/N)Σ(ŷᵢ − yᵢ)² = MSE</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li><strong>Minimización del error</strong>: ΔLoss/Δθ ⇒ ∂Loss/∂θ; descenso del gradiente conduce al mínimo; retropropagación mediante la regla de la cadena</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li><strong>Actualización de parámetros</strong>: de forma simultánea; η como tasa de aprendizaje (<em>learning step-rate</em>); w ← w − η·∂Loss/∂w</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Retropropagación del gradiente del error</strong></p>
+<ul>
+<li>De la salida hacia la capa oculta y de la capa oculta hacia la entrada</li>
+<li><strong>Grafo computacional:</strong> X → v⁽¹⁾ → h⁽¹⁾ → v⁽²⁾ → ŷ → y → E, con los parámetros W⁽¹⁾ y U</li>
+<li>Reglas de la cadena:
+<ul>
+<li>∂E/∂W⁽¹⁾ = (∂E/∂v⁽¹⁾) × (∂v⁽¹⁾/∂W⁽¹⁾)</li>
+<li>∂E/∂v⁽¹⁾ = (∂E/∂h⁽¹⁾) × (∂h⁽¹⁾/∂v⁽¹⁾)</li>
+<li>∂E/∂h⁽¹⁾ = (∂E/∂v⁽²⁾) × (∂v⁽²⁾/∂h⁽¹⁾)</li>
+<li>∂E/∂v⁽²⁾ = (∂E/∂ŷ) × (∂ŷ/∂v⁽²⁾)</li>
+<li>∂E/∂ŷ es directa</li>
+</ul>
+</li>
+<li>Intuición: el error se distribuye hacia atrás proporcionalmente a la influencia de cada parámetro</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> inicialización · <em>forward propagation</em> · MSE · función de costo · descenso del gradiente · tasa de aprendizaje · regla de la cadena · grafo computacional · <em>backpropagation</em> · actualización simultánea<br />
+<strong>Actividad en clase:</strong> calcular una iteración de descenso del gradiente sobre una red mínima; interpretar la curva de pérdida (subajuste, ajuste, sobreajuste) y el efecto del <em>learning rate</em>.</p>
+<hr />
+<h2 id="bloque-v-deep-learning-diapositivas-49-88">Bloque V — Deep Learning (diapositivas 49–88)</h2>
+<h3 id="leccion-12-deep-learning-motivacion-complejidad-de-datos-y-diferencias-con-el-ml-tradicional">Lección 12 — Deep Learning: motivación, complejidad de datos y diferencias con el ML tradicional<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 50–52 · <strong>Duración:</strong> 45 min<br />
+<strong>Pregunta guía:</strong> ¿Por qué el DL eliminó la ingeniería manual de características y cuándo conviene usarlo en lugar del ML clásico?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>Motivación del Deep Learning</strong></p>
+<ul>
+<li><strong>Machine Learning tradicional:</strong> prerrequisito de datos estructurados definidos por humanos (valores organizados en filas y columnas)</li>
+<li><strong>Deep Learning:</strong> elimina la necesidad de la ingeniería manual de características (qué buscar en los datos) al aprender automáticamente representaciones de los datos mediante capas de redes neuronales</li>
+</ul>
+</li>
+<li>
+<p><strong>Complejidad de los datos</strong></p>
+<ul>
+<li>El ML tradicional es ideal para datos estructurados (alcance limitado)</li>
+<li>La mayor parte de los datos del mundo es <strong>no estructurada</strong></li>
+<li><strong>El cuello de botella humano:</strong> estructurar manualmente lo no estructurado (la representación)</li>
+<li>El humano invierte demasiado tiempo en desarrollar una buena representación para un solo problema</li>
+<li>Ejemplo del clasificador de aves: un investigador podría pasar meses midiendo longitud del pico, envergadura, color primario, etc. en miles de imágenes para crear un dataset estructurado</li>
+<li><strong>Deep Learning:</strong> subcampo del ML; trabaja directamente con datos crudos y no estructurados; aprendizaje automático de representaciones (<em>features</em>)</li>
+<li>Cadena de abstracción: datos crudos → modelo DL → bordes, texturas, patrones, objetos</li>
+<li><strong>Factores clave:</strong> enormes cantidades de datos (digitalización de todo); poder de cómputo (GPU: hardware paralelo); nuevas ideas algorítmicas</li>
+</ul>
+</li>
+<li>
+<p><strong>Diferencias centrales entre ML tradicional y DL</strong> (8 criterios)</p>
+<ul>
+<li>Tipo de datos: estructurados (hojas de cálculo, bases de datos) / no estructurados (imágenes, audio, video, texto)</li>
+<li>Volumen de datos: datasets pequeños (cientos a miles de valores) / datasets masivos (millones de valores)</li>
+<li>Extracción de características: ingeniería manual por expertos / aprendizaje automático a través de capas ocultas</li>
+<li>Significado de la entrada: significado intrínseco / la forma cruda de los datos no estructurados no tiene significado intrínseco</li>
+<li>Hardware: CPUs estándar suficientes / GPU o TPU de alto rendimiento para entrenar</li>
+<li>Tiempo de entrenamiento: rápido (minutos a horas) / intensivo (días o semanas desde cero)</li>
+<li>Interpretabilidad: a menudo muy transparente / muy complejo («caja negra»)</li>
+<li>Aplicación: datos limitados y necesidad de explicar la lógica / datos de altísima dimensionalidad y percepción</li>
+</ul>
+</li>
+<li>
+<p><strong>Reflexión final</strong></p>
+<ul>
+<li>El cerebro no trabaja solo con números: interactuamos con el entorno mediante los sentidos, que son receptáculos de datos no estructurados</li>
+<li>Por lo tanto, deberíamos dar a las computadoras la capacidad de ver, oír, oler y sentir</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> datos estructurados vs. no estructurados · <em>representation learning</em> · cuello de botella de la representación · GPU/TPU · caja negra · escalabilidad de datos<br />
+<strong>Actividad en clase:</strong> clasificar 10 casos reales según convenga ML clásico o DL, justificando por tipo y volumen de datos, hardware e interpretabilidad.</p>
+<hr />
+<h3 id="leccion-13-vision-por-computador-y-fundamentos-de-las-redes-convolucionales">Lección 13 — Visión por computador y fundamentos de las redes convolucionales<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 53–56 · <strong>Duración:</strong> 50 min<br />
+<strong>Pregunta guía:</strong> ¿Por qué una imagen no puede tratarse como un vector plano y cómo lo resuelve la convolución?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>Tareas de visión por computador</strong></p>
+<ul>
+<li>Clasificación de imágenes</li>
+<li>Detección de objetos</li>
+<li>Segmentación semántica</li>
+<li>Superresolución</li>
+<li>Estimación de profundidad</li>
+<li>Generación de imágenes</li>
+</ul>
+</li>
+<li>
+<p><strong>La imagen como matriz de píxeles</strong></p>
+<ul>
+<li>Números que representan intensidad de luz: binaria (blanco y negro), escala de grises (1 canal), color (3 canales RGB), más canales</li>
+<li>Enfoque ingenuo: aplanar la imagen en un vector largo y alimentar un MLP</li>
+<li><strong>Problemas de ese enfoque:</strong>
+<ul>
+<li>Entrada sin significado</li>
+<li>Cada píxel tratado como una <em>feature</em></li>
+<li>¡Demasiados parámetros!</li>
+<li>Combinación de píxeles no relacionados</li>
+<li>Pérdida de la adyacencia espacial</li>
+<li>La invariancia a la traslación no se aplica</li>
+</ul>
+</li>
+<li>Conclusión: rediseñar la arquitectura de la red ⇒ <strong>capas convolucionales</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Redes Neuronales Convolucionales (CNN): arquitectura</strong></p>
+<ul>
+<li>Dos subredes (analogía del sistema visual humano):
+<ul>
+<li>
+<ol>
+<li>Capa convolucional (aprendizaje y extracción de características): <strong>los ojos</strong></li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>MLP (o algoritmo de ML tradicional): <strong>el cerebro</strong></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Abstracción: una red con múltiples capas convolucionales aprende automáticamente características cada vez más complejas</li>
+<li>Familias de arquitecturas: LeNet, AlexNet, VGG-16, ResNet, Inception, DenseNet, EfficientNet, MobileNet, …</li>
+</ul>
+</li>
+<li>
+<p><strong>La capa convolucional</strong></p>
+<ul>
+<li><strong>Filtros (<em>kernels</em>):</strong> una ventana que se desplaza por la imagen; tamaño: ancho, alto y profundidad; un especialista en detectar una característica; parámetros (pesos y sesgo)</li>
+<li><strong>Operación de convolución:</strong> los filtros buscan características; se superpone el filtro sobre la imagen; combinación lineal + función de activación; funciona igual que una neurona</li>
+<li><strong>Mapa de características (<em>feature map</em>):</strong> salida de una convolución; matriz de píxeles; revela la característica definida por el filtro: líneas, bordes, texturas o formas</li>
+</ul>
+</li>
+<li>
+<p><strong>Ejemplo de aplicación de filtros</strong></p>
+<ul>
+<li>Se pueden detectar distintas características según el filtro</li>
+<li>Filtro que busca líneas verticales; reconocimiento del dígito «4»</li>
+<li>Filtros verticales y horizontales detectan la característica; un filtro diagonal produce una imagen oscura (la característica no está presente)</li>
+<li>Nosotros definimos la estructura de los filtros, pero <strong>la CNN aprende los mejores parámetros durante el entrenamiento</strong></li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> canal RGB · aplanado (<em>flattening</em>) · invariancia a la traslación · capa convolucional · filtro/kernel · campo receptivo · mapa de características · características jerárquicas · LeNet/AlexNet/ResNet<br />
+<strong>Actividad en clase:</strong> calcular manualmente la convolución de una matriz 5×5 con un kernel 3×3; luego visualizar mapas de características en Colab y comparar filtros vertical, horizontal y diagonal.</p>
+<hr />
+<h3 id="leccion-14-cnn-hiperparametros-arquitectura-estandar-y-casos-con-transfer-learning">Lección 14 — CNN: hiperparámetros, arquitectura estándar y casos con transfer learning<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 57–61 · <strong>Duración:</strong> 50 min<br />
+<strong>Pregunta guía:</strong> ¿Cómo se dimensiona una CNN y cuándo conviene entrenarla desde cero o reutilizar un modelo preentrenado?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>Hiperparámetros de la capa convolucional</strong></p>
+<ul>
+<li>Tamaño del filtro (campo receptivo): (h, w, d)</li>
+<li>Número de filtros</li>
+<li><em>Stride</em>: (s₁, s₂)</li>
+<li><em>Padding</em>: (p₁, p₂)</li>
+<li>Sesgo (<em>bias</em>)</li>
+</ul>
+</li>
+<li>
+<p><strong>Cálculo de parámetros</strong></p>
+<ul>
+<li>La entrada es un volumen 3D</li>
+<li>Se aplican múltiples filtros</li>
+<li>N.º de parámetros = h × w × d × (n.º de filtros) + (n.º de sesgos)</li>
+<li>La función de activación se aplica antes de replicar las capas convolucionales</li>
+</ul>
+</li>
+<li>
+<p><strong>Modelo CNN estándar: una pila de capas convolucionales</strong></p>
+<ul>
+<li>Función de activación: típicamente <strong>ReLU</strong></li>
+<li><strong><em>Pooling</em>:</strong> reducir la resolución conservando la información importante (promedio, máximo)</li>
+<li><strong><em>Flattening</em>:</strong> obtener un vector (buena entrada para la última capa)</li>
+<li><strong>MLP:</strong> modelo de clasificación</li>
+<li>Mejorar el desempeño: aumentar profundidad, ancho y resolución</li>
+</ul>
+</li>
+<li>
+<p><strong>Casos de modelos CNN: cómo crear un modelo</strong></p>
+<ul>
+<li><strong>Desde cero:</strong> definir estructura e hiperparámetros; entrenar</li>
+<li><strong><em>Transfer learning</em>: reutilizar una CNN preentrenada</strong>
+<ul>
+<li>Base y clasificador congelados</li>
+<li>Base congelada (extracción de características) + nuevo clasificador (entrenar)</li>
+<li><em>Fine-tuning</em>: entrenar las últimas capas</li>
+</ul>
+</li>
+<li>Criterios para decidir entre las tres estrategias según tamaño del dataset, similitud del dominio y recursos de cómputo</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> campo receptivo · <em>stride</em> · <em>padding</em> · n.º de parámetros · ReLU · <em>max/avg pooling</em> · <em>flatten</em> · capa densa de clasificación · <em>transfer learning</em> · <em>fine-tuning</em> · congelamiento de capas<br />
+<strong>Actividad en clase:</strong> comparar en Colab «desde cero» vs. <em>transfer learning</em> con un dataset pequeño; registrar precisión, tiempo de entrenamiento y sobreajuste.</p>
+<hr />
+<h3 id="leccion-15-datos-secuenciales-y-procesamiento-de-lenguaje-natural">Lección 15 — Datos secuenciales y Procesamiento de Lenguaje Natural<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 62–66 · <strong>Duración:</strong> 50 min<br />
+<strong>Pregunta guía:</strong> ¿Qué hace especiales a los datos secuenciales y cómo evolucionó el PLN desde las reglas hasta los <em>embeddings</em>?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>Datos secuenciales: diferencias con otros tipos de datos</strong></p>
+<ul>
+<li>Longitud variable</li>
+<li>Orden</li>
+<li>Correlación y dependencias entre los elementos de la secuencia</li>
+<li>Ejemplos: texto y lenguaje verbal, audio y clips de video, series temporales, sensores, mercados bursátiles, …</li>
+<li><strong>Limitaciones de las ANN y CNN:</strong> entrada de longitud fija; sin orden; una instancia a la vez; las instancias son independientes; sin contexto</li>
+<li>Por lo tanto, estas arquitecturas deben adaptarse para datos secuenciales</li>
+</ul>
+</li>
+<li>
+<p><strong>Aplicaciones de los datos secuenciales</strong></p>
+<ul>
+<li>Reconocimiento de voz; reconocimiento de actividad en video</li>
+<li>Clasificación de sentimiento; autocompletado de oraciones</li>
+<li>Traducción automática, chatbots conversacionales, motores de búsqueda, etc.</li>
+<li>El campo principal de aplicación es el <strong>PLN (Natural Language Processing)</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>PLN: el lenguaje como capacidad humana</strong></p>
+<ul>
+<li>Capacidad distintiva del ser humano: nos diferencia de otras especies; clave para el desarrollo, la supervivencia y la supremacía</li>
+<li>Expresión y comunicación; codificación primaria del conocimiento (producción cultural: libros, arte; Internet)</li>
+<li>Evolución del lenguaje humano basada en la conceptualización: signos y gestos → símbolos → expresión verbal → escritura y lectura → vocabulario formal → sintaxis y reglas semánticas</li>
+</ul>
+</li>
+<li>
+<p><strong>PLN: definición y objetivo</strong></p>
+<ul>
+<li>Que las máquinas lean, comprendan/interpretren y generen lenguaje similar al humano</li>
+<li>El lenguaje humano se comprende y se genera secuencialmente</li>
+<li>El objetivo simple: dada la palabra anterior, predecir lo que viene</li>
+<li>70 años de ideas: de «contar palabras» a «entender patrones»
+<ul>
+<li>(1990s) Lingüística: reglas hechas a mano</li>
+<li>(2000s) Estadística simple: «¿qué viene después? contar palabras»; modelo de n-gramas que memoriza secuencias exactas</li>
+<li>(2010s) Machine Learning: generalización; aprender un patrón reutilizable en lugar de una frase exacta; redes neuronales; significado mediante <em>embeddings</em></li>
+<li>(2014-2017) Deep Learning: redes neuronales recurrentes; una palabra a la vez; memoria/contexto corto</li>
+</ul>
+</li>
+<li>Amplio rango de aplicaciones: texto entra, texto sale; clasificación, extracción, resumen, generación</li>
+</ul>
+</li>
+<li>
+<p><strong>¿Cómo pueden las máquinas entender el lenguaje?</strong></p>
+<ul>
+<li>La programación tradicional es muy difícil para esta tarea</li>
+<li>Analogía humana (conversaciones, lectura, escritura, …): procesamiento secuencial palabra por palabra
+<ol>
+<li><strong>Sintaxis:</strong> vocabulario, orden y estructura gramatical</li>
+<li><strong>Semántica:</strong> significado (conceptualización)</li>
+<li><strong>Contexto:</strong> almacenar información combinando palabras previas y actuales</li>
+<li><strong>Respuesta</strong> a partir del contexto final</li>
+</ol>
+</li>
+<li>Flujo del cerebro humano: entrada → palabra por palabra → análisis sintáctico → análisis semántico → contexto → salida</li>
+<li>Comprender en detalle la secuencia de entrada para generar la mejor respuesta</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> longitud variable · <em>timesteps</em> · dependencias · series temporales · PLN · conceptualización · n-gramas · <em>embeddings</em> · sintaxis/semántica/contexto<br />
+<strong>Actividad en clase:</strong> analizar una oración en los tres niveles (sintaxis, semántica, contexto) y comparar la predicción de un modelo de n-gramas frente a la de un modelo con <em>embeddings</em>.</p>
+<hr />
+<h3 id="leccion-16-rnn-seq2seq-y-sus-limitaciones">Lección 16 — RNN, seq2seq y sus limitaciones<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 67–69 · <strong>Duración:</strong> 45 min<br />
+<strong>Pregunta guía:</strong> ¿Cómo procesa una RNN una secuencia y por qué su forma de hacerlo terminó siendo un obstáculo?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>Red Neuronal Recurrente (RNN)</strong></p>
+<ul>
+<li>Entrada de longitud variable: redes neuronales repetidas (unidades recurrentes)</li>
+<li>Orden: <em>timesteps</em></li>
+<li>Correlación y dependencia: la salida de la capa oculta se convierte en entrada en el siguiente <em>timestep</em></li>
+<li>Ecuación: h(t) = Ux(t) + Wh(t−1) + b</li>
+<li>Contexto: el vector h se actualiza repetidamente en cada <em>timestep</em></li>
+</ul>
+</li>
+<li>
+<p><strong>Seq2seq con RNN</strong></p>
+<ul>
+<li>La entrada y la salida son secuencias</li>
+<li>Problemas de longitud variable (de n a m)</li>
+<li>Arquitectura <strong>encoder-decoder</strong>:
+<ul>
+<li><em>Encoder</em>: lee secuencialmente la entrada, una palabra a la vez</li>
+<li>Vector de contexto: representa el significado de cada palabra y frase</li>
+<li><em>Decoder</em>: produce la salida a partir del contexto (una palabra a la vez)</li>
+</ul>
+</li>
+<li>Objetivo: aprender a capturar la estructura y el significado de una oración para generar una respuesta</li>
+</ul>
+</li>
+<li>
+<p><strong>Limitaciones de las RNN</strong></p>
+<ul>
+<li>
+<ol>
+<li><strong>Cuello de botella del contexto:</strong> toda la información debe comprimirse en un vector de contexto</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li><strong>Secuencialidad: lento:</strong> no puede paralelizarse, depende del paso anterior</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li><strong>Falta de memoria:</strong> dificultad para retener dependencias largas (desvanecimiento del gradiente)</li>
+</ol>
+</li>
+<li>Las RNN tratan las secuencias secuencialmente; parece obvio y óptimo, pero <strong>los Transformers demostraron que no lo es</strong>
+<ul>
+<li><em>Attention</em>: un mejor contexto</li>
+<li><em>Transformer</em>: paralelización y memoria larga</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> unidad recurrente · estado oculto · <em>timestep</em> · dependencia secuencial · encoder-decoder · vector de contexto · cuello de botella · desvanecimiento del gradiente · paralelización<br />
+<strong>Actividad en clase:</strong> trazar el flujo de una RNN sobre una frase de 6 palabras y señalar en qué punto se pierde la información del inicio; contrastar con el esquema de atención.</p>
+<hr />
+<h3 id="leccion-17-el-transformer-i-embeddings-codificacion-posicional-y-atencion">Lección 17 — El Transformer I: embeddings, codificación posicional y atención<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 70–74 · <strong>Duración:</strong> 55 min<br />
+<strong>Pregunta guía:</strong> ¿Cómo representa el Transformer el significado, el orden y el contexto de las palabras sin recurrencia?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>Origen y cambio de paradigma</strong></p>
+<ul>
+<li>Google (2017): «Attention is All You Need»</li>
+<li>Reemplazó las RNN por procesamiento en paralelo</li>
+<li>Objetivo inicial: una forma más efectiva de traducir texto</li>
+</ul>
+</li>
+<li>
+<p><strong>Arquitectura del Transformer (vista vertical)</strong></p>
+<ul>
+<li><em>Encoder-decoder</em>: analizar la oración para extraer significado/contexto y generar texto secuencialmente</li>
+<li>Predecir la palabra siguiente más probable en una secuencia</li>
+<li>N bloques apilados: cada uno no reemplaza el conocimiento previo, sino que lo enriquece progresivamente</li>
+<li>Pasos preliminares esenciales para la entrada: tokenización, <em>embeddings</em> y <strong>codificación posicional</strong> (el orden de las palabras)</li>
+</ul>
+</li>
+<li>
+<p><strong>Embeddings: ¿cómo representar cada palabra numéricamente sin perder su significado?</strong></p>
+<ul>
+<li>Vocabulario: corpus de palabras</li>
+<li>Las redes neuronales necesitan números, no palabras</li>
+<li><em>Pipeline</em> estándar S-T-I-E: estandarización → tokenización (palabras a <em>tokens</em>) → indexación (<em>one-hot vector</em>) → entrenamiento (Word2Vec) → <em>embeddings</em></li>
+</ul>
+</li>
+<li>
+<p><strong>Codificación posicional: ¿en qué posición aparece cada palabra?</strong></p>
+<ul>
+<li>El orden de las palabras es necesario para el significado de las oraciones</li>
+<li>La tokenización pierde el orden</li>
+<li>El Transformer procesa todas las palabras en paralelo</li>
+<li>Alternativas descartadas: números enteros, normalización, <em>one-hot encoding</em>; solución: <em>embedding</em> de posiciones</li>
+<li><strong>Funciones seno y coseno:</strong> salida en [−1, 1] (normalizada); no requiere entrenamiento; posiciones pares (seno) e impares (coseno); vector único para cada posición</li>
+<li>Variables: L (longitud de la secuencia de entrada), k (posición del objeto, 0 ≤ k &lt; L/2), d (dimensión del espacio de embedding de salida), n (escalar definido por el usuario, 10000 en el artículo original), i (mapea a seno y coseno, 0 ≤ i &lt; d/2)</li>
+<li>Fórmulas: P(k, 2i) = sin(k / n^(2i/d)) y P(k, 2i+1) = cos(k / n^(2i/d))</li>
+</ul>
+</li>
+<li>
+<p><strong>Mecanismo de atención: ¿qué otras palabras se necesitan para entender esta?</strong></p>
+<ul>
+<li>Componente clave de los Transformers</li>
+<li>Imita la forma en que los humanos nos enfocamos selectivamente</li>
+<li>Determina qué palabras son más relevantes respecto de otras en la secuencia</li>
+<li><strong>Matriz de atención:</strong> puntajes de importancia relativa entre palabras (ejemplo: «The blues band played their best songs»)</li>
+<li><strong>Embeddings contextualizados:</strong> combinación lineal (suma ponderada de vectores); nueva representación por palabra informada por todo el contexto; relaciones globales, no solo por proximidad; ventana de contexto (máximo de <em>tokens</em>)</li>
+<li>Ejemplo numérico: <em>band</em> = 0.08(The) + 0.15(blues) + 0.25(band) + 0.12(played) + 0.10(their) + 0.12(best) + 0.18(songs); el <em>embedding</em> de «band» contiene ahora información de toda la oración</li>
+<li><strong>Extractor de características relacionales:</strong> <em>self-attention</em> y <em>cross-attention</em> (contexto externo)</li>
+</ul>
+</li>
+<li>
+<p><strong>Implementación de la atención: interacción entre tokens</strong></p>
+<ul>
+<li>Problema de búsqueda: ¿a qué partes atender? (similar a las bases de datos relacionales)</li>
+<li>
+<ol>
+<li><strong>Vectores Query-Key-Value por token:</strong> Q = lo que el <em>token</em> «busca»; K = la información que otros <em>tokens</em> «ofrecen»; V = el contenido real a extraer; Q = XW_Q, K = XW_K, V = XW_V</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li><strong>Puntaje de similitud:</strong> producto punto (Q, K)</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li><strong>Normalización:</strong> <em>softmax</em> (pesos de atención)</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li><strong>Multiplicar por V</strong> para producir una suma ponderada: representación contextual de la entrada; zᵢ = Σⱼ αᵢⱼ vⱼ</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li><strong>Multi-head:</strong> varios niveles de atención (sintaxis gramatical, género, plural o singular, etc.)</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> «Attention is All You Need» · encoder-decoder · bloques apilados · tokenización · Word2Vec · S-T-I-E · codificación posicional seno/coseno · matriz de atención · <em>self/cross-attention</em> · Q/K/V · producto punto · softmax · <em>multi-head</em><br />
+<strong>Actividad en clase:</strong> calcular una matriz de atención simplificada de 4×4 y explicar el cambio de significado de «band»/«banco» según el contexto; graficar la codificación posicional.</p>
+<hr />
+<h3 id="leccion-18-el-transformer-ii-ffn-conexiones-residuales-normalizacion-entrenamiento-y-variantes">Lección 18 — El Transformer II: FFN, conexiones residuales, normalización, entrenamiento y variantes<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 75–79 · <strong>Duración:</strong> 55 min<br />
+<strong>Pregunta guía:</strong> ¿Qué completa un bloque del Transformer y cómo se entrena hasta convertirse en un modelo generador?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>Red Feed-Forward (FFN): el motor del Transformer</strong></p>
+<ul>
+<li>La atención produce combinaciones ponderadas de representaciones básicas</li>
+<li>¿Cómo transformar esa información contextual en una representación más rica?</li>
+<li>MLP + función no lineal: FFN(z) = W₂σ(W₁z + b₁) + b₂, con σ = ReLU o GELU</li>
+<li>Funcionamiento: la primera capa lineal mezcla todas las dimensiones creando nuevas combinaciones; cada neurona representa una combinación distinta; la no linealidad activa o inhibe combinaciones; la segunda capa recombina las activaciones; resultado: una representación nueva, más abstracta y útil</li>
+<li><em>Position-wise</em>: la misma FFN se aplica independientemente a cada <em>embedding</em></li>
+<li>Reparto de roles: <strong>la atención aporta el contexto; la FFN lo «interpreta»</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Conexiones residuales: más que solo evitar el desvanecimiento del gradiente</strong></p>
+<ul>
+<li>¿Por qué es esencial conservar toda la información previa? Es más fácil aprender una corrección que una representación completamente nueva</li>
+<li>Las capas de atención y FFN: producen un pequeño desplazamiento (<em>offset</em>); no sobrescriben la representación previa; preservan la información mientras agregan información nueva</li>
+<li>Formulación: la atención no reemplaza al <em>embedding</em>: x′ = x + Attention(x), geométricamente x′ = x + Δx con Δx = Attention(x)</li>
+<li>La FFN tampoco reemplaza al <em>embedding</em>: y = x′ + FFN(x′), con Δy = FFN(x′)</li>
+<li><strong>Add &amp; Norm:</strong> la información original nunca se pierde; el entrenamiento se mantiene estable; se aplica dos veces por bloque, lo que permite entrenar pilas más profundas</li>
+</ul>
+</li>
+<li>
+<p><strong>Resumen: interpretación del aprendizaje de representaciones</strong> (tabla componente → función → salida → ejemplo)</p>
+<ul>
+<li><em>Input Embedding</em>: los <em>tokens</em> se convierten en un vector que refleja su significado léxico básico; ejemplo: «The bank collapsed yesterday», <em>embedding</em> ambiguo de «bank»</li>
+<li><em>Positional Encoding</em>: agrega información de posición a cada <em>token</em>; distinción entre «dog bites man» y «man bites dog»</li>
+<li><strong>Attention</strong>: combina la información de los <em>tokens</em> mediante una suma ponderada para establecer el contexto de cada <em>embedding</em>; «bank» captura información que refuerza el significado de «institución financiera»</li>
+<li><strong>FFN</strong>: aplica una función no lineal para crear nuevas características y transformar la representación; se refuerzan las características de una institución financiera en crisis, minimizando otras interpretaciones</li>
+<li><strong>Conexión residual</strong>: conserva la representación previa y agrega solo los cambios necesarios; el significado básico de «bank» se retiene y solo se añade información contextual</li>
+<li><strong>Layer Norm</strong>: estabiliza las distribuciones (media y varianza) y facilita el flujo del gradiente; <em>embedding</em> normalizado para el siguiente bloque; evita incrementos o decrementos excesivos entre capas</li>
+</ul>
+</li>
+<li>
+<p><strong>Entrenamiento: aprender a predecir el siguiente <em>token</em></strong></p>
+<ul>
+<li>Datasets masivos (secuencias de entrada/salida)</li>
+<li>Estado inicial: una enorme pila de números aleatorios (los parámetros no saben nada de lenguaje)</li>
+<li><strong>Forward-propagation:</strong> el <em>encoder</em> convierte la entrada en vectores de contexto; el <em>decoder</em> genera un <em>token</em> cada vez; y₀ = <em>token</em> <code>&lt;start&gt;</code>; <em>self-attention</em> + <em>encoder attention</em> (<em>cross</em>); FFN + (Add &amp; Norm); capa lineal (<em>logits</em>) + <em>softmax</em>: el vector se convierte en palabra; predicción autoregresiva</li>
+<li><strong>Error:</strong> función de pérdida (usualmente entropía cruzada)</li>
+<li><strong>Actualización de parámetros</strong> (retropropagación)</li>
+<li><strong>Número de parámetros:</strong> <em>embeddings</em> (5–15 %), matrices Q/K/V (10–20 %), FFN (60–80 %)</li>
+<li>Múltiples <em>encoders</em> y <em>decoders</em> apilados</li>
+</ul>
+</li>
+<li>
+<p><strong>Variantes del Transformer</strong></p>
+<ul>
+<li><em>Decoder-only</em>: predice el siguiente <em>token</em>; bueno para generar texto con <em>prompts</em></li>
+<li><em>Encoder-only</em>: rellena <em>tokens</em> enmascarados; bueno para analizar texto, pero no genera texto</li>
+<li><em>Encoder-decoder</em>: bueno para analizar texto y moderadamente bueno para generarlo</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> FFN · GELU/ReLU · <em>position-wise</em> · conexión residual · Add &amp; Norm · <em>layer normalization</em> · predicción autoregresiva · <em>logits</em> · entropía cruzada · reparto de parámetros · arquitecturas <em>encoder-only</em>/<em>decoder-only</em>/<em>encoder-decoder</em><br />
+<strong>Actividad en clase:</strong> diagramar un bloque completo del Transformer (atención → Add &amp; Norm → FFN → Add &amp; Norm) y explicar el rol de cada componente; estimar el reparto de parámetros de un modelo conocido.</p>
+<hr />
+<h3 id="leccion-19-llm-lrm-y-mllm-modelos-de-lenguaje-razonamiento-y-multimodalidad">Lección 19 — LLM, LRM y MLLM: modelos de lenguaje, razonamiento y multimodalidad<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 80–84 · <strong>Duración:</strong> 55 min<br />
+<strong>Pregunta guía:</strong> ¿Cómo se pasa de un Transformer preentrenado a un asistente alineado, a un modelo que razona y a uno que percibe el mundo?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>LLM: Large Language Models</strong></p>
+<ul>
+<li>2018: OpenAI lanza el primer GPT (<em>Generative Pretrained Transformer</em>)</li>
+<li><strong>Pre-entrenamiento:</strong> una sola tarea, la predicción del siguiente <em>token</em>; aprendizaje auto-supervisado sobre grandes cantidades de texto; el LLM aprende patrones sobre el lenguaje, estilos de escritura y conocimiento general; <strong>modelos fundacionales</strong>: GPT-2, GPT-3, …, GPT-6</li>
+<li>¿Cómo usar estos modelos para tareas específicas? Chat, traducción, resumen, clasificación, Q/A, …</li>
+<li><strong><em>Zero/Few-shot learning</em>:</strong> condicionar el modelo con «descripción de la tarea + ejemplos»</li>
+<li><strong>Post-entrenamiento (alineación de un modelo preentrenado a una tarea específica):</strong>
+<ul>
+<li><strong><em>Fine-Tuning</em>:</strong> supervisado con datasets especializados de alta calidad, pero tiende a memorizar (<em>overfitting</em>)</li>
+<li><strong>RLHF</strong> (<em>Reinforcement Learning with Human Feedback</em>): preferencias humanas para clasificar las salidas; modelo de recompensa; PPO/GRPO; mejor generalización ante nuevos <em>prompts</em></li>
+<li><em>Supervised Fine Tuning</em>: dataset con pares de <em>prompts</em> y respuestas humanas (por ejemplo, una tarea de Q&amp;A)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>LLM: aplicación</strong></p>
+<ul>
+<li>Una vez terminado el entrenamiento del modelo original con RLHF y un modelo de recompensa, se obtiene el modelo final, entrenado y alineado a como las personas realmente quieren usarlo</li>
+<li>Lanzamiento de ChatGPT (noviembre de 2022); los usuarios interactúan con los LLM en conversaciones</li>
+<li><strong>GPT-3.5 <em>instruction-tuned</em>:</strong> ajustado para seguir instrucciones; formato de diálogo; RLHF; respuestas <strong>útiles, inofensivas y sensatas</strong> (<em>helpful, harmless, and sensible</em>)</li>
+<li>Respuestas genéricas a preguntas genéricas</li>
+<li><strong>Prompt Engineering: Software 3.0</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>LRM: Reasoning in Large Language Models</strong></p>
+<ul>
+<li>Responder a problemas difíciles: «pensar» antes de responder, descomponiendo el problema en múltiples pasos pequeños</li>
+<li>La predicción de la siguiente palabra puede formar parte del proceso de resolución del problema</li>
+<li>Los LLM no son del todo fiables en cálculos matemáticos: el problema debe resolverse y responderse en un único <em>forward pass</em> por el modelo</li>
+<li><strong>De LLM a LRM:</strong>
+<ol>
+<li><strong>Chain-of-Thought manual:</strong> el usuario fuerza al modelo a razonar con «piensa paso a paso» en la entrada; se agregan ejemplos demostrativos (<em>few-shot CoT</em>); un mal paso produce una dirección equivocada</li>
+<li><strong><em>Supervised fine-tuning</em> (SFT):</strong> ejemplos de razonamiento «correcto» escritos por humanos; el comportamiento puede verse menos «natural» o más «guionizado»; el SFT memoriza</li>
+<li><strong>Razonamiento nativo (modelos de pensamiento, <em>thinking models</em>):</strong> el modelo aprende la capacidad de autorreflexión (sobre sus propios pensamientos); <em>Reinforcement Learning</em> para premiar las estrategias que tienen éxito (el RL generaliza); cómputo en tiempo de prueba (<em>test-time compute</em>, inferencia): el costo del pensamiento en tiempo y <em>tokens</em></li>
+</ol>
+</li>
+<li>Efecto: el LRM descompone el problema en pasos más pequeños, lo que genera más <em>tokens</em>, más tiempo para pensar y mayor probabilidad de acertar</li>
+</ul>
+</li>
+<li>
+<p><strong>MLLM: Multimodal Large Language Models</strong></p>
+<ul>
+<li><strong>Convergencia:</strong> adaptar y usar la arquitectura del Transformer en todas partes; lo que cambia son los detalles de los datos, el <em>chunking</em> y cómo se alimentan</li>
+<li>Dominios convergentes: visión por computador, PLN, aprendizaje por refuerzo, habla (<em>speech</em>), traducción, grafos/ciencia</li>
+<li><strong>Cómo la IA aprendió a ver, oír y hablar</strong>
+<ul>
+<li>Los LLM procesan <em>embeddings</em> de texto (significado y contexto)</li>
+<li>La percepción del mundo real: imágenes, sonido, video</li>
+<li><strong>Arquitectura del «paradigma multimodal»:</strong>
+<ul>
+<li>LLM: el cerebro central</li>
+<li>Codificador de modalidad (sentidos artificiales): convierte audio, imágenes o video crudos en <em>embeddings</em></li>
+<li>Conectores: traducen el <em>embedding</em> crudo al <em>embedding</em> de texto</li>
+<li>Generadores: traducen a la inversa (píxeles, ondas de sonido, fotogramas de video)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Entrenamiento en 3 etapas:</strong>
+<ol>
+<li>Pre-entrenamiento (alineación semántica): pares (texto, imagen/audio) → <em>embeddings</em> idénticos</li>
+<li>Alineación por instrucciones: seguir órdenes específicas</li>
+<li>Optimización de respuestas: mediante retroalimentación humana</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> GPT · modelo fundacional · auto-supervisión · <em>zero/few-shot</em> · <em>fine-tuning</em> · RLHF · modelo de recompensa · PPO/GRPO · <em>instruction tuning</em> · Software 3.0 · Chain-of-Thought · <em>thinking models</em> · <em>test-time compute</em> · MLLM · codificador de modalidad · conectores · generadores · alineación semántica<br />
+<strong>Actividad en clase:</strong> comparar LLM, LRM y MLLM en una tabla (entrada, salida, entrenamiento, capacidades y límites) y proponer una aplicación multimodal con su pipeline de 3 etapas.</p>
+<hr />
+<h3 id="leccion-20-de-los-llm-a-los-agentes-infraestructura-autonomia-y-soluciones-de-automatizacion">Lección 20 — De los LLM a los agentes: infraestructura, autonomía y soluciones de automatización<a class="back" href="#indice" title="Volver al índice">&#8593;</a></h3>
+<p><strong>Diapositivas:</strong> 85–88 · <strong>Duración:</strong> 55 min<br />
+<strong>Pregunta guía:</strong> ¿Qué convierte a un chatbot en un agente y cómo se diseña la infraestructura de un agente autónomo?</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li>
+<p><strong>De conversar con la IA a delegar en la IA</strong></p>
+<ul>
+<li><strong>Chatbot:</strong> pregunta → respuesta (reactivo, a petición humana, manual)</li>
+<li><strong>Agente:</strong> objetivo → resultado (iterativo, con autonomía)</li>
+<li>A esta altura, seguramente ya has interactuado con un agente de IA</li>
+<li><strong>¿Cómo actúan los agentes? Ciclo ReAct:</strong>
+<ul>
+<li><strong>Think:</strong> el LLM planifica y decide qué herramienta usar</li>
+<li><strong>Act:</strong> ejecuta una herramienta</li>
+<li><strong>Observe:</strong> lee el contexto y el resultado previo, y repite hasta alcanzar el objetivo</li>
+</ul>
+</li>
+<li><strong>¿Cuándo usar «agencia»?</strong> cuando la intervención humana (<em>human-in-the-loop</em>) es nula o muy baja; para trabajo complejo, más que solo inteligencia; actuar con autonomía para lograr un objetivo; tomar decisiones sobre qué hacer a continuación; adaptarse a lo que se encuentre en el camino</li>
+</ul>
+</li>
+<li>
+<p><strong>Infraestructura para agentes de IA</strong></p>
+<ul>
+<li><strong>Definición de agente:</strong> un sistema computacional que usa IA para perseguir objetivos y completar tareas en nombre de los usuarios</li>
+<li><strong>1) LLM:</strong> el motor de inteligencia (cerebro) que impulsa el razonamiento y la toma de decisiones</li>
+<li><strong>2) Herramientas (<em>tools</em>):</strong> interfaces para interactuar con sistemas externos y ejecutar acciones</li>
+<li><strong>3) Memoria:</strong> almacenar y recuperar información (contexto, interacciones pasadas, conocimiento aprendido)</li>
+<li><strong>4) Ingeniería de contexto (<em>context engineering</em>):</strong> progresión de la ingeniería de <em>prompts</em>; el contexto es la entrada del LLM; la información correcta, en el formato correcto, en el momento correcto para cumplir una tarea; describir herramientas, acceso a memoria y base de conocimiento; el manual de instrucciones del agente</li>
+<li><strong>5) Guardrails:</strong> mecanismos de seguridad</li>
+</ul>
+</li>
+<li>
+<p><strong>Evolución de la autonomía (taxonomía de los sistemas de IA)</strong></p>
+<ul>
+<li><strong>Automatización de flujos de trabajo:</strong> autonomía nula; <em>human-in-the-loop</em> total; sin inteligencia ni agencia; entrada = procedimiento predefinido; método «ejecutar proceso»; <em>prompt</em>: «Do this»</li>
+<li><strong>Automatización inteligente de flujos:</strong> autonomía baja; intervención alta/media; con inteligencia (√), sin agencia; entrada = reglas + IA; método «ejecutar proceso»; <em>prompt</em>: «Help me do this»</li>
+<li><strong>Asistente inteligente:</strong> autonomía media; intervención media/baja; reglas + IA; entrada = usuario + proceso; <em>prompt</em>: «Help me do this»</li>
+<li><strong>Agente:</strong> autonomía alta/total; intervención nula o muy baja; inteligencia (√) y agencia (√); entrada = objetivo; maneja su propio proceso; <em>prompt</em>: «Solve this»</li>
+<li><strong>Multi-agente:</strong> igual que el agente, con varios agentes colaborando</li>
+<li><strong>Ejemplos:</strong> selección óptima de sitio con criterios usando GIS; redacción de cartas y correos; creador de diagramas que sigue instrucciones; generador de informes oficiales; planificador de actividades; agente de viajes; asistente de pago de impuestos; generador de código (apps/sitios web); diseñador de proyectos de investigación; revisor de artículos científicos; asistente de uso de la computadora; vehículo autónomo; agentes de investigación; agente de servicio al cliente; asistente de ventas para calificar y dar seguimiento; agente de programación; …</li>
+</ul>
+</li>
+<li>
+<p><strong>Soluciones de automatización: comparación de herramientas</strong></p>
+<ul>
+<li><strong>Código:</strong> plataforma local/nube; con ayuda de IA (√); agencia manual; <em>human-in-the-loop</em> alto; tipo desarrollo; ejemplos: Python</li>
+<li><strong>IDE:</strong> local/nube; con ayuda de IA (√); agencia manual; intervención media/alta; tipo desarrollo y <em>runtime</em>; ejemplos: VS Code, RStudio</li>
+<li><strong>Plataformas visuales <em>No-Code</em>:</strong> local/nube; con ayuda de IA (√); agencia opcional; intervención nula/baja; uso: automatización de flujos; tipo <em>drag &amp; drop</em> y <em>runtime</em>; ejemplos: n8n, Make, Manus, Google AI Studio, CrewAI Studio</li>
+<li><strong>Espacios de trabajo de chat modernos:</strong> local/nube; con ayuda de IA (√); agencia integrada; intervención baja/media; uso: soluciones rápidas; tipo <em>runtime</em>; ejemplos: Chatwork, Claude Cowork</li>
+<li><strong>Entorno de desarrollo agéntico (ADE):</strong> local; con ayuda de IA (√); agencia nativa (integración nativa); intervención nula/baja; uso: desarrollo de software; tipo desarrollo; ejemplos: Cursor, Copilot CLI, Codex CLI, Antigravity, Warp Code, CrewAI CLI, LangGraph</li>
+</ul>
+</li>
+<li>
+<p><strong>Reto integrador de cierre</strong></p>
+<ul>
+<li>«¿Cómo implementar esta tarea?»: <strong>«Cada día a las 7 a. m., resume mis correos no leídos, revisa mi calendario y construye una lista de tareas priorizada»</strong></li>
+<li>Diseño esperado: identificar herramientas (correo, calendario, generación de texto), memoria, planificación, disparador temporal (<em>scheduler</em>), ingeniería de contexto, guardrails y puntos de supervisión humana</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conceptos clave:</strong> chatbot vs. agente · ciclo ReAct (Think-Act-Observe) · autonomía · LLM como cerebro · herramientas · memoria · <em>context engineering</em> · guardrails · taxonomía de autonomía · multi-agente · <em>no-code</em> · ADE<br />
+<strong>Actividad en clase (cierre del curso):</strong> en equipos, diseñar la arquitectura del agente del reto final (diagrama de componentes + ciclo ReAct + herramientas + guardrails + <em>human-in-the-loop</em>) y exponerla; comparar la solución elegida (código, <em>no-code</em> o ADE) con las demás.</p>
+<hr />
+<h2 id="anexos">Anexos</h2>
+<h3 id="b-rubrica-sugerida-para-la-exposicion-100-puntos">A. Rúbrica sugerida para la exposición (100 puntos)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Descripción</th>
+<th>Puntos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cobertura del contenido</td>
+<td>Se exponen todos los temas y subtemas de la lección, sin omitir ideas centrales</td>
+<td>25</td>
+</tr>
+<tr>
+<td>Rigor conceptual</td>
+<td>Definiciones, fórmulas y terminología correctas; distinción entre conceptos vecinos</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Organización y secuencia</td>
+<td>Hilo lógico, transiciones claras, uso adecuado de las diapositivas de origen</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Ejemplos y analogías</td>
+<td>Ejemplos propios o del mundo real que aclaran el concepto</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Recursos de apoyo</td>
+<td>Diagramas, esquemas o demostraciones propias (pizarra, Colab, simuladores)</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Participación y preguntas</td>
+<td>Capacidad de responder preguntas y de guiar la discusión del aula</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Tiempo y comunicación</td>
+<td>Ajuste al tiempo asignado; claridad, volumen y lenguaje corporal</td>
+<td>5</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="c-recomendaciones-didacticas-generales">B. Recomendaciones didácticas generales</h3>
+<ul>
+<li><strong>Orden recomendado:</strong> respetar la secuencia de los 5 bloques; las lecciones 8–11 (ANN) y 17–18 (Transformer) son prerrequisito conceptual de las lecciones 19–20.</li>
+<li><strong>Demostraciones sugeridas:</strong> problema XOR (lección 8), conteo de parámetros de un MLP (10), curva de pérdida y <em>learning rate</em> (11), convolución manual y mapas de características (13–14), matriz de atención (17), reto del agente de las 7 a. m. (20).</li>
+<li><strong>Herramientas:</strong> Google Colab con TensorFlow/Keras para las demostraciones de ML y DL; pizarra para las derivaciones y los cálculos manuales.</li>
+<li><strong>Evaluación:</strong> combinar la rúbrica de exposición con un breve cuestionario escrito por bloque (5 bloques) y un producto final: el diseño del agente de la lección 20.</li>
+<li><strong>Glosario colaborativo:</strong> cada estudiante aporta 5 términos de su lección (español–inglés) para construir un glosario único del curso.</li>
+</ul>
+
+</main>
+</div>
+<footer>
+  Documento generado a partir del análisis de «Deep Learning: The Current Trend in Machine Learning &amp; Artificial Intelligence», 2026.
+  Los términos técnicos se conservan en su forma original en inglés.
+</footer>
+</body>
+</html>
