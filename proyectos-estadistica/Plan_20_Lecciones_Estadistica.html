@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan de 20 Lecciones — Estadística y Machine Learning | FIGEMPA-UCE</title>
+<meta name="author" content="Dr. Christian Mejía E., Ph.D.">
+<meta name="description" content="Plan de 20 lecciones de la asignatura Estadística y Probabilidades (4 unidades): temas, subtemas, tiempos de exposición y demostración sobre los proyectos publicados.">
+<style>:root{
+  --u1:#1f4e79; --u2:#1d7044; --u3:#8a4b0a; --u4:#6a2c8f;
+  --ink:#1b1f24; --muted:#5b6570; --line:#dfe4ea; --bg:#f6f8fa;
+  --card:#ffffff; --accent:#1f4e79;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.65;
+}
+header.doc{
+  background:linear-gradient(135deg,#1f4e79 0%,#2e6da4 55%,#3d8bd4 100%);
+  color:#fff; padding:38px 28px 30px;
+}
+header.doc .wrap{max-width:1180px;margin:0 auto}
+header.doc h1{margin:0 0 10px; font-size:1.95rem; line-height:1.25; letter-spacing:.2px}
+header.doc .meta{margin:0; font-size:.95rem; opacity:.95}
+header.doc .meta strong{font-weight:600}
+header.doc .badges{margin-top:16px; display:flex; flex-wrap:wrap; gap:10px}
+header.doc .badge{
+  background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35);
+  padding:6px 13px; border-radius:20px; font-size:.85rem; font-weight:600;
+}
+header.doc .badge a{color:#fff; text-decoration:none; border-bottom:1px dotted rgba(255,255,255,.7)}
+.layout{max-width:1180px; margin:26px auto 60px; padding:0 22px; display:grid;
+  grid-template-columns:290px minmax(0,1fr); gap:28px; align-items:start}
+nav#toc{
+  position:sticky; top:20px; max-height:calc(100vh - 40px); overflow-y:auto;
+  background:var(--card); border:1px solid var(--line); border-radius:12px;
+  padding:16px 16px 20px; font-size:.875rem; box-shadow:0 1px 3px rgba(16,24,40,.06);
+}
+nav#toc .toc-title{margin:0 0 10px; font-size:.78rem; text-transform:uppercase;
+  letter-spacing:.09em; color:var(--muted); font-weight:700}
+nav#toc ol{list-style:none; margin:0; padding:0}
+nav#toc li{margin:1px 0}
+nav#toc a{color:var(--ink); text-decoration:none; display:block; padding:4px 8px;
+  border-radius:6px; border-left:3px solid transparent; line-height:1.35}
+nav#toc a:hover{background:#eef4fb; color:var(--accent)}
+li.toc-h2>a{font-weight:700; color:var(--accent); margin-top:7px}
+ol.toc-sub{margin:2px 0 8px 10px !important; border-left:1px solid var(--line); padding-left:4px !important}
+li.toc-h3>a{font-weight:600; font-size:.845rem}
+li.toc-h4>a{font-size:.81rem; color:var(--muted); padding-left:14px}
+main{background:var(--card); border:1px solid var(--line); border-radius:12px;
+  padding:34px 40px 44px; box-shadow:0 1px 3px rgba(16,24,40,.06); min-width:0}
+main h2{margin:2.1em 0 .7em; font-size:1.42rem; padding-bottom:.32em;
+  border-bottom:2px solid var(--accent); color:var(--accent)}
+main h2:first-of-type{margin-top:0}
+main h3{font-size:1.16rem; margin:1.9em 0 .6em; padding:9px 14px; border-radius:8px;
+  background:#eef3f8; border-left:5px solid var(--accent); color:#16324d}
+main h3.unit{margin:2.4em 0 .9em; font-size:1.24rem; color:#fff; border:none;
+  padding:12px 18px; letter-spacing:.3px}
+main h3.u1{background:var(--u1)} main h3.u2{background:var(--u2)}
+main h3.u3{background:var(--u3)} main h3.u4{background:var(--u4)}
+main h4{font-size:1.045rem; margin:1.75em 0 .55em; padding:8px 0 8px 12px;
+  border-left:4px solid #b9c6d4; color:#16324d}
+main h4+p, main h4+ul, main h4+ol{margin-top:.3em}
+main p{margin:.62em 0}
+main ul,main ol{margin:.55em 0 .9em; padding-left:1.55em}
+main li{margin:.22em 0}
+main li>ul,main li>ol{margin:.25em 0 .35em}
+main strong{color:#12212f}
+main code{background:#eef2f6; border:1px solid #dde5ed; border-radius:4px;
+  padding:.08em .35em; font-family:"Cascadia Mono",Consolas,"Courier New",monospace;
+  font-size:.875em; color:#8a2d2d}
+main pre{background:#12212f; color:#e6edf3; padding:15px 18px; border-radius:10px;
+  overflow-x:auto; font-size:.84rem; line-height:1.5}
+main pre code{background:none; border:none; color:inherit; padding:0}
+main a{color:#0b62b0; text-decoration:none; border-bottom:1px solid rgba(11,98,176,.35)}
+main a:hover{border-bottom-color:#0b62b0; background:#eef4fb}
+main hr{border:none; border-top:1px solid var(--line); margin:2.1em 0}
+main blockquote{margin:1em 0; padding:.7em 1.1em; background:#f4f8fc;
+  border-left:4px solid #9dc0e0; border-radius:0 8px 8px 0; color:#33424f}
+table{border-collapse:collapse; width:100%; margin:1.1em 0; font-size:.9rem;
+  display:block; overflow-x:auto; white-space:normal}
+thead th{background:var(--accent); color:#fff; text-align:left; padding:9px 12px;
+  font-weight:600; border:1px solid #16405f; white-space:nowrap}
+tbody td{padding:8px 12px; border:1px solid var(--line); vertical-align:top}
+tbody tr:nth-child(even){background:#f7fafc}
+tbody tr:hover{background:#eef4fb}
+@media (max-width:940px){
+  .layout{grid-template-columns:1fr; gap:18px}
+  nav#toc{position:static; max-height:none}
+  main{padding:24px 20px 32px}
+  header.doc{padding:28px 20px 24px}
+  header.doc h1{font-size:1.5rem}
+}
+@media print{
+  body{background:#fff; font-size:11pt}
+  header.doc{background:#1f4e79 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; padding:18px}
+  nav#toc{display:none}
+  .layout{display:block; max-width:none; margin:0; padding:0}
+  main{border:none; box-shadow:none; padding:0; border-radius:0}
+  main h2{page-break-after:avoid; color:#1f4e79}
+  main h3,main h4{page-break-after:avoid}
+  main h3.unit{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  table{page-break-inside:avoid; font-size:9.5pt}
+  thead th{background:#1f4e79 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+  a{color:inherit; border:none}
+  main pre{background:#f2f4f7; color:#12212f; border:1px solid #ccd4dd}
+}
+</style>
+</head>
+<body>
+<header class="doc">
+  <div class="wrap">
+    <h1>Plan de 20 Lecciones — Curso de Estadística y Machine Learning</h1>
+    <p class="meta"><strong>Facultad de Ingeniería en Geología, Minas, Petróleos y Ambiental (FIGEMPA) — Universidad Central del Ecuador</strong><br>
+    <strong>Docente:</strong> Dr. Christian Mejía E., Ph.D. &nbsp;·&nbsp;
+    <strong>Asignatura:</strong> Estadística y Probabilidades &nbsp;·&nbsp;
+    <strong>Paralelos:</strong> Petróleos, Geología–Minas, Ambiental</p>
+    <div class="badges">
+      <span class="badge">20 lecciones</span>
+      <span class="badge">4 unidades</span>
+      <span class="badge">40 horas reloj</span>
+      <span class="badge">120 min por lección</span>
+      <span class="badge">50 % teoría / 50 % demostración</span>
+      <span class="badge"><a href="https://cimejia.github.io/proyectos-estadistica/" target="_blank" rel="noopener">Galería de proyectos</a></span>
+      <span class="badge">Generado el 07/10/2026</span>
+    </div>
+  </div>
+</header>
+<div class="layout">
+<nav id="toc" aria-label="Índice"><h2 class="toc-title">Índice</h2>
+<ol class="toc-list">
+<li class="toc-h2"><a href="#1-fundamentación-y-criterios-de-diseño">1. Fundamentación y criterios de diseño</a>
+</li>
+<li class="toc-h2"><a href="#2-resumen-general-de-las-20-lecciones">2. Resumen general de las 20 lecciones</a>
+</li>
+<li class="toc-h2"><a href="#3-desarrollo-detallado-de-las-lecciones">3. Desarrollo detallado de las lecciones</a>
+<ol class="toc-sub">
+<li class="toc-h3"><a href="#unidad-1-fundamentos-de-estadística-y-estadística-descriptiva">UNIDAD 1 — FUNDAMENTOS DE ESTADÍSTICA Y ESTADÍSTICA DESCRIPTIVA</a>
+<ol class="toc-sub">
+<li class="toc-h4"><a href="#lección-1-la-estadística-como-ciencia-de-los-datos-importancia-historia-definición-y-objetivos">Lección 1 — La Estadística como ciencia de los datos: importancia, historia, definición y objetivos</a>
+</li>
+<li class="toc-h4"><a href="#lección-2-metodología-estadística-y-elementos-básicos-población-individuo-y-muestra">Lección 2 — Metodología estadística y elementos básicos: población, individuo y muestra</a>
+</li>
+<li class="toc-h4"><a href="#lección-3-muestreo-probabilístico-y-su-aplicación-territorial-con-qgis">Lección 3 — Muestreo probabilístico y su aplicación territorial con QGIS</a>
+</li>
+<li class="toc-h4"><a href="#lección-4-la-variable-estadística-y-las-escalas-de-medición">Lección 4 — La variable estadística y las escalas de medición</a>
+</li>
+<li class="toc-h4"><a href="#lección-5-tablas-de-distribución-de-frecuencias-para-variables-cualitativas-discretas-y-continuas">Lección 5 — Tablas de distribución de frecuencias para variables cualitativas, discretas y continuas</a>
+</li>
+<li class="toc-h4"><a href="#lección-6-indicadores-descriptivos-posición-dispersión-y-forma">Lección 6 — Indicadores descriptivos: posición, dispersión y forma</a>
+</li>
+<li class="toc-h4"><a href="#lección-7-consolidación-de-la-estadística-descriptiva-y-exposición-del-proyecto-etapa-i">Lección 7 — Consolidación de la Estadística Descriptiva y exposición del proyecto (etapa I)</a>
+</li>
+</ol>
+</li>
+<li class="toc-h3"><a href="#unidad-2-estadística-inferencial">UNIDAD 2 — ESTADÍSTICA INFERENCIAL</a>
+<ol class="toc-sub">
+<li class="toc-h4"><a href="#lección-8-fundamentos-de-la-estadística-inferencial-y-teoría-de-la-probabilidad">Lección 8 — Fundamentos de la Estadística Inferencial y teoría de la probabilidad</a>
+</li>
+<li class="toc-h4"><a href="#lección-9-variables-aleatorias-y-modelos-de-probabilidad-discretos">Lección 9 — Variables aleatorias y modelos de probabilidad discretos</a>
+</li>
+<li class="toc-h4"><a href="#lección-10-modelos-de-probabilidad-continuos-y-su-ajuste-a-datos-reales">Lección 10 — Modelos de probabilidad continuos y su ajuste a datos reales</a>
+</li>
+<li class="toc-h4"><a href="#lección-11-estimación-de-parámetros-teorema-del-límite-central-e-intervalos-de-confianza">Lección 11 — Estimación de parámetros, Teorema del Límite Central e intervalos de confianza</a>
+</li>
+<li class="toc-h4"><a href="#lección-12-consolidación-de-la-estadística-inferencial-y-exposición-del-proyecto-etapa-ii">Lección 12 — Consolidación de la Estadística Inferencial y exposición del proyecto (etapa II)</a>
+</li>
+</ol>
+</li>
+<li class="toc-h3"><a href="#unidad-3-regresión-y-series-de-tiempo">UNIDAD 3 — REGRESIÓN Y SERIES DE TIEMPO</a>
+<ol class="toc-sub">
+<li class="toc-h4"><a href="#lección-13-relación-entre-variables-y-regresión-lineal-simple">Lección 13 — Relación entre variables y regresión lineal simple</a>
+</li>
+<li class="toc-h4"><a href="#lección-14-modelos-de-regresión-no-lineales">Lección 14 — Modelos de regresión no lineales</a>
+</li>
+<li class="toc-h4"><a href="#lección-15-regresión-lineal-múltiple-correlación-múltiple-restricciones-y-estimación">Lección 15 — Regresión lineal múltiple: correlación múltiple, restricciones y estimación</a>
+</li>
+<li class="toc-h4"><a href="#lección-16-series-de-tiempo-componentes-y-pronóstico">Lección 16 — Series de tiempo: componentes y pronóstico</a>
+</li>
+<li class="toc-h4"><a href="#lección-17-consolidación-de-la-regresión-y-exposición-del-proyecto-etapa-iii">Lección 17 — Consolidación de la Regresión y exposición del proyecto (etapa III)</a>
+</li>
+</ol>
+</li>
+<li class="toc-h3"><a href="#unidad-4-machine-learning">UNIDAD 4 — MACHINE LEARNING</a>
+<ol class="toc-sub">
+<li class="toc-h4"><a href="#lección-18-de-la-regresión-clásica-al-machine-learning-límites-motivación-e-historia">Lección 18 — De la regresión clásica al Machine Learning: límites, motivación e historia</a>
+</li>
+<li class="toc-h4"><a href="#lección-19-la-neurona-artificial-el-perceptrón-y-la-implementación-de-ml-en-python">Lección 19 — La neurona artificial, el perceptrón y la implementación de ML en Python</a>
+</li>
+<li class="toc-h4"><a href="#lección-20-entrenamiento-evaluación-y-predicción-de-una-red-neuronal">Lección 20 — Entrenamiento, evaluación y predicción de una red neuronal</a>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li class="toc-h2"><a href="#4-correspondencia-con-la-galería-de-proyectos-publicados">4. Correspondencia con la galería de proyectos publicados</a>
+</li>
+<li class="toc-h2"><a href="#5-secuencia-sugerida-y-carga-horaria">5. Secuencia sugerida y carga horaria</a>
+</li>
+</ol>
+</nav>
+<main>
+<p><strong>Facultad de Ingeniería en Geología, Minas, Petróleos y Ambiental (FIGEMPA) — Universidad Central del Ecuador</strong>
+<strong>Docente:</strong> Dr. Christian Mejía E., Ph.D.
+<strong>Asignatura:</strong> Estadística y Probabilidades (paralelos: Petróleos, Geología–Minas, Ambiental)
+<strong>Modalidad:</strong> Exposición estudiantil en clase, con parte demostrativa sobre los proyectos publicados en
+<a href="https://cimejia.github.io/proyectos-estadistica/">https://cimejia.github.io/proyectos-estadistica/</a></p>
+<hr />
+<h2 id="1-fundamentación-y-criterios-de-diseño">1. Fundamentación y criterios de diseño</h2>
+<p>Este plan se construyó a partir del análisis de la totalidad del material de la asignatura:</p>
+<table>
+<thead>
+<tr>
+<th>Documento fuente</th>
+<th>Contenido</th>
+<th>Págs.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Unidad1-Parte1.pdf</code></td>
+<td>Fundamentos de Estadística: generalidades, definición, clasificación, elementos básicos, metodología</td>
+<td>45</td>
+</tr>
+<tr>
+<td><code>Parte2-Unidad1.pdf</code></td>
+<td>Estadística Descriptiva: TDF, gráficas, indicadores de posición, dispersión y forma</td>
+<td>60</td>
+</tr>
+<tr>
+<td><code>Unidad2.pdf</code></td>
+<td>Estadística Inferencial: probabilidad, variables aleatorias, distribuciones, estimación</td>
+<td>95</td>
+</tr>
+<tr>
+<td><code>Unidad3.pdf</code></td>
+<td>Regresión y Series de Tiempo: relación entre variables, regresión simple/múltiple, pronóstico</td>
+<td>97</td>
+</tr>
+<tr>
+<td><code>Unidad4.pdf</code></td>
+<td>De la Regresión Clásica al Machine Learning: neurona, perceptrón, activaciones, gradiente</td>
+<td>30</td>
+</tr>
+<tr>
+<td><code>Clases.xlsx</code></td>
+<td>Programación semestral 2025-2026 de los tres paralelos (16 semanas × 2 clases)</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Distribución de las 20 lecciones por unidad</strong></p>
+<table>
+<thead>
+<tr>
+<th>Unidad</th>
+<th>Lecciones</th>
+<th>N.º</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unidad 1 — Fundamentos y Estadística Descriptiva</td>
+<td>L1–L7</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Unidad 2 — Estadística Inferencial</td>
+<td>L8–L12</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Unidad 3 — Regresión y Series de Tiempo</td>
+<td>L13–L17</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Unidad 4 — Machine Learning</td>
+<td>L18–L20</td>
+<td>3</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>20</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Convenciones de tiempo.</strong> Cada lección corresponde a <strong>2 horas reloj (120 minutos)</strong> de exposición.
+El bloque se descompone siempre en tres partes:</p>
+<ul>
+<li><strong>Teoría (50–70 min):</strong> desarrollo conceptual y matemático (en las tres lecciones de exposición —L7, L12 y
+L17— este bloque se reduce a 25 min de síntesis y plantilla).</li>
+<li><strong>Demostración (40–60 min, y 85 min en las lecciones de exposición):</strong> ejecución en vivo (R/RStudio, QGIS,
+Python/Google Colab) usando como caso de estudio uno de los proyectos publicados en la galería.</li>
+<li><strong>Cierre y evidencia (10 min):</strong> conclusiones, preguntas y entrega de la tarea de la lección.</li>
+</ul>
+<p>En total, <strong>2 400 minutos = 40 horas reloj</strong>, con una proporción global de <strong>50 % teoría / 50 % demostración
+y cierre</strong>, que refleja el carácter expositivo–demostrativo de la asignatura.</p>
+<p><strong>Trazabilidad con el proyecto semestral.</strong> Cada lección declara la <strong>sección del proyecto</strong> que tributa al
+sitio web del estudiante, de modo que las 20 exposiciones construyen de forma acumulativa el producto final
+(motivación → mapa → variables → descriptiva → inferencial → regresión → ML).</p>
+<hr />
+<h2 id="2-resumen-general-de-las-20-lecciones">2. Resumen general de las 20 lecciones</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">N.º</th>
+<th>Título de la lección</th>
+<th>Unidad</th>
+<th style="text-align:center">Tiempo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">L1</td>
+<td>La Estadística como ciencia de los datos: importancia, historia, definición y objetivos</td>
+<td>U1</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L2</td>
+<td>Metodología estadística y elementos básicos: población, individuo y muestra</td>
+<td>U1</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L3</td>
+<td>Muestreo probabilístico y su aplicación territorial con QGIS</td>
+<td>U1</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L4</td>
+<td>La variable estadística y las escalas de medición</td>
+<td>U1</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L5</td>
+<td>Tablas de distribución de frecuencias para variables cualitativas, discretas y continuas</td>
+<td>U1</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L6</td>
+<td>Indicadores descriptivos: posición, dispersión y forma</td>
+<td>U1</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L7</td>
+<td>Consolidación de la Estadística Descriptiva y exposición del proyecto (etapa I)</td>
+<td>U1</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L8</td>
+<td>Fundamentos de la Estadística Inferencial y teoría de la probabilidad</td>
+<td>U2</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L9</td>
+<td>Variables aleatorias y modelos de probabilidad discretos</td>
+<td>U2</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L10</td>
+<td>Modelos de probabilidad continuos y su ajuste a datos reales</td>
+<td>U2</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L11</td>
+<td>Estimación de parámetros, Teorema del Límite Central e intervalos de confianza</td>
+<td>U2</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L12</td>
+<td>Consolidación de la Estadística Inferencial y exposición del proyecto (etapa II)</td>
+<td>U2</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L13</td>
+<td>Relación entre variables y regresión lineal simple</td>
+<td>U3</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L14</td>
+<td>Modelos de regresión no lineales</td>
+<td>U3</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L15</td>
+<td>Regresión lineal múltiple: correlación múltiple, restricciones y estimación</td>
+<td>U3</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L16</td>
+<td>Series de tiempo: componentes y pronóstico</td>
+<td>U3</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L17</td>
+<td>Consolidación de la Regresión y exposición del proyecto (etapa III)</td>
+<td>U3</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L18</td>
+<td>De la regresión clásica al Machine Learning: límites, motivación e historia</td>
+<td>U4</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L19</td>
+<td>La neurona artificial, el perceptrón y la implementación de ML en Python</td>
+<td>U4</td>
+<td style="text-align:center">120 min</td>
+</tr>
+<tr>
+<td style="text-align:center">L20</td>
+<td>Entrenamiento, evaluación y predicción de una red neuronal</td>
+<td>U4</td>
+<td style="text-align:center">120 min</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-desarrollo-detallado-de-las-lecciones">3. Desarrollo detallado de las lecciones</h2>
+<hr />
+<h3 class="unit u1" id="unidad-1-fundamentos-de-estadística-y-estadística-descriptiva">UNIDAD 1 — FUNDAMENTOS DE ESTADÍSTICA Y ESTADÍSTICA DESCRIPTIVA</h3>
+<hr />
+<h4 id="lección-1-la-estadística-como-ciencia-de-los-datos-importancia-historia-definición-y-objetivos">Lección 1 — La Estadística como ciencia de los datos: importancia, historia, definición y objetivos</h4>
+<p><strong>Unidad:</strong> 1 · <strong>Tiempo de exposición:</strong> 120 min (teoría 70 · demostración 40 · cierre 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>Generalidades de la Estadística</strong> — 15 min
+<ul>
+<li>1.1. Importancia: la Estadística como &quot;ciencia de los datos&quot;; ciencia auxiliar y transversal.</li>
+<li>1.2. La Estadística como base para la toma de decisiones; del dato a la información.</li>
+<li>1.3. El ser humano y la naturaleza como generadores permanentes de datos (calcular, relacionar, estimar, pronosticar).</li>
+</ul>
+</li>
+<li><strong>Antecedentes históricos</strong> — 15 min
+<ul>
+<li>2.1. Prehistoria (3 000 000 – 3 500 a.C.): división del trabajo, ganadería, agricultura, cacería, ceremonias.</li>
+<li>2.2. Edad Antigua (3 500 a.C. – 476 d.C.): Mesopotamia, Egipto, China, Grecia y Roma; censos, catastros y registros.</li>
+<li>2.3. Edad Media (476 – 1453): Carlomagno, censos prehispánicos, los quipus incas.</li>
+<li>2.4. Edad Moderna (1453 – 1789): Graunt y Halley, la Aritmética Política, Achenwall, Pascal y Fermat.</li>
+<li>2.5. Edad Contemporánea (1789 – actualidad): Laplace, Gauss, Legendre, Gosset, Galton, Pearson, Chebyshev, Markov, Fisher, Tukey.</li>
+<li>2.6. Ramas emergentes: Geoestadística, Machine Learning y Data Science.</li>
+</ul>
+</li>
+<li><strong>Etimología</strong> — 10 min
+<ul>
+<li>3.1. Latín <em>status</em> ≡ estado o situación; griego <em>statera</em> ≡ balanza.</li>
+<li>3.2. Achenwall y la &quot;Ciencia de las cosas que pertenecen al Estado&quot;.</li>
+</ul>
+</li>
+<li><strong>Aplicaciones de la Estadística</strong> — 10 min
+<ul>
+<li>4.1. Gobierno, Economía, Educación, Ciencias de la Tierra y de la Vida.</li>
+<li>4.2. Ciencias Sociales, Salud y Medicina, Marketing, Ingeniería, TIC, Transporte y otros.</li>
+</ul>
+</li>
+<li><strong>Definición de Estadística</strong> — 10 min
+<ul>
+<li>5.1. Definición simple y definición detallada (recopilar, organizar, presentar, resumir, concluir, estimar y predecir).</li>
+</ul>
+</li>
+<li><strong>Clasificación y objetivos</strong> — 10 min
+<ul>
+<li>6.1. Estadística Descriptiva vs. Estadística Inferencial: alcance, diferencias y semejanzas (ejemplos contrastados).</li>
+<li>6.2. Objetivo general y objetivos específicos: describir la situación actual, inferir mediante un modelo de probabilidad, deducir relaciones entre variables.</li>
+<li>6.3. Presentación del proyecto semestral, del sílabo y del sistema de evaluación; operatividad del curso y del aula virtual.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Demostración</strong> (40 min) — Recorrido guiado por la galería <a href="https://cimejia.github.io/proyectos-estadistica/">https://cimejia.github.io/proyectos-estadistica/</a>:
+las cuatro áreas (Geología, Minas, Petróleos, Ambiente) y el mapa de secciones que todo proyecto debe contener
+(introducción, planteamiento del problema, mapa, objetivos, estadística descriptiva, inferencial, regresión y ML).</p>
+<p><strong>Evidencia de la lección:</strong> ficha de motivación e importancia de la Estadística en la carrera + selección de tema y dataset.</p>
+<hr />
+<h4 id="lección-2-metodología-estadística-y-elementos-básicos-población-individuo-y-muestra">Lección 2 — Metodología estadística y elementos básicos: población, individuo y muestra</h4>
+<p><strong>Unidad:</strong> 1 · <strong>Tiempo de exposición:</strong> 120 min (teoría 70 · demostración 40 · cierre 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>Metodología estadística</strong> — 15 min
+<ul>
+<li>1.1. Los tres enfoques: descriptiva, inferencial y multivariable.</li>
+<li>1.2. Diferencias y semejanzas; secuencia metodológica del proceso estadístico.</li>
+<li>1.3. Esquema general: planteamiento → población → muestra → medición → procesamiento → análisis → conclusiones.</li>
+</ul>
+</li>
+<li><strong>Población o universo (U)</strong> — 15 min
+<ul>
+<li>2.1. Concepto, propiedades y clasificación: finita e infinita.</li>
+<li>2.2. Representación textual (&quot;todos(as) los(as)…&quot;) y simbólica: por extensión <code>U = { , , , … }</code> y por comprensión <code>U = {x | …}</code>; <code>Card(U) = N</code>.</li>
+<li>2.3. Ejemplos: pernos de una fábrica, lanzamientos de moneda, porciones de roca de un cuerpo geológico, alícuotas de agua de un río.</li>
+</ul>
+</li>
+<li><strong>Individuo</strong> — 10 min
+<ul>
+<li>3.1. Concepto, propiedades y unidad investigada; entidad simple y compleja.</li>
+<li>3.2. Simbología: población <code>Xi</code>, i = 1…N; muestra <code>xi</code>, i = 1…n.</li>
+<li>3.3. Investigación exhaustiva o censo frente a investigación parcial o muestra.</li>
+</ul>
+</li>
+<li><strong>Muestra (M)</strong> — 15 min
+<ul>
+<li>4.1. Concepto: parte o porción representativa de la población.</li>
+<li>4.2. Propiedades: finita, representativa, probabilística o no probabilística, generadora de inferencias.</li>
+<li>4.3. Simbología: <code>M ⊂ U</code>, <code>Card(M) = n</code>; los individuos de la muestra se denominan casos.</li>
+<li>4.4. Condiciones de representatividad y ejemplos en mineralogía, geoquímica de aguas y calidad ambiental.</li>
+</ul>
+</li>
+<li><strong>Fundamentos de programación y entorno R</strong> — 15 min
+<ul>
+<li>5.1. Lenguajes y editores; traductores; tipos y estructuras de datos.</li>
+<li>5.2. R y RStudio: propósito, instalación local y en la nube, GUI.</li>
+<li>5.3. Importación de datos y <em>datasets</em> incorporados en R; ejemplo con un dataset de rocas y otro de calidad del aire.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Demostración</strong> (40 min) — En RStudio: instalación y versión en la nube; carga de un <em>dataset</em> incorporado;
+identificación en él de la población, el individuo y la muestra; contraste con la sección &quot;Población / Individuo /
+Muestra&quot; de un proyecto publicado (p. ej. <em>Análisis Estadístico de la Contaminación del Agua en Europa</em>).</p>
+<p><strong>Evidencia de la lección:</strong> definición textual y simbólica de población, individuo y muestra del proyecto;
+instalación verificada de R y RStudio.</p>
+<hr />
+<h4 id="lección-3-muestreo-probabilístico-y-su-aplicación-territorial-con-qgis">Lección 3 — Muestreo probabilístico y su aplicación territorial con QGIS</h4>
+<p><strong>Unidad:</strong> 1 · <strong>Tiempo de exposición:</strong> 120 min (teoría 50 · demostración 60 · cierre 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>El muestreo y sus dos problemas centrales</strong> — 10 min
+<ul>
+<li>1.1. ¿Cuántos elementos debe tener la muestra? (introducción; se resuelve en la Unidad 2).</li>
+<li>1.2. ¿Cómo seleccionar los elementos de la muestra?</li>
+</ul>
+</li>
+<li><strong>Muestreo probabilístico</strong> — 20 min
+<ul>
+<li>2.1. Principio de igualdad de chances y garantía de representatividad.</li>
+<li>2.2. Sorteo o números aleatorios.</li>
+<li>2.3. Muestreo sistemático o periódico: <code>i, i+k, i+2k, …, i+(n−1)k</code>, con <code>k = N/n</code>.</li>
+<li>2.4. Estratificación: definición de estratos (homogéneos entre sí, heterogéneos entre estratos) y muestreo aleatorio por estrato.</li>
+<li>2.5. Muestreo no probabilístico o circunstancial: por qué no debe emplearse en inferencia.</li>
+</ul>
+</li>
+<li><strong>Información geográfica y representaciones espaciales</strong> — 10 min
+<ul>
+<li>3.1. Definición, elementos, coordenadas geográficas, tipos y estándares.</li>
+<li>3.2. Representación ráster y vectorial: formatos, ventajas y desventajas.</li>
+<li>3.3. Servicios WFS y WMS.</li>
+</ul>
+</li>
+<li><strong>Metodología de aprendizaje de SIG y QGIS</strong> — 10 min
+<ul>
+<li>4.1. Propósito y origen de QGIS; descarga e instalación.</li>
+<li>4.2. Funcionamiento Entrada–Proceso–Salida (E-P-S); interfaz gráfica (GUI).</li>
+<li>4.3. Asistente de trazado de mapas: elementos del mapa, escala, leyenda y grilla.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Demostración</strong> (60 min) — QGIS en vivo: incorporación de servicios WFS, operación geográfica vectorial y
+<strong>proceso de muestreo espacial</strong> sobre un caso real de sondajes y de contaminación del aire; cálculo y
+verificación de escala; réplica del <strong>mapa de ubicación</strong> de un proyecto publicado (p. ej. <em>Calidad del agua</em>,
+<em>Derrames en oleoductos</em>).</p>
+<p><strong>Evidencia de la lección:</strong> mapa de ubicación del proyecto elaborado en QGIS + informe del proceso de muestreo.</p>
+<hr />
+<h4 id="lección-4-la-variable-estadística-y-las-escalas-de-medición">Lección 4 — La variable estadística y las escalas de medición</h4>
+<p><strong>Unidad:</strong> 1 · <strong>Tiempo de exposición:</strong> 120 min (teoría 50 · demostración 60 · cierre 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>La variable estadística</strong> — 15 min
+<ul>
+<li>1.1. Concepto: atributo, propiedad o rasgo observable y medible de los elementos.</li>
+<li>1.2. Propiedades: símbolo, dominio, constante, correspondencia con la escala.</li>
+<li>1.3. Dominio y rango: representación por extensión y por comprensión; ejemplos cuantitativos y cualitativos.</li>
+<li>1.4. Proceso de discretización de una variable continua: gráfico, elementos y ejemplos.</li>
+</ul>
+</li>
+<li><strong>Clasificación de las variables</strong> — 15 min
+<ul>
+<li>2.1. Variables cualitativas: nominal (sin orden) y ordinal (con jerarquía o <em>ranking</em>).</li>
+<li>2.2. Variables cuantitativas: discretas (valores puntuales) y continuas (todos los valores del intervalo).</li>
+<li>2.3. Ejemplos por disciplina: tipo de roca, dureza de Mohs, ley de cobre, presión de fractura, concentración tóxica.</li>
+</ul>
+</li>
+<li><strong>La medición y el dato</strong> — 10 min
+<ul>
+<li>3.1. El proceso de medición y sus tres elementos: instrumento, escala y sistema de unidades.</li>
+<li>3.2. El dato como producto o resultado de la medición; datos ≠ información.</li>
+<li>3.3. Calidad de los datos: representatividad, validez, confiabilidad y consistencia.</li>
+</ul>
+</li>
+<li><strong>Escalas de medición</strong> — 10 min
+<ul>
+<li>4.1. Escalas categóricas: nominal y ordinal.</li>
+<li>4.2. Escalas numéricas: de intervalo (cero relativo) y de proporción, cociente o razón (cero absoluto).</li>
+<li>4.3. Correspondencia variable ↔ escala; verificación del individuo y de las variables de interés.</li>
+<li>4.4. Tabla de variables del proyecto: variable, tipo, subtipo, instrumento, unidad de medida y dominio.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Demostración</strong> (60 min) — QGIS y R combinados: <strong>operación ráster</strong> sobre un DEM de OpenTopography,
+tabla de operaciones geográficas, y modelo y generación de mapa; en R, despliegue de la estructura de un
+<em>dataset</em> real para tipificar cada columna según su escala de medición (caso <em>sismos</em> y <em>calidad del aire</em>).</p>
+<p><strong>Evidencia de la lección:</strong> tabla de variables del proyecto completa (hasta tipo, subtipo, dominio, instrumento
+y unidad) + lección GUI de QGIS.</p>
+<hr />
+<h4 id="lección-5-tablas-de-distribución-de-frecuencias-para-variables-cualitativas-discretas-y-continuas">Lección 5 — Tablas de distribución de frecuencias para variables cualitativas, discretas y continuas</h4>
+<p><strong>Unidad:</strong> 1 · <strong>Tiempo de exposición:</strong> 120 min (teoría 60 · demostración 50 · cierre 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>Tablas y gráficas como formas de presentación</strong> — 15 min
+<ul>
+<li>1.1. Presentación textual, cuadros o tablas y gráficas: alcances y limitaciones.</li>
+<li>1.2. Elaboración de tablas: título, encabezamiento, totales, subtotales, fuente y recomendaciones.</li>
+</ul>
+</li>
+<li><strong>Tabla de Distribución de Frecuencias (TDF)</strong> — 15 min
+<ul>
+<li>2.1. Definición y tipos: nominal, ordinal, discreta y continua.</li>
+<li>2.2. Construcción: datos en bruto → ordenación → organización en clases → conteo → tabulación.</li>
+<li>2.3. Frecuencia absoluta <code>ni</code> y relativa <code>hi = ni/n</code>; propiedades <code>ni ≥ 0</code>, <code>Σni = n</code>, <code>0 ≤ hi ≤ 1</code>, <code>Σhi = 1</code>.</li>
+<li>2.4. Frecuencias acumuladas <code>Ni</code> y <code>Hi</code>: definición, propiedades y cuándo <strong>no</strong> deben usarse (variables nominales).</li>
+</ul>
+</li>
+<li><strong>TDF de variables cualitativas y discretas</strong> — 10 min
+<ul>
+<li>3.1. TDF nominal: ejemplo de las agujas lanzadas al fondo de un río (cuarzo, feldespato, mica).</li>
+<li>3.2. TDF ordinal: intervalos de clase con marcas.</li>
+<li>3.3. TDF discreta: ejemplo del número de hijos; agrupación cuando existen muchas categorías.</li>
+</ul>
+</li>
+<li><strong>TDF de variable continua</strong> — 10 min
+<ul>
+<li>4.1. Necesidad de intervalos; marca de clase <code>Xi' = (Xi−1 + Xi)/2</code>; amplitud <code>ci = Xi − Xi−1</code>; recorrido <code>R = Xmax − Xmin</code>.</li>
+<li>4.2. Reglas para el número de intervalos: criterio del investigador, <code>k = √n</code>, <code>k = 2√n</code> y Regla de Sturges <code>k = 1 + 3,3·log n</code>.</li>
+<li>4.3. Simbología completa de la TDF y ejemplo de la ley de cobre (68 porciones de roca).</li>
+<li>4.4. Simplificación basada en el histograma de R: extracción de elementos y generación de la TDF simplificada.</li>
+</ul>
+</li>
+<li><strong>Gráficas asociadas a la TDF</strong> — 10 min
+<ul>
+<li>5.1. Por qué y para qué graficar; observaciones e importancia de la gráfica.</li>
+<li>5.2. Histograma: estructura, elementos e interpretación (concentración, variabilidad, simetría, cortes, atípicos).</li>
+<li>5.3. Polígono de frecuencias y curvas de frecuencia suavizadas.</li>
+<li>5.4. Ojiva (menores o iguales / mayores o iguales) y estimación aproximada de la mediana.</li>
+<li>5.5. Diagrama de barras: local y global, para variables cualitativas y discretas.</li>
+<li>5.6. Diagrama circular o de sectores y pictograma; gráfica de líneas para series cronológicas; gráfica de dispersión o nube de puntos.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Demostración</strong> (50 min) — En R: generación de TDF cualitativas y su gráfica (barras local/global y circular);
+TDF discreta con frecuencias acumuladas; construcción de la TDF continua por Sturges y por conteo automático,
+con simplificación a partir del <code>hist()</code> de R; histograma, ojiva y <em>boxplot</em>. Caso de estudio tomado de un
+proyecto publicado (<em>Mineralogía</em>, <em>Calidad del aire</em>).</p>
+<p><strong>Evidencia de la lección:</strong> TDF (cualitativa, discreta y continua) de las variables del proyecto + conclusiones parciales.</p>
+<hr />
+<h4 id="lección-6-indicadores-descriptivos-posición-dispersión-y-forma">Lección 6 — Indicadores descriptivos: posición, dispersión y forma</h4>
+<p><strong>Unidad:</strong> 1 · <strong>Tiempo de exposición:</strong> 120 min (teoría 70 · demostración 40 · cierre 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>Los indicadores estadísticos</strong> — 15 min
+<ul>
+<li>1.1. Concepto: medidas numéricas que resumen un conjunto de datos (estadísticos de la muestra).</li>
+<li>1.2. Clasificación: de posición, de dispersión y de forma.</li>
+</ul>
+</li>
+<li><strong>Indicadores de posición (tendencia central)</strong> — 15 min
+<ul>
+<li>2.1. Media aritmética: definición, simbología (<code>x̄</code> y <code>µ</code>), fórmula, propiedades y sensibilidad a valores atípicos.</li>
+<li>2.2. Mediana: definición, cálculo para n impar y n par, robustez; aplicación a variables ordinales.</li>
+<li>2.3. Moda: definición, distribución unimodal, bimodal y multimodal; ventajas y limitaciones.</li>
+<li>2.4. Datos totales frente a datos agrupados: <code>x̄ag = Σ ni·Xi'/n = Σ hi·Xi'</code> y <strong>error de agrupación</strong> <code>|Eag|</code>.</li>
+</ul>
+</li>
+<li><strong>Indicadores de posición no centrales</strong> — 10 min
+<ul>
+<li>3.1. Percentiles, cuartiles, deciles y quintiles: definición e interpretación.</li>
+<li>3.2. Relación entre percentiles, cuartiles, deciles y mediana; estimación a partir de la ojiva.</li>
+</ul>
+</li>
+<li><strong>Indicadores de dispersión</strong> — 10 min
+<ul>
+<li>4.1. Necesidad de medir la variabilidad (conjuntos con igual media y distinta distribución).</li>
+<li>4.2. Varianza <code>s²</code> y <code>σ²</code>: definición, fórmulas, propiedades y versión para datos agrupados.</li>
+<li>4.3. Desviación estándar <code>s</code>: definición, unidades, propiedades y error de agrupación (criterios &lt; 30 %, 30–70 %, &gt; 70 %).</li>
+<li>4.4. Coeficiente de variación <code>CV = (s/x̄)·100 %</code> y su guía de interpretación (≤ 30 %, 30–70 %, &gt; 70 %).</li>
+<li>4.5. Rango intercuartílico y regla intercuartílica para la detección de <em>outliers</em>.</li>
+</ul>
+</li>
+<li><strong>Indicadores de forma</strong> — 10 min
+<ul>
+<li>5.1. Coeficiente de asimetría o sesgo <code>As</code>: fórmula e interpretación (simetría, cola derecha, cola izquierda).</li>
+<li>5.2. Coeficiente de curtosis <code>K</code>: fórmula e interpretación (mesocúrtica, leptocúrtica, platicúrtica).</li>
+<li>5.3. Selección del indicador representativo según la forma de la distribución.</li>
+</ul>
+</li>
+<li><strong>Cuartiles y diagrama de caja y bigotes</strong> — 10 min
+<ul>
+<li>6.1. Cálculo de cuartiles; elaboración manual del <em>boxplot</em>.</li>
+<li>6.2. Estructura y elementos del <em>boxplot</em>; lectura de dispersión y simetría; ejemplo del colectivo de 20 edades.</li>
+<li>6.3. Tabla de resumen de indicadores descriptivos.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Demostración</strong> (40 min) — En R: cálculo de indicadores de posición, dispersión y forma para los datos del
+proyecto; comparación entre datos originales y datos agrupados (error de agrupación); construcción de
+<em>boxplots</em> y ojivas. Contraste con la sección <strong>&quot;Tabla de Indicadores&quot;</strong> de un proyecto publicado.</p>
+<p><strong>Evidencia de la lección:</strong> tabla de indicadores y conclusiones de estadística descriptiva del proyecto.</p>
+<hr />
+<h4 id="lección-7-consolidación-de-la-estadística-descriptiva-y-exposición-del-proyecto-etapa-i">Lección 7 — Consolidación de la Estadística Descriptiva y exposición del proyecto (etapa I)</h4>
+<p><strong>Unidad:</strong> 1 · <strong>Tiempo de exposición:</strong> 120 min (síntesis 25 · exposiciones 85 · evaluación 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>Síntesis integradora de la Unidad 1</strong> — 15 min
+<ul>
+<li>1.1. Del dato a la conclusión: repaso del flujo completo (población → muestra → variable → TDF → gráficas → indicadores).</li>
+<li>1.2. Errores frecuentes: confundir dato con información, usar frecuencias acumuladas en variables nominales, ignorar el error de agrupación.</li>
+</ul>
+</li>
+<li><strong>Plantilla de conclusiones de Estadística Descriptiva</strong> — 10 min
+<ul>
+<li>2.1. Estructura de la conclusión por variable: contexto, comportamiento, valores típicos, dispersión, forma y lectura de gráficas.</li>
+<li>2.2. Redacción técnica y uso de cifras significativas.</li>
+</ul>
+</li>
+<li><strong>Exposición del proyecto semestral — etapa descriptiva</strong> — 85 min
+<ul>
+<li>3.1. Presentación del sitio web del proyecto: introducción, planteamiento del problema, mapa de ubicación y objetivos.</li>
+<li>3.2. Población, individuo y muestra; tabla de variables.</li>
+<li>3.3. Estadística descriptiva: TDF, gráficas e indicadores de cada variable.</li>
+<li>3.4. Conclusiones descriptivas y defensa ante preguntas del curso.</li>
+</ul>
+</li>
+<li><strong>Retroalimentación y rúbrica</strong> — 10 min
+<ul>
+<li>4.1. Evaluación cruzada entre grupos con rúbrica de exposición.</li>
+<li>4.2. Correcciones al sitio web y proyección hacia la Unidad 2.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Evidencia de la lección:</strong> sitio web del proyecto con la sección de Estadística Descriptiva completa y corregida.</p>
+<hr />
+<h3 class="unit u2" id="unidad-2-estadística-inferencial">UNIDAD 2 — ESTADÍSTICA INFERENCIAL</h3>
+<hr />
+<h4 id="lección-8-fundamentos-de-la-estadística-inferencial-y-teoría-de-la-probabilidad">Lección 8 — Fundamentos de la Estadística Inferencial y teoría de la probabilidad</h4>
+<p><strong>Unidad:</strong> 2 · <strong>Tiempo de exposición:</strong> 120 min (teoría 70 · demostración 40 · cierre 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>Introducción a la inferencia</strong> — 15 min
+<ul>
+<li>1.1. Objetivos de la unidad: extender los resultados de la muestra hacia la población.</li>
+<li>1.2. Similitudes y diferencias con la Estadística Descriptiva; frecuencias observadas frente a frecuencias probables o teóricas.</li>
+<li>1.3. <code>Estadística Descriptiva + Probabilidades ≡ Inferencia Estadística</code>.</li>
+<li>1.4. El procedimiento inferencial: pasos y productos esperados.</li>
+</ul>
+</li>
+<li><strong>Teoría de la probabilidad</strong> — 15 min
+<ul>
+<li>2.1. Origen en los juegos de azar; concepto de probabilidad como medida numérica de la incertidumbre.</li>
+<li>2.2. Elementos básicos: hecho o fenómeno aleatorio <code>ξ</code>, espacio muestral <code>Ω</code>, evento o suceso <code>S</code>.</li>
+</ul>
+</li>
+<li><strong>Cálculo de probabilidades</strong> — 10 min
+<ul>
+<li>3.1. Definición clásica o <em>a priori</em>: la Regla de Laplace <code>P(S) = casos favorables / casos posibles</code> y el supuesto de equiprobabilidad.</li>
+<li>3.2. Ejemplos: moneda, dado y extracción de naipes con y sin restitución; probabilidad condicional e independencia.</li>
+<li>3.3. Inconvenientes del enfoque clásico.</li>
+<li>3.4. Definición empírica o frecuencista: <code>P(S) = lím n→∞ nS/n</code>.</li>
+<li>3.5. Axiomas de probabilidad: <code>P(S) ≥ 0</code>, adición para sucesos mutuamente excluyentes, regla general de la unión, complemento <code>P(S̄) = 1 − P(S)</code> e independencia.</li>
+</ul>
+</li>
+<li><strong>Ley de los Grandes Números</strong> — 10 min
+<ul>
+<li>4.1. Enunciado e implicación práctica: a mayor número de datos, mayor precisión en la predicción.</li>
+<li>4.2. La frecuencia relativa como estimación de la probabilidad teórica.</li>
+<li>4.3. Ejemplo del muestreo de rocas con cuarzo (probabilidad 0,55 = 11/20) y de la precipitación anual en una cuenca.</li>
+</ul>
+</li>
+<li><strong>Aplicación a variables nominales del proyecto</strong> — 20 min
+<ul>
+<li>5.1. Estadística inferencial de variables nominales mediante la aplicación de la Ley de los Grandes Números.</li>
+<li>5.2. Conjetura inicial de modelos de probabilidad por variable del proyecto.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Demostración</strong> (40 min) — En R: simulación de la Ley de los Grandes Números (lanzamiento de moneda) y
+cálculo de probabilidades frecuentistas sobre las variables nominales de un <em>dataset</em> real de un proyecto
+publicado (<em>Calidad del aire</em>, <em>Incendios forestales</em>).</p>
+<p><strong>Evidencia de la lección:</strong> sección de Estadística Inferencial agregada al sitio web, con las variables nominales tratadas.</p>
+<hr />
+<h4 id="lección-9-variables-aleatorias-y-modelos-de-probabilidad-discretos">Lección 9 — Variables aleatorias y modelos de probabilidad discretos</h4>
+<p><strong>Unidad:</strong> 2 · <strong>Tiempo de exposición:</strong> 120 min (teoría 70 · demostración 40 · cierre 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>Variable aleatoria</strong> — 15 min
+<ul>
+<li>1.1. Diferencia entre variable estadística y variable aleatoria.</li>
+<li>1.2. Definición formal como función <code>X: Ω → ℝ</code>; ejemplo del lanzamiento de tres monedas.</li>
+<li>1.3. Variables aleatorias que no son numéricas y su codificación (mapeo de valores nominales a numéricos).</li>
+<li>1.4. Clasificación: variable aleatoria discreta (v.a.d.) y continua (v.a.c.).</li>
+</ul>
+</li>
+<li><strong>Función de probabilidad y función acumulada (v.a.d.)</strong> — 15 min
+<ul>
+<li>2.1. <code>f(xi) = P(X = xi)</code> y sus propiedades.</li>
+<li>2.2. Función de probabilidad acumulada <code>Pac(xj) = Σ P(X = x)</code>; forma escalonada.</li>
+<li>2.3. Esperanza matemática <code>E(X) = Σ xi·P(X = xi)</code> y varianza <code>V(X) = E(X²) − µ²</code>.</li>
+</ul>
+</li>
+<li><strong>Distribuciones discretas de probabilidad</strong> — 15 min
+<ul>
+<li>3.1. Distribución Binaria o de Bernoulli <code>X ~ B(p)</code>: aplicación, <code>P(X = x) = p^x·q^(1−x)</code>, <code>E(X) = p</code>, <code>V(X) = pq</code>.</li>
+<li>3.2. Distribución Binomial <code>X ~ Bi(n, p)</code>: repetición de n ensayos binarios, <code>P(X = x) = C(n,x)·p^x·q^(n−x)</code>, <code>E(X) = np</code>, <code>V(X) = npq</code>.</li>
+<li>3.3. Ejemplo del control de calidad de testigos de perforación (<code>X ~ Bi(50; 0,112)</code>) y cálculo de probabilidades puntuales y acumuladas.</li>
+<li>3.4. Distribución de Poisson <code>X ~ Po(λ)</code>: sucesos raros, <code>P(X = x) = λ^x·e^(−λ)/x!</code>, <code>E(X) = V(X) = λ</code>.</li>
+<li>3.5. Distribución Geométrica <code>X ~ Ge(p)</code>: <code>P(X = x) = p(1−p)^(x−1)</code>, <code>E(X) = 1/p</code>, <code>V(X) = q/p²</code>; ejemplo de los pozos que requieren reparación.</li>
+</ul>
+</li>
+<li><strong>Procedimiento inferencial con modelos discretos</strong> — 15 min
+<ul>
+<li>4.1. Aplicación de modelos por partes y división de la variable.</li>
+<li>4.2. Procedimiento inferencial con Binomial y Poisson: conjetura, ajuste de parámetros, cálculo de probabilidades.</li>
+<li>4.3. Cálculo de probabilidades puntuales y acumuladas en R.</li>
+</ul>
+</li>
+<li><strong>Test de Pearson y Chi-cuadrado</strong> — 10 min
+<ul>
+<li>5.1. Distribución <code>X²(α, v)</code> con <code>v = k − 1</code>; bondad de ajuste.</li>
+<li>5.2. Hipótesis nula <code>Ho</code> (el modelo es válido) e hipótesis alterna <code>Ha</code>.</li>
+<li>5.3. Estadístico <code>X² = Σ (FOi − FEi)²/FEi</code> con <code>FEi = Pi × n</code>; valor crítico <code>Vc</code> y regla de decisión.</li>
+<li>5.4. Aplicación con frecuencias relativas y análisis de la región de rechazo.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Demostración</strong> (40 min) — En R: ajuste de distribuciones binomial, Poisson y geométrica a variables
+discretas del proyecto; superposición del modelo teórico sobre las frecuencias observadas; cálculo de
+probabilidades puntuales y acumuladas; cálculo de frecuencias observadas y esperadas para el test de
+Pearson y chi-cuadrado con variables reales de un proyecto publicado.</p>
+<p><strong>Evidencia de la lección:</strong> estadística inferencial de las variables ordinales y discretas del proyecto
+(modelos conjeturados, parámetros y pruebas de bondad de ajuste).</p>
+<hr />
+<h4 id="lección-10-modelos-de-probabilidad-continuos-y-su-ajuste-a-datos-reales">Lección 10 — Modelos de probabilidad continuos y su ajuste a datos reales</h4>
+<p><strong>Unidad:</strong> 2 · <strong>Tiempo de exposición:</strong> 120 min (teoría 70 · demostración 40 · cierre 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>Función de densidad de probabilidad (v.a.c.)</strong> — 15 min
+<ul>
+<li>1.1. Por qué la función de probabilidad no es práctica en variables continuas: <code>P(X = a) = 0</code>.</li>
+<li>1.2. Propiedades: <code>f(x) ≥ 0</code>, <code>∫ f(x)dx = 1</code>, <code>P(a ≤ X ≤ b) = ∫a^b f(x)dx</code>.</li>
+<li>1.3. Interpretación geométrica como área bajo la curva; uso de tablas en lugar de integración.</li>
+<li>1.4. Función de densidad acumulada <code>F(x) = P(X ≤ x)</code> y sus propiedades.</li>
+<li>1.5. Cuadro comparativo v.a.d. frente a v.a.c.; esperanza y varianza de una v.a.c.</li>
+</ul>
+</li>
+<li><strong>Distribución Normal</strong> — 15 min
+<ul>
+<li>2.1. Origen: Gauss y el estudio de los errores de medición; la campana de Gauss.</li>
+<li>2.2. Representación <code>X ~ N(µ, σ)</code> y función de densidad <code>f(x) = (1/(σ√(2π)))·e^(−(1/2)((x−µ)/σ)²)</code>.</li>
+<li>2.3. Propiedades, leyes de la curva normal y distribución normal estándar.</li>
+<li>2.4. Ejemplos en ciencias de la Tierra: estatura, cociente intelectual, nivel de ruido, leyes de mineral.</li>
+</ul>
+</li>
+<li><strong>Distribución Lognormal</strong> — 15 min
+<ul>
+<li>3.1. Definición: <code>X ~ LogN(µ, σ)</code> si <code>Y = log(X)</code> es normal.</li>
+<li>3.2. Función de densidad y aplicaciones: producción láctea, tiempos de falla, precipitación, abundancia de especies, reservas de petróleo y gas.</li>
+<li>3.3. Ejemplo del contenido de cloro en 49 tanques de agua; ajuste con µ = 3,79 y σ = 0,356.</li>
+</ul>
+</li>
+<li><strong>Distribución Exponencial</strong> — 15 min
+<ul>
+<li>4.1. Representación <code>X ~ Exp(λ)</code>, función de densidad <code>f(x) = λe^(−λx)</code> y parámetros.</li>
+<li>4.2. <code>E(X) = 1/λ</code>, <code>V(X) = 1/λ²</code>; aplicaciones de confiabilidad y tasa de falla constante.</li>
+</ul>
+</li>
+<li><strong>Cálculo de parámetros y ajuste al histograma</strong> — 10 min
+<ul>
+<li>5.1. Estimación de parámetros a partir de la muestra para cada modelo.</li>
+<li>5.2. Dibujo y superposición de la curva teórica con el histograma empírico.</li>
+<li>5.3. Cálculo de probabilidades y de la cantidad esperada con un nuevo tamaño muestral.</li>
+<li>5.4. Cálculo de frecuencias observadas y esperadas para el test de Pearson y chi-cuadrado.</li>
+<li>5.5. Modelización por partes de variables continuas.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Demostración</strong> (40 min) — En R: ajuste y superposición de las distribuciones normal, lognormal y exponencial
+sobre los histogramas de variables continuas reales del proyecto; cálculo de probabilidades y cantidades
+esperadas ante un nuevo tamaño de muestra; verificación del ajuste con chi-cuadrado.</p>
+<p><strong>Evidencia de la lección:</strong> modelos normal, lognormal y exponencial aplicados a las variables continuas del proyecto,
+con superposición gráfica y prueba de bondad de ajuste.</p>
+<hr />
+<h4 id="lección-11-estimación-de-parámetros-teorema-del-límite-central-e-intervalos-de-confianza">Lección 11 — Estimación de parámetros, Teorema del Límite Central e intervalos de confianza</h4>
+<p><strong>Unidad:</strong> 2 · <strong>Tiempo de exposición:</strong> 120 min (teoría 70 · demostración 40 · cierre 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>Inferir es generalizar</strong> — 15 min
+<ul>
+<li>1.1. Objetivo de la inferencia: conocer el comportamiento de una población a partir de una muestra.</li>
+<li>1.2. Definición de la población de estudio y garantía de representatividad mediante la aleatoriedad.</li>
+<li>1.3. Proceso de muestreo: <code>x1, x2, …, xn</code> como realizaciones de variables aleatorias <code>X1, X2, …, Xn</code> independientes e idénticamente distribuidas.</li>
+</ul>
+</li>
+<li><strong>Estimadores y parámetros</strong> — 15 min
+<ul>
+<li>2.1. Estadístico, estimador <code>θ̂</code> y parámetro <code>θ</code>.</li>
+<li>2.2. Parámetros de mayor interés: <code>µ̂ = x̄</code> y <code>σ̂ = s</code>.</li>
+<li>2.3. Diferencias entre estimador y parámetro; el estimador como variable aleatoria con distribución muestral.</li>
+<li>2.4. Estimación puntual de la media y de la desviación estándar; consecuencias y error asociado.</li>
+</ul>
+</li>
+<li><strong>Teorema del Límite Central</strong> — 15 min
+<ul>
+<li>3.1. Enunciado: la forma límite de <code>Z = (X̄ − µ)/(σ/√n)</code> cuando <code>n → ∞</code> es <code>N(0, 1)</code>.</li>
+<li>3.2. Condiciones de aplicación: <code>n ≥ 30</code> sin importar la forma de la población; poblaciones normales.</li>
+<li>3.3. Consecuencias: <code>µX̄ = µ</code>, <code>σ²X̄ = σ²/n</code>, error estándar <code>σX̄ = σ/√n</code> y simetría de la distribución de medias muestrales.</li>
+<li>3.4. Ejemplo de la producción diaria de barriles de petróleo (n = 64, σ = 16).</li>
+</ul>
+</li>
+<li><strong>Estimación por intervalos de confianza</strong> — 15 min
+<ul>
+<li>4.1. Fundamento: por qué la estimación puntual rara vez coincide con el parámetro.</li>
+<li>4.2. Definición <code>P[Li ≤ θ ≤ Ls] = 1 − α</code>; límites de confianza, coeficiente de confianza (CC) y su elección (90 %, 95 %, 99 %).</li>
+<li>4.3. Los tres requisitos de la estimación por intervalos: fijar el CC, extraer la muestra y calcular el estadístico, conocer la distribución del estimador.</li>
+<li>4.4. Intervalo de confianza para la media poblacional <code>µ</code> con varianza <code>σ²</code> conocida: deducción de la expresión <code>x̄ ± z(α/2)·σ/√n</code>.</li>
+<li>4.5. Ejemplo de la concentración de plomo en efluentes industriales (intervalo 8294–9410 con 95 % de confianza).</li>
+<li>4.6. Tamaño muestral: margen de error <code>ε = z(α/2)·σ/√n</code>, deducción de <code>n = (z(α/2))²·σ²/ε²</code>, uso de muestra piloto.</li>
+<li>4.7. Ejemplo del proveedor de servicios de Internet (n = 186).</li>
+<li>4.8. Relación entre nivel de confianza, tamaño de muestra y margen de error.</li>
+</ul>
+</li>
+<li><strong>Plantilla de conclusiones de Estadística Inferencial</strong> — 10 min
+<ul>
+<li>5.1. Estructura de la conclusión: modelo adoptado, parámetros, probabilidades relevantes, validación y estimación.</li>
+<li>5.2. Redacción del intervalo de confianza e interpretación correcta del coeficiente de confianza.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Demostración</strong> (40 min) — En R: verificación computacional del Teorema del Límite Central mediante
+remuestreo de una población no normal; cálculo de intervalos de confianza para la media de variables
+continuas del proyecto; análisis de la variación del margen de error al modificar el CC y el tamaño de muestra.</p>
+<p><strong>Evidencia de la lección:</strong> intervalos de confianza de las variables continuas del proyecto y conclusiones inferenciales redactadas.</p>
+<hr />
+<h4 id="lección-12-consolidación-de-la-estadística-inferencial-y-exposición-del-proyecto-etapa-ii">Lección 12 — Consolidación de la Estadística Inferencial y exposición del proyecto (etapa II)</h4>
+<p><strong>Unidad:</strong> 2 · <strong>Tiempo de exposición:</strong> 120 min (síntesis 25 · exposiciones 85 · evaluación 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>Síntesis integradora de la Unidad 2</strong> — 15 min
+<ul>
+<li>1.1. Ruta completa: probabilidad → variable aleatoria → modelo de probabilidad → bondad de ajuste → estimación.</li>
+<li>1.2. Criterios de selección del modelo según el tipo y subtipo de variable (nominal, ordinal, discreta, continua).</li>
+<li>1.3. Errores frecuentes: confundir frecuencia observada con probabilidad, superponer modelos sin verificar el ajuste, malinterpretar el coeficiente de confianza.</li>
+</ul>
+</li>
+<li><strong>Plantilla de conclusión inferencial</strong> — 10 min
+<ul>
+<li>2.1. Estructura por variable: conjetura, parámetros estimados, probabilidades de interés, validación con chi-cuadrado e intervalo de confianza.</li>
+</ul>
+</li>
+<li><strong>Exposición del proyecto semestral — etapa inferencial</strong> — 85 min
+<ul>
+<li>3.1. Estadística inferencial de variables nominales y ordinales.</li>
+<li>3.2. Modelos discretos (binomial, Poisson, geométrico) y pruebas de Pearson y chi-cuadrado.</li>
+<li>3.3. Modelos continuos (normal, lognormal, exponencial) con superposición al histograma.</li>
+<li>3.4. Intervalos de confianza y estimación del tamaño muestral.</li>
+<li>3.5. Conclusiones inferenciales y defensa ante preguntas del curso.</li>
+</ul>
+</li>
+<li><strong>Retroalimentación y rúbrica</strong> — 10 min
+<ul>
+<li>4.1. Evaluación cruzada entre grupos.</li>
+<li>4.2. Correcciones al sitio web y proyección hacia la Unidad 3.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Evidencia de la lección:</strong> sitio web del proyecto con la sección de Estadística Inferencial completa y corregida.</p>
+<hr />
+<h3 class="unit u3" id="unidad-3-regresión-y-series-de-tiempo">UNIDAD 3 — REGRESIÓN Y SERIES DE TIEMPO</h3>
+<hr />
+<h4 id="lección-13-relación-entre-variables-y-regresión-lineal-simple">Lección 13 — Relación entre variables y regresión lineal simple</h4>
+<p><strong>Unidad:</strong> 3 · <strong>Tiempo de exposición:</strong> 120 min (teoría 70 · demostración 40 · cierre 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>Relación entre variables</strong> — 15 min
+<ul>
+<li>1.1. Importancia: explicar el mundo real, el desafío de la complejidad y el paradigma estadístico (inferir reglas a partir de los datos).</li>
+<li>1.2. Definición de relación: <code>y = f(x)</code> y <code>y = f(x1, x2, …, xn)</code>; variable dependiente o explicada y variables independientes o regresoras.</li>
+<li>1.3. Dependencia e independencia de variables.</li>
+<li>1.4. Tipos de dependencia: <strong>determinista o funcional</strong> (ejemplos <code>a = F/m</code> y <code>e = ½gt²</code>) y <strong>no determinista, estadística o aleatoria</strong> (cerezo diámetro–altura, PIB–esperanza de vida).</li>
+<li>1.5. El problema de la dependencia estadística y su solución aproximada mediante un modelo.</li>
+<li>1.6. Notación simbólica y clasificación de los modelos de regresión.</li>
+</ul>
+</li>
+<li><strong>Regresión y modelos de regresión</strong> — 15 min
+<ul>
+<li>2.1. Definición de regresión y de modelo de regresión; regresión simple frente a múltiple.</li>
+<li>2.2. Clasificación: lineal, potencial, exponencial, logarítmico y polinómico.</li>
+<li>2.3. Metodología de cálculo: conjetura del modelo, estructura matemática, cálculo de parámetros y establecimiento de restricciones.</li>
+<li>2.4. La conjetura mediante el análisis gráfico de dispersión: tabla de pares de valores y nube de puntos.</li>
+</ul>
+</li>
+<li><strong>Estructura de un modelo de regresión simple</strong> — 15 min
+<ul>
+<li>3.1. Descomposición <code>yi = ŷi + ei</code>; parte determinista <code>ŷi = f(xi)</code> y parte aleatoria o error <code>ei = yi − ŷi</code>.</li>
+<li>3.2. Forma resumida <code>y = f(x) + E</code>; nomenclatura de la variable explicada, explicativa y del error aleatorio.</li>
+<li>3.3. Concepto de valor observado, valor previsto y residuo.</li>
+</ul>
+</li>
+<li><strong>Regresión lineal simple y mínimos cuadrados</strong> — 15 min
+<ul>
+<li>4.1. Condiciones de aplicación: nube de puntos con forma de recta y coeficiente de correlación alto en valor absoluto.</li>
+<li>4.2. Modelo <code>y = β0 + β1x + E</code>.</li>
+<li>4.3. Criterio de mínimos cuadrados: minimizar <code>S(β0, β1) = Σ ei²</code> mediante <code>∂S/∂β0 = 0</code> y <code>∂S/∂β1 = 0</code>.</li>
+<li>4.4. Sistema normal resultante: <code>Σei = 0</code>, <code>Σei·xi = 0</code>, <code>ȳ = β̂0 + β̂1x̄</code>.</li>
+<li>4.5. Deducción de <code>β̂1 = COV(X,Y)/Sx²</code> y de la recta de regresión <code>(y − ȳ) = (COV(X,Y)/Sx²)·(x − x̄)</code>.</li>
+<li>4.6. Interpretación de los parámetros: <code>β0</code> como valor medio de Y cuando X = 0 (no siempre con significado físico) y <code>β1</code> como variación de Y ante el aumento de una unidad en X.</li>
+</ul>
+</li>
+<li><strong>Medidas de correlación</strong> — 10 min
+<ul>
+<li>5.1. Covarianza <code>COV(X,Y) = Σ(xi − x̄)(yi − ȳ)/n</code>: interpretación por cuadrantes, signo e inconvenientes (unidades y falta de escala).</li>
+<li>5.2. Coeficiente de correlación lineal de Pearson <code>ρ = COV(X,Y)/(Sx·Sy)</code>: propiedades, <code>−1 ≤ ρ ≤ 1</code>, relación con la pendiente.</li>
+<li>5.3. Coeficiente de determinación <code>ρ²</code> o <code>r²</code>: proporción de la variación de Y explicada por X; coeficiente de no determinación <code>1 − ρ²</code>.</li>
+<li>5.4. Estimación o predicción mediante el modelo y análisis de sus restricciones.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Demostración</strong> (40 min) — En R: construcción de la tabla de pares de valores y de la nube de puntos de
+variables reales del proyecto; cálculo de <code>β̂0</code>, <code>β̂1</code>, <code>ρ</code> y <code>ρ²</code>; superposición de la recta ajustada y
+verificación de la interpretación física de los parámetros. Caso publicado: <em>Análisis de pozos hidrocarburíferos</em>.</p>
+<p><strong>Evidencia de la lección:</strong> modelo de regresión lineal simple del proyecto + deducción manual de los estimadores
+por mínimos cuadrados.</p>
+<hr />
+<h4 id="lección-14-modelos-de-regresión-no-lineales">Lección 14 — Modelos de regresión no lineales</h4>
+<p><strong>Unidad:</strong> 3 · <strong>Tiempo de exposición:</strong> 120 min (teoría 70 · demostración 40 · cierre 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>Necesidad de modelos no lineales</strong> — 15 min
+<ul>
+<li>1.1. Limitaciones de la recta cuando la nube de puntos presenta curvatura o saturación.</li>
+<li>1.2. Criterio de conjetura a partir del diagrama de dispersión.</li>
+</ul>
+</li>
+<li><strong>Regresión potencial</strong> — 15 min
+<ul>
+<li>2.1. Modelo <code>y = a·x^b</code> y su forma.</li>
+<li>2.2. Linealización por logaritmos: <code>log y = log a + b·log x</code>.</li>
+<li>2.3. Cálculo de parámetros por mínimos cuadrados sobre las variables transformadas.</li>
+<li>2.4. Superposición de la curva al diagrama de dispersión; indicadores de bondad; análisis y cálculo de restricciones.</li>
+<li>2.5. Estimaciones e interpretación de conclusiones.</li>
+</ul>
+</li>
+<li><strong>Regresión exponencial</strong> — 10 min
+<ul>
+<li>3.1. Modelo <code>y = a·e^(b·x)</code>; aplicaciones en crecimiento, decaimiento y producción.</li>
+<li>3.2. Linealización <code>ln y = ln a + b·x</code>.</li>
+<li>3.3. Cálculo de parámetros, superposición, indicadores, restricciones y estimaciones.</li>
+</ul>
+</li>
+<li><strong>Regresión logarítmica</strong> — 10 min
+<ul>
+<li>4.1. Modelo <code>y = a + b·ln(x)</code>; ejemplo de la esperanza de vida en función del PIB.</li>
+<li>4.2. Linealización y cálculo de parámetros.</li>
+<li>4.3. Superposición, indicadores, restricciones y estimaciones.</li>
+</ul>
+</li>
+<li><strong>Regresión polinómica</strong> — 10 min
+<ul>
+<li>5.1. Modelo <code>y = a0 + a1x + a2x² + … + anx^n</code> y su utilidad ante múltiples cambios de forma.</li>
+<li>5.2. Ajuste por mínimos cuadrados con el sistema de ecuaciones normales.</li>
+<li>5.3. Elección del grado del polinomio; riesgo de sobreajuste.</li>
+<li>5.4. Superposición de la curva, indicadores, restricciones y estimaciones.</li>
+</ul>
+</li>
+<li><strong>Comparación y selección de modelos</strong> — 10 min
+<ul>
+<li>6.1. Criterios de comparación: coeficiente de determinación, coherencia con el fenómeno y restricciones de dominio.</li>
+<li>6.2. Restricciones de validez: rango de interpolación frente a extrapolación; valores no admisibles.</li>
+<li>6.3. Cuándo un modelo no lineal es preferible al lineal y cuándo no.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Demostración</strong> (40 min) — En R: ajuste sucesivo de los modelos potencial, exponencial, logarítmico y
+polinómico sobre las mismas variables del proyecto; superposición de las cuatro curvas; comparación de
+indicadores; determinación de restricciones y cálculo de estimaciones. Caso publicado: <em>Exploración de
+depósitos de Cobre</em>, <em>Análisis estadístico de sismos</em>.</p>
+<p><strong>Evidencia de la lección:</strong> modelos no lineales del proyecto con curvas superpuestas, indicadores, restricciones y conclusiones.</p>
+<hr />
+<h4 id="lección-15-regresión-lineal-múltiple-correlación-múltiple-restricciones-y-estimación">Lección 15 — Regresión lineal múltiple: correlación múltiple, restricciones y estimación</h4>
+<p><strong>Unidad:</strong> 3 · <strong>Tiempo de exposición:</strong> 120 min (teoría 70 · demostración 40 · cierre 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>De la regresión simple a la múltiple</strong> — 20 min
+<ul>
+<li>1.1. Justificación: la influencia sobre Y rara vez se debe a un único factor.</li>
+<li>1.2. Modelo <code>ŷ = β0 + β1x1 + β2x2 + … + βpxp</code>.</li>
+<li>1.3. Planteamiento matricial y sistema de ecuaciones normales; solución analítica.</li>
+<li>1.4. Dificultades asociadas al aumento del número de variables: imposibilidad gráfica, solución analítica difícil, costo computacional.</li>
+</ul>
+</li>
+<li><strong>Correlación múltiple</strong> — 20 min
+<ul>
+<li>2.1. Matriz de correlaciones entre la variable dependiente y cada regresor.</li>
+<li>2.2. Coeficiente de determinación múltiple <code>R²</code> y su interpretación.</li>
+<li>2.3. Multicolinealidad: identificación y consecuencias sobre la estabilidad de los coeficientes.</li>
+<li>2.4. Interpretación de coeficientes parciales: efecto de <code>xi</code> manteniendo constantes las demás variables.</li>
+</ul>
+</li>
+<li><strong>Posibles restricciones y diagnóstico</strong> — 15 min
+<ul>
+<li>3.1. Restricciones de dominio, de signo y de coherencia física de los coeficientes.</li>
+<li>3.2. Variables cualitativas en el modelo: codificación de indicadores (<em>dummies</em>).</li>
+<li>3.3. Criterios de bondad de ajuste y de capacidad de generalización.</li>
+<li>3.4. Comparación entre mejor ajuste y capacidad predictiva.</li>
+</ul>
+</li>
+<li><strong>Estimación y predicción con el modelo múltiple</strong> — 15 min
+<ul>
+<li>4.1. Estimación puntual de la respuesta y construcción de intervalos.</li>
+<li>4.2. Análisis de residuos y verificación de supuestos.</li>
+<li>4.3. Ejercicio completo en R de un modelo de regresión múltiple.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Demostración</strong> (40 min) — En R: ajuste de un modelo de regresión múltiple con variables reales del proyecto
+(caso <em>Calidad del aire</em>, con múltiples contaminantes y variables meteorológicas); análisis de la matriz de
+correlación; discusión de restricciones y comparación de las predicciones con las de los modelos simples.</p>
+<p><strong>Evidencia de la lección:</strong> modelo de regresión múltiple del proyecto con análisis de correlación múltiple,
+restricciones e interpretación de coeficientes.</p>
+<hr />
+<h4 id="lección-16-series-de-tiempo-componentes-y-pronóstico">Lección 16 — Series de tiempo: componentes y pronóstico</h4>
+<p><strong>Unidad:</strong> 3 · <strong>Tiempo de exposición:</strong> 120 min (teoría 70 · demostración 40 · cierre 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>Series de tiempo: definición</strong> — 15 min
+<ul>
+<li>1.1. La necesidad humana de predecir el futuro con información del presente y del pasado.</li>
+<li>1.2. Datos temporales: registro en estricto orden cronológico.</li>
+<li>1.3. Serie de tiempo, temporal o cronológica; libertad de elección del origen <code>t = 0</code>.</li>
+<li>1.4. Modelo de pronóstico <code>ŷ = f(t)</code>; ejemplos por disciplina (meteorología, geofísica, economía, química, demografía, medicina, marketing, telecomunicaciones, transporte).</li>
+</ul>
+</li>
+<li><strong>Componentes de una serie de tiempo</strong> — 15 min
+<ul>
+<li>2.1. Identificación gráfica: puntos anómalos (<em>outliers</em>), tendencia, variaciones estacionales y cíclicas, variaciones aleatorias.</li>
+<li>2.2. Distinción entre movimiento estacional (período identificable menor a un año) y cíclico (ciclos largos sin causa atribuible).</li>
+<li>2.3. Los cuatro componentes clásicos: Tendencia (T), Estacional (E), Cíclico (C) y Aleatorio (A), con ejemplos.</li>
+<li>2.4. Hipótesis de composición: aditiva <code>Ŷ = T + C + E + A</code>, multiplicativa <code>Ŷ = T × C × E × A</code> y mixta <code>Ŷ = T × (C + E + A)</code>.</li>
+</ul>
+</li>
+<li><strong>Cálculo de tendencia y pronóstico: ajuste analítico (regresión)</strong> — 15 min
+<ul>
+<li>3.1. La recta de tendencia obtenida por mínimos cuadrados; analogía con la regresión bivariante.</li>
+<li>3.2. Regresión unilateral: se estima Y en función de t, no al contrario; interpolación y extrapolación.</li>
+<li>3.3. Procedimiento: graficar la serie, elegir el tipo de función y determinar los parámetros de ajuste.</li>
+<li>3.4. Ejemplo del ancho de playa en Esmeraldas (2007-2011): <code>yt = 222,6 − 1,9t</code> y pronóstico para marzo de 2012.</li>
+<li>3.5. Condiciones de validez del pronóstico y recomendación de pronósticos a corto plazo.</li>
+</ul>
+</li>
+<li><strong>Medias móviles</strong> — 15 min
+<ul>
+<li>4.1. Fundamento: filtrado o suavizado de los efectos ajenos a la tendencia.</li>
+<li>4.2. Construcción de la serie de orden k (preferentemente impar: 3, 5, 7, 9); cálculo de promedios de k términos consecutivos.</li>
+<li>4.3. Efecto del orden: a mayor k, mayor suavizado y mayor pérdida de datos en los extremos.</li>
+<li>4.4. Aplicaciones al análisis de registros sísmicos, difractogramas de rayos X y registros eléctricos de pozo.</li>
+<li>4.5. Ejemplo del precio del barril de petróleo (enero–junio de 2014) con medias móviles de orden 3, 5, 7 y 9; pronóstico para la segunda semana de julio.</li>
+</ul>
+</li>
+<li><strong>Suavización exponencial</strong> — 10 min
+<ul>
+<li>5.1. Limitación de las medias móviles: ponderación igual de todas las observaciones.</li>
+<li>5.2. Modelo <code>Zt = α·Yt + (1 − α)·Zt−1</code> con <code>Z1 = Y1</code>.</li>
+<li>5.3. Interpretación de la constante de suavización α (próxima a 1, cercana a ½ y próxima a 0).</li>
+<li>5.4. Ejemplo del pronóstico de la temperatura máxima del 1 de marzo de 2013 con α = 0,2; 0,5 y 0,7.</li>
+<li>5.5. Alcance del método: pronóstico de un solo valor, inmediatamente posterior al último observado.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Demostración</strong> (40 min) — En R: construcción y descomposición gráfica de una serie de tiempo real tomada de
+un proyecto publicado (caso <em>Eventos meteorológicos</em>, <em>Focos de calor</em> o <em>Precios del petróleo</em>);
+ajuste de la recta de tendencia; cálculo de medias móviles de varios órdenes y de la serie suavizada
+exponencialmente; comparación de pronósticos.</p>
+<p><strong>Evidencia de la lección:</strong> análisis de una serie de tiempo del proyecto con componentes identificados,
+tendencia calculada y pronóstico mediante las tres técnicas.</p>
+<hr />
+<h4 id="lección-17-consolidación-de-la-regresión-y-exposición-del-proyecto-etapa-iii">Lección 17 — Consolidación de la Regresión y exposición del proyecto (etapa III)</h4>
+<p><strong>Unidad:</strong> 3 · <strong>Tiempo de exposición:</strong> 120 min (síntesis 25 · exposiciones 85 · evaluación 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>Síntesis integradora de la Unidad 3</strong> — 15 min
+<ul>
+<li>1.1. Ruta completa: relación entre variables → conjetura gráfica → linealización → mínimos cuadrados → indicadores → restricciones → estimación.</li>
+<li>1.2. Criterios de selección del modelo: forma de la nube de puntos, <code>r²</code>, coherencia física y dominio de validez.</li>
+<li>1.3. Errores frecuentes: extrapolar fuera del dominio observado, ignorar restricciones, confundir correlación con causalidad.</li>
+</ul>
+</li>
+<li><strong>Plantilla de conclusiones de regresión</strong> — 10 min
+<ul>
+<li>2.1. Estructura: modelo adoptado, ecuación, indicadores, restricciones, estimaciones y sentido físico.</li>
+</ul>
+</li>
+<li><strong>Exposición del proyecto semestral — etapa de regresión</strong> — 85 min
+<ul>
+<li>3.1. Tabla de pares de valores y nube de puntos de cada relación estudiada.</li>
+<li>3.2. Regresión lineal simple, modelos no lineales y regresión múltiple.</li>
+<li>3.3. Indicadores de correlación y determinación; restricciones y estimaciones.</li>
+<li>3.4. Series de tiempo del proyecto, cuando existan.</li>
+<li>3.5. Defensa ante preguntas del curso.</li>
+</ul>
+</li>
+<li><strong>Retroalimentación y rúbrica</strong> — 10 min
+<ul>
+<li>4.1. Evaluación cruzada entre grupos.</li>
+<li>4.2. Correcciones al sitio web y proyección hacia la Unidad 4.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Evidencia de la lección:</strong> sitio web del proyecto con la sección de Modelos de Regresión completa y corregida.</p>
+<hr />
+<h3 class="unit u4" id="unidad-4-machine-learning">UNIDAD 4 — MACHINE LEARNING</h3>
+<hr />
+<h4 id="lección-18-de-la-regresión-clásica-al-machine-learning-límites-motivación-e-historia">Lección 18 — De la regresión clásica al Machine Learning: límites, motivación e historia</h4>
+<p><strong>Unidad:</strong> 4 · <strong>Tiempo de exposición:</strong> 120 min (teoría 70 · demostración 40 · cierre 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>Introducción: relacionar variables como labor científica</strong> — 10 min
+<ul>
+<li>1.1. Modelizar la relación entre variables como una de las tareas centrales de la ciencia.</li>
+<li>1.2. Newton y las leyes del movimiento y la gravitación universal como paradigma.</li>
+<li>1.3. La regresión clásica y el Machine Learning como continuación moderna de la misma búsqueda.</li>
+</ul>
+</li>
+<li><strong>Origen y evolución de la curiosidad humana</strong> — 10 min
+<ul>
+<li>2.1. La curiosidad como motor del conocimiento y ventaja evolutiva de la especie.</li>
+<li>2.2. De la observación de patrones a la anticipación del entorno: clima, domesticación, agricultura, herramientas.</li>
+</ul>
+</li>
+<li><strong>Fundamento conceptual y herramienta matemática</strong> — 10 min
+<ul>
+<li>3.1. Los fenómenos como sistemas de variables: qué afecta a qué, en qué dirección y con qué intensidad.</li>
+<li>3.2. La función como lenguaje para describir relaciones; ejemplos físicos, económicos y biomédicos.</li>
+<li>3.3. Relaciones deterministas (<code>F = m·a</code>) y no deterministas (precio de una vivienda); deducción analítica frente a deducción a partir de datos.</li>
+</ul>
+</li>
+<li><strong>La regresión lineal como punto de partida</strong> — 10 min
+<ul>
+<li>4.1. Modelo clásico simple y múltiple <code>ŷ = β0 + β1x1 + … + βpxp</code>.</li>
+<li>4.2. Estimación por Mínimos Cuadrados Ordinarios (OLS); coeficientes interpretables.</li>
+<li>4.3. <strong>Limitaciones de la regresión clásica</strong>: rigidez del modelo, mala modelización de relaciones no lineales, dependencia de funciones predefinidas, alta dependencia humana en la conjetura, necesidad de múltiples modelos, imposibilidad gráfica y costo computacional con muchas variables, tratamiento de variables cualitativas, tensión entre ajuste y generalización.</li>
+</ul>
+</li>
+<li><strong>Motivación: el desafío de la no linealidad</strong> — 10 min
+<ul>
+<li>5.1. El mundo mayormente no es lineal; el reto de modelar efectos no aditivos.</li>
+<li>5.2. Necesidad de modelos más flexibles que aprendan representaciones no lineales.</li>
+<li>5.3. Ejemplo del problema <code>y = sin(x1·x2) + log(x3² + 1)</code>.</li>
+</ul>
+</li>
+<li><strong>Historia y nacimiento del Machine Learning</strong> — 10 min
+<ul>
+<li>6.1. Línea de tiempo: Legendre y Gauss (1805, mínimos cuadrados), McCulloch y Pitts (1943), Turing (1950), nacimiento de la IA (1956), Rosenblatt (1958), <em>backpropagation</em> y redes profundas (1986).</li>
+<li>6.2. McCulloch y Pitts: primer modelo matemático de la neurona biológica basado en lógica proposicional; entradas binarias, suma ponderada, función umbral y salida binaria.</li>
+<li>6.3. El perceptrón de Rosenblatt: primer clasificador binario capaz de aprender de los datos; pesos ajustables; regla de corrección de errores; hardware Mark I.</li>
+<li>6.4. Terminología y conceptos de ML; metodología de ML: etapas y actividades.</li>
+</ul>
+</li>
+<li><strong>Comparación conceptual regresión clásica ↔ redes neuronales</strong> — 10 min
+<ul>
+<li>7.1. Cuadro comparativo: linealidad fija frente a flexibilidad; no linealidad manual frente a aprendida; funciones base fijas frente a aprendidas; interpretabilidad (caja blanca) frente a capacidad (caja negra); datos estructurados y pequeños frente a masivos y no estructurados; modelo explicativo frente a predictivo; optimización analítica frente a numérica iterativa.</li>
+<li>7.2. La neurona artificial como regresión logística con una vuelta de tuerca: equivalencia entre variables explicativas y entradas, pesos y pendientes, sesgo e intercepto, activación y función no lineal.</li>
+<li>7.3. Conclusión: los modelos no compiten, se complementan; la Estadística es la base.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Demostración</strong> (40 min) — Recorrido por el <strong>Prompting</strong> como técnica de trabajo: construcción guiada de un
+<em>prompt</em> para implementar un modelo de ML; revisión de la sección <strong>&quot;Machine Learning&quot;</strong> (objetivo y prompt)
+de proyectos publicados, contrastando la formulación del problema con la de la regresión clásica.</p>
+<p><strong>Evidencia de la lección:</strong> sección de Machine Learning del sitio web con el objetivo del modelo y el <em>prompt</em> inicial.</p>
+<hr />
+<h4 id="lección-19-la-neurona-artificial-el-perceptrón-y-la-implementación-de-ml-en-python">Lección 19 — La neurona artificial, el perceptrón y la implementación de ML en Python</h4>
+<p><strong>Unidad:</strong> 4 · <strong>Tiempo de exposición:</strong> 120 min (teoría 65 · demostración 45 · cierre 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>Capacidades de las redes neuronales</strong> — 15 min
+<ul>
+<li>1.1. Modelo flexible por composición de funciones no lineales.</li>
+<li>1.2. Captura automática de patrones complejos e interacciones aprendidas implícitamente.</li>
+<li>1.3. Integración de variables numéricas y categóricas; escalabilidad con muchas variables.</li>
+<li>1.4. Enfoque en capacidad predictiva y generalización; optimización numérica general.</li>
+</ul>
+</li>
+<li><strong>El nacimiento (1943): McCulloch y Pitts</strong> — 15 min
+<ul>
+<li>2.1. Conjunción de biología y lógica proposicional; la neurona como operador lógico.</li>
+<li>2.2. Características: entradas binarias excitatorias e inhibitorias, suma ponderada, función umbral y salida binaria.</li>
+<li>2.3. El cerebro como dispositivo de procesamiento de información.</li>
+</ul>
+</li>
+<li><strong>El perceptrón (1958)</strong> — 20 min
+<ul>
+<li>3.1. Estructura y funcionamiento; pesos ajustables y regla de aprendizaje.</li>
+<li>3.2. Equivalencia de términos con la regresión: variables explicativas ↔ entradas, pesos ↔ pendientes, sesgo ↔ intercepto, activación ↔ función no lineal.</li>
+<li>3.3. Formulación <code>ŷ = φ(Σ wi·xi + b)</code>.</li>
+<li>3.4. Rompiendo la linealidad: el papel de la función de activación (sigmoide, ReLU); una red de una capa con activación lineal es una regresión lineal múltiple.</li>
+<li>3.5. De una neurona a una red: apilamiento de capas e ingeniería de atributos automática.</li>
+</ul>
+</li>
+<li><strong>Implementación de ML en Python</strong> — 15 min
+<ul>
+<li>4.1. El <em>notebook</em> como entorno de trabajo; librerías de Python para ciencia de datos.</li>
+<li>4.2. Importación del <em>dataset</em>; inspección y diagnóstico de calidad.</li>
+<li>4.3. Preprocesamiento: selección de variables, normalización, codificación binaria de variables categóricas y balance de datos.</li>
+<li>4.4. División de datos: conjuntos de entrenamiento y de prueba, conceptos y porcentajes habituales.</li>
+<li>4.5. Buenas prácticas: reproducibilidad, fijación de semillas y registro de decisiones.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Demostración</strong> (45 min) — <strong>Google Colab</strong> en vivo: despliegue del <em>notebook</em> completo sobre el <strong>ejercicio
+de predicción del clima</strong>; importación del dataset, preprocesamiento (normalización, codificación y balance),
+división entrenamiento/prueba y definición de la neurona artificial y de la arquitectura inicial.</p>
+<p><strong>Evidencia de la lección:</strong> <em>notebook</em> de Python con el dataset del proyecto preparado y la arquitectura
+de la red neuronal definida.</p>
+<hr />
+<h4 id="lección-20-entrenamiento-evaluación-y-predicción-de-una-red-neuronal">Lección 20 — Entrenamiento, evaluación y predicción de una red neuronal</h4>
+<p><strong>Unidad:</strong> 4 · <strong>Tiempo de exposición:</strong> 120 min (teoría 65 · demostración 45 · cierre 10)</p>
+<p><strong>Temas y subtemas</strong></p>
+<ol>
+<li><strong>Proceso de entrenamiento y aprendizaje</strong> — 15 min
+<ul>
+<li>1.1. Parámetros e inicialización: pesos y sesgos.</li>
+<li>1.2. <em>Forward propagation</em>: cálculo de la salida de la red capa por capa.</li>
+<li>1.3. Cálculo del error: función de pérdida y su interpretación.</li>
+<li>1.4. <em>Backpropagation</em>: descenso del gradiente y regla de la cadena.</li>
+<li>1.5. Actualización de parámetros <code>θ(t+1) = θ(t) − η∇L(θ)</code>; la tasa de aprendizaje η.</li>
+<li>1.6. Ejemplos numéricos paso a paso del ciclo completo.</li>
+</ul>
+</li>
+<li><strong>La activación: de planos a superficies</strong> — 20 min
+<ul>
+<li>2.1. Sin activación: <code>ŷ = w1x1 + w2x2 + b</code> define un plano en el espacio <code>(x1, x2, y)</code>.</li>
+<li>2.2. Con activación no lineal: <code>ŷ = φ(w1x1 + w2x2 + b)</code> deforma el plano y genera una superficie.</li>
+<li>2.3. Interpretación geométrica: cada neurona define una frontera lineal <code>z = wᵀx + b</code>; con activación <code>h = φ(z)</code>; la salida combina las regiones <code>ŷ = v1h1 + v2h2</code>.</li>
+<li>2.4. Mensaje clave: una neurona → una frontera lineal; dos neuronas → múltiples regiones; muchas neuronas → fronteras altamente complejas; la no linealidad emerge de la composición.</li>
+<li>2.5. La regresión como caso particular de red: una neurona, sin capas ocultas y con activación identidad.</li>
+</ul>
+</li>
+<li><strong>Ejecución del entrenamiento</strong> — 15 min
+<ul>
+<li>3.1. Configuración de épocas, lotes y tasa de aprendizaje.</li>
+<li>3.2. Curvas de aprendizaje: lectura de la pérdida de entrenamiento y de validación.</li>
+<li>3.3. Diagnóstico: subajuste, sobreajuste y convergencia.</li>
+<li>3.4. Estrategias de mejora del rendimiento: ajuste de hiperparámetros, regularización, detención temprana y arquitectura.</li>
+</ul>
+</li>
+<li><strong>Evaluación del modelo y predicción</strong> — 15 min
+<ul>
+<li>4.1. Métricas de evaluación para regresión y para clasificación.</li>
+<li>4.2. Predicción sobre el conjunto de prueba y análisis de residuos.</li>
+<li>4.3. Comparación del desempeño frente a los modelos de regresión de la Unidad 3.</li>
+<li>4.4. Interpretación de resultados y comunicación de conclusiones.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Demostración</strong> (45 min) — <strong>Google Colab</strong> en vivo: ejecución del entrenamiento del <strong>ejemplo de predicción
+de precipitación</strong>; despliegue de las curvas de aprendizaje; evaluación del modelo y predicción; discusión de
+las estrategias de mejora. Cierre con la revisión de la red neuronal de clasificación y de regresión construida
+para el proyecto semestral.</p>
+<p><strong>Evidencia de la lección:</strong> red neuronal entrenada y evaluada para el proyecto semestral + sección de
+Machine Learning del sitio web finalizada.</p>
+<hr />
+<h2 id="4-correspondencia-con-la-galería-de-proyectos-publicados">4. Correspondencia con la galería de proyectos publicados</h2>
+<p>La parte demostrativa de cada lección se apoya en los proyectos publicados en
+<a href="https://cimejia.github.io/proyectos-estadistica/">https://cimejia.github.io/proyectos-estadistica/</a>, organizados en cuatro áreas. El sitio de cada proyecto
+replica la estructura de las cuatro unidades, de modo que sirve como modelo de referencia y como banco de
+casos reales.</p>
+<table>
+<thead>
+<tr>
+<th>Área</th>
+<th>Proyectos publicados (2025 y 2026)</th>
+<th>Lecciones donde se usa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Geología</strong></td>
+<td>Deslizamientos de tierra (global); Volcanes activos (global); Análisis estadístico de sismos (subcontinente indio); Análisis de pozos hidrocarburíferos (New York, EEUU)</td>
+<td>L5, L13, L14, L16</td>
+</tr>
+<tr>
+<td><strong>Minas</strong></td>
+<td>Sedimentos marinos (EEUU); Geoquímica de minerales críticos (mundial); Geoquímica y geología de depósitos minerales (EEUU); Accidentes en operaciones mineras (EEUU); Depósitos de sulfuros volcánicos (mundial); Exploración de depósitos de Cobre (mundial); Mineralogía (mundial)</td>
+<td>L5, L6, L9, L14</td>
+</tr>
+<tr>
+<td><strong>Petróleos</strong></td>
+<td>Derrames en oleoductos (EEUU); Arrendamiento de petróleo y gas (Kansas); Exploración y producción de petróleo y gas (Brasil); Regulación de pozos (New York); Yacimientos de petróleo y gas (mundial); Pozos petroleros (Ontario); Plantas solares fotovoltaicas (mundial); Derrames petroleros (mundial); Accidentes en oleoductos (EEUU); Análisis de pozos petroleros (Ontario); Descarbonización del transporte (EEUU y Canadá); Consumo de combustible (Michigan); Derrames en la industria petrolera y gas (Texas)</td>
+<td>L3, L13, L15, L16</td>
+</tr>
+<tr>
+<td><strong>Ambiente</strong></td>
+<td>Calidad del aire (India); Eventos meteorológicos (global); Calidad del agua (Europa); Contaminación del agua (China); Contaminación del suelo (global); Incendios forestales (Chile); Residuos y reciclaje (India); Focos de calor (Ecuador); Contaminación del agua y enfermedades (mundial)</td>
+<td>L2, L5, L8, L15, L16, L19, L20</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Estructura de referencia de un proyecto publicado</strong> (usada como plantilla de las exposiciones):</p>
+<pre><code>Introducción → Planteamiento del problema → Mapa de ubicación → Objetivos
+      ↓
+Estadística Descriptiva   (población, individuo, muestra, tabla de variables,
+                           TDF, gráficas, tabla de indicadores)
+      ↓
+Estadística Inferencial   (variables nominales y ordinales; modelos binomial,
+                           geométrico, Poisson, normal, log-normal, exponencial)
+      ↓
+Modelos de Regresión      (lineal, exponencial, polinómica, potencial,
+                           logarítmica y múltiple)
+      ↓
+Machine Learning          (objetivo, prompt y red neuronal)
+</code></pre>
+<hr />
+<h2 id="5-secuencia-sugerida-y-carga-horaria">5. Secuencia sugerida y carga horaria</h2>
+<table>
+<thead>
+<tr>
+<th>Bloque</th>
+<th style="text-align:center">Lecciones</th>
+<th style="text-align:center">Horas reloj</th>
+<th>Unidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bloque I</td>
+<td style="text-align:center">L1 – L4</td>
+<td style="text-align:center">8 h</td>
+<td>U1 (fundamentos)</td>
+</tr>
+<tr>
+<td>Bloque II</td>
+<td style="text-align:center">L5 – L7</td>
+<td style="text-align:center">6 h</td>
+<td>U1 (descriptiva)</td>
+</tr>
+<tr>
+<td>Bloque III</td>
+<td style="text-align:center">L8 – L10</td>
+<td style="text-align:center">6 h</td>
+<td>U2 (probabilidad y modelos)</td>
+</tr>
+<tr>
+<td>Bloque IV</td>
+<td style="text-align:center">L11 – L12</td>
+<td style="text-align:center">4 h</td>
+<td>U2 (estimación)</td>
+</tr>
+<tr>
+<td>Bloque V</td>
+<td style="text-align:center">L13 – L15</td>
+<td style="text-align:center">6 h</td>
+<td>U3 (regresión)</td>
+</tr>
+<tr>
+<td>Bloque VI</td>
+<td style="text-align:center">L16 – L17</td>
+<td style="text-align:center">4 h</td>
+<td>U3 (series de tiempo)</td>
+</tr>
+<tr>
+<td>Bloque VII</td>
+<td style="text-align:center">L18 – L20</td>
+<td style="text-align:center">6 h</td>
+<td>U4 (Machine Learning)</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align:center"><strong>20 lecciones</strong></td>
+<td style="text-align:center"><strong>40 h reloj</strong></td>
+<td><strong>4 unidades</strong></td>
+</tr>
+</tbody>
+</table>
+<p>La secuencia es acumulativa: cada lección emplea como insumo la evidencia entregada en la anterior, y las
+lecciones L7, L12 y L17 funcionan como hitos de exposición y evaluación del proyecto semestral.</p>
+
+</main>
+</div>
+</body>
+</html>
